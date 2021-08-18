@@ -3,13 +3,13 @@ import ToggleTheme from "./toggle-theme";
 
 export default function Navigation() {
   return (
-    <div className="grid grid-cols-2 py-4">
-      <div className="grid grid-cols-2">
+    <div className="flex justify-between py-4">
+      <div className="flex space-x-10 items-center">
         <Link href="/">
-          <a className="text-xl font-bold">Sebastian Ojeda</a>
+          <a className="text-2xl font-medium text-tertiary">Sebastian Ojeda</a>
         </Link>
         <nav>
-          <ul className="grid grid-cols-2 font-semibold">
+          <ul className="flex space-x-6 font-semibold">
             <li>
               <Link href="/posts">
                 <a>Posts</a>
@@ -23,9 +23,7 @@ export default function Navigation() {
           </ul>
         </nav>
       </div>
-      <div className="grid grid-cols-2">
-        <ToggleTheme />
-      </div>
+      <ToggleTheme />
     </div>
   );
 }

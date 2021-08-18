@@ -6,8 +6,6 @@ export interface BaseLayoutProps {
 
 export default function BaseLayout({ children }: BaseLayoutProps) {
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
-      {children}
-    </div>
+    <div className="min-h-screen bg-primary text-secondary">{children}</div>
   );
 }

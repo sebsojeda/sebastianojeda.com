@@ -4,7 +4,7 @@ import Navigation from "./navigation";
 
 export default function Header() {
   return (
-    <div className="relative bg-blue h-52 text-white">
+    <div className="h-52 bg-homepage">
       <Container>
         <Navigation />
       </Container>

@@ -3,6 +3,7 @@ import { getMDXComponent } from "mdx-bundler/client";
 import React from "react";
 import PostHeader from "../../components/post-header";
 import PostsLayout from "../../components/layouts/posts-layout";
+import mdx from "../../components/mdx";
 
 export interface PostProps {
   post: {
@@ -27,7 +28,7 @@ export default function Post({ post }: PostProps) {
           date={post.frontmatter.date}
           timeToRead={post.timeToRead}
         />
-        <PostBody />
+        <PostBody components={mdx} />
       </div>
     </PostsLayout>
   );

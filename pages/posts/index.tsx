@@ -18,7 +18,7 @@ export interface PostsProps {
 export default function Posts({ posts }: PostsProps) {
   return (
     <PostsLayout>
-      <h1 className="text-2xl font-bold my-4">Posts</h1>
+      <h1 className="text-4xl font-bold py-4">Posts</h1>
       <PostsList posts={posts} />
     </PostsLayout>
   );

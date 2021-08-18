@@ -23,15 +23,15 @@ export default function Home({ posts }: HomeProps) {
         <title>Sebastian Ojeda</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="relative grid grid-cols-3 gap-8 pb-8">
+      <div className="grid grid-cols-3 gap-8 pb-8">
         <div className="col-span-2">
-          <h1 className="text-md pb-8 uppercase text-red">
+          <h1 className="text-md pb-8 uppercase text-accent">
             Recently published
           </h1>
           <PostsList posts={posts} />
         </div>
         <div>
-          <h1 className="text-md pb-8 uppercase text-red">Categories</h1>
+          <h1 className="text-md pb-8 uppercase text-accent">Categories</h1>
         </div>
       </div>
     </HomeLayout>
