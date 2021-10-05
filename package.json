@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/babel-plugin": "^11.3.0",
     "@emotion/react": "^11.4.1",
     "date-fns": "^2.23.0",
     "esbuild": "^0.12.20",
