@@ -51,13 +51,21 @@
   --color-foreground: #fff;
 }
 
-::-moz-selection {
+:root.dark ::-moz-selection {
   color: #fff;
   background: var(--color-highlight-purple);
 }
-::selection {
+:root.dark ::selection {
   color: #fff;
   background: var(--color-highlight-purple);
+}
+:root.light ::-moz-selection {
+  color: #fff;
+  background: var(--color-cyan);
+}
+:root.light ::selection {
+  color: #fff;
+  background: var(--color-cyan);
 }
 
 code[class*="language-"],
