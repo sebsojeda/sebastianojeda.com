@@ -1,9 +1,17 @@
 import { ReactNode } from "react";
-
-export interface ContainerProps {
+import { css } from "@emotion/react";
+interface ContainerProps {
   children: ReactNode;
 }
 
-export default function Container({ children }: ContainerProps) {
-  return <div className="mx-auto max-w-6xl px-5">{children}</div>;
+const Styles = {
+  container: css`
+    max-width: 50rem;
+    margin: auto;
+    padding: 0 1.25rem;
+  `,
+};
+
+export default function Container(props: ContainerProps) {
+  return <div css={Styles.container}>{props.children}</div>;
 }

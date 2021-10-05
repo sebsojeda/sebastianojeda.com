@@ -1,28 +1,37 @@
 import Link from "next/link";
-import DateFormatter from "./date-formatter";
+import { css } from "@emotion/react";
 
-export interface PostPreviewProps {
+interface PostPreviewProps {
   title: string;
-  date: string;
   abstract: string;
   slug: string;
-  timeToRead: string;
 }
+
+const Styles = {
+  card: css`
+    color: var(--color-foreground);
+    text-decoration: none;
+  `,
+  title: css`
+    font-weight: 600;
+  `,
+  abstract: css`
+    color: var(--color-accent-5);
+  `,
+  action: css`
+    font-weight: 600;
+  `,
+};
 
 export default function PostPreview(props: PostPreviewProps) {
   return (
-    <Link href={`/posts/${props.slug}`}>
-      <a className="group block">
-        <h2 className="group-hover:text-tertiary text-xl font-semibold">
-          {props.title}
-        </h2>
-        <DateFormatter dateString={props.date} /> &middot;{" "}
-        <span>{props.timeToRead}</span>
-        <p className="py-5">{props.abstract}</p>
-        <span className="font-semibold">Read More </span>
-        <span className="group-hover:opacity-100 text-tertiary opacity-0">
-          &rarr;
-        </span>
+    <Link href={`/blog/${props.slug}`} passHref>
+      <a css={Styles.card}>
+        <h2 css={Styles.title}>{props.title}</h2>
+        <p css={Styles.abstract}>{props.abstract}</p>
+        <div css={Styles.action}>
+          Read More <span>&rarr;</span>
+        </div>
       </a>
     </Link>
   );

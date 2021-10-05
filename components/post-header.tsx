@@ -1,19 +1,19 @@
-import DateFormatter from "./date-formatter";
+import { css } from "@emotion/react";
 
-export interface PostHeaderProps {
-  date: string;
+interface PostHeaderProps {
   title: string;
-  timeToRead: string;
 }
+
+const Styles = {
+  title: css`
+    font-weight: bold;
+  `,
+};
 
 export default function PostHeader(props: PostHeaderProps) {
   return (
     <div>
-      <h1 className="text-4xl font-bold mt-16">{props.title}</h1>
-      <div className="mb-16">
-        <DateFormatter dateString={props.date} /> &middot;{" "}
-        <span>{props.timeToRead}</span>
-      </div>
+      <h1 css={Styles.title}>{props.title}</h1>
     </div>
   );
 }

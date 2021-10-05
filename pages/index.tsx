@@ -1,45 +1,73 @@
 import Head from "next/head";
-import { getRecentPosts } from "../lib/api";
-import PostPreview from "../components/post-preview";
-import HomeLayout from "../components/layouts/home-layout";
+import { getAllFilesFrontMatter } from "../lib/mdx";
 import PostsList from "../components/posts-list";
+import { css } from "@emotion/react";
+import Layout from "../components/layout";
+import Header from "../components/header";
+import Link from "next/link";
 
-export interface HomeProps {
-  posts: {
-    frontmatter: {
-      title: string;
-      date: string;
-      abstract: string;
-    };
-    slug: string;
-    timeToRead: string;
-  }[];
+interface HomeProps {
+  posts: any[];
 }
 
-export default function Home({ posts }: HomeProps) {
+const Styles = {
+  postsHeader: css`
+    color: var(--color-highlight-pink);
+    font-weight: bold;
+  `,
+  subHeader: css`
+    color: var(--color-accent-5);
+    font-weight: 400;
+    padding-bottom: 5rem;
+  `,
+  link: css`
+    color: var(--color-success);
+    text-decoration: underline;
+    :hover {
+      cursor: pointer;
+      color: var(--color-success-dark);
+    }
+  `,
+  posts: css`
+    margin-bottom: 3.5rem;
+  `,
+};
+
+export default function Home(props: HomeProps) {
   return (
-    <HomeLayout>
+    <Layout>
       <Head>
         <title>Sebastian Ojeda</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid grid-cols-3 gap-8 pb-8">
-        <div className="col-span-2">
-          <h1 className="text-md pb-8 uppercase text-accent">
-            Recently published
+      <div>
+        <Header>
+          <h1>
+            Hi there 👋
+            <br />
+            I’m Sebastian Ojeda
           </h1>
-          <PostsList posts={posts} />
-        </div>
+          <h4 css={Styles.subHeader}>
+            I’m a developer and creative coder. I make it my mission to deliver
+            value through user-centered tools, applications, and seamless
+            integration with the cloud. If you’d like, you can{" "}
+            <Link href="/about">
+              <a css={Styles.link}>learn more about me here.</a>
+            </Link>
+          </h4>
+        </Header>
         <div>
-          <h1 className="text-md pb-8 uppercase text-accent">Categories</h1>
+          <h2 css={Styles.postsHeader}>Recently published</h2>
+          <div css={Styles.posts}>
+            <PostsList posts={props.posts} />
+          </div>
         </div>
       </div>
-    </HomeLayout>
+    </Layout>
   );
 }
 
 export async function getStaticProps() {
-  const posts = getRecentPosts(20);
+  const posts = getAllFilesFrontMatter("_posts").slice(0, 5);
 
   return {
     props: { posts },

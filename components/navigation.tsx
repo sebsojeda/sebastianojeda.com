@@ -1,29 +1,68 @@
+import { css } from "@emotion/react";
 import Link from "next/link";
-import ToggleTheme from "./toggle-theme";
+import ThemeToggle from "./theme-toggle";
+
+const Styles = {
+  container: css`
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 50rem;
+    margin: auto;
+    padding: 0 0.75rem;
+  `,
+  border: css`
+    border-bottom: 1px solid var(--color-accent-2);
+  `,
+  logo: css`
+    font-size: 1.25rem;
+    font-weight: bold;
+    :hover {
+      cursor: pointer;
+    }
+  `,
+  nav: css`
+    display: flex;
+    align-items: center;
+  `,
+  navList: css`
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0 1rem;
+    * + * {
+      margin-left: 0.5rem;
+    }
+  `,
+  link: css`
+    :hover {
+      cursor: pointer;
+    }
+  `,
+};
 
 export default function Navigation() {
   return (
-    <div className="flex justify-between py-4">
-      <div className="flex space-x-10 items-center">
+    <div css={Styles.border}>
+      <div css={Styles.container}>
         <Link href="/">
-          <a className="text-2xl font-medium text-tertiary">Sebastian Ojeda</a>
+          <a css={Styles.logo}>Sebastian Ojeda</a>
         </Link>
-        <nav>
-          <ul className="flex space-x-6 font-semibold">
-            <li>
-              <Link href="/posts">
-                <a>Posts</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/snippets">
-                <a>Snippets</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <div css={Styles.nav}>
+          <nav>
+            <ul css={Styles.navList}>
+              <li>
+                <Link href="/blog">
+                  <a css={Styles.link}>Blog</a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <ThemeToggle />
+        </div>
       </div>
-      <ToggleTheme />
     </div>
   );
 }

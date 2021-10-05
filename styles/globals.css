@@ -1,21 +1,176 @@
 :root {
-  --color-primary: #f1faee;
-  --color-secondary: #1d3557;
-  --color-tertiary: #457b9d;
-  --color-accent: #e63946;
-  --color-header: #ffb238;
-  --color-homepage: #a8dadc;
+  --color-error-lighter: #f7d4d6;
+  --color-error-light: #f33;
+  --color-error: red;
+  --color-error-dark: #e60000;
+  --color-success-lighter: #d3e5ff;
+  --color-success-light: #3291ff;
+  --color-success: #0070f3;
+  --color-success-dark: #0761d1;
+  --color-warning-lighter: #ffefcf;
+  --color-warning-light: #f7b955;
+  --color-warning: #f5a623;
+  --color-warning-dark: #ab570a;
+  --color-violet-lighter: #e3d7fc;
+  --color-violet-light: #8a63d2;
+  --color-violet: #7928ca;
+  --color-violet-dark: #4c2889;
+  --color-cyan-lighter: #aaffec;
+  --color-cyan-light: #79ffe1;
+  --color-cyan: #50e3c2;
+  --color-cyan-dark: #29bc9b;
+  --color-highlight-purple: #f81ce5;
+  --color-highlight-magenta: #eb367f;
+  --color-highlight-pink: #ff0080;
+  --color-highlight-yellow: #fff500;
+}
+
+:root.light {
+  --color-background: #fff;
+  --color-accent-1: #fafafa;
+  --color-accent-2: #eaeaea;
+  --color--accent-3: #999;
+  --color-accent-4: #888;
+  --color-accent-5: #666;
+  --color--accent-6: #444;
+  --color-accent-7: #333;
+  --color-accent-8: #111;
+  --color-foreground: #000;
 }
 
 :root.dark {
-  --color-primary: #1d3557;
-  --color-secondary: #f1faee;
-  --color-tertiary: #457b9d;
-  --color-accent: #e63946;
-  --color-header: #ffb238;
-  --color-homepage: #a8dadc;
+  --color-background: #000;
+  --color-accent-1: #111;
+  --color-accent-2: #333;
+  --color--accent-3: #444;
+  --color-accent-4: #666;
+  --color-accent-5: #888;
+  --color--accent-6: #999;
+  --color-accent-7: #eaeaea;
+  --color-accent-8: #fafafa;
+  --color-foreground: #fff;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+::-moz-selection {
+  color: #fff;
+  background: var(--color-highlight-purple);
+}
+::selection {
+  color: #fff;
+  background: var(--color-highlight-purple);
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: var(--color-foreground);
+  font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
+}
+
+pre > code[class*="language-"] {
+  background: var(--color-background);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--color-accent-4);
+}
+
+.token.punctuation {
+  color: var(--color-foreground);
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag {
+  color: var(--color-highlight-pink);
+}
+
+.token.keyword {
+  color: var(--color-violet);
+}
+
+.token.class-name {
+  color: var(--color-highlight-pink);
+}
+
+.token.boolean,
+.token.constant {
+  color: var(--color-warning-light);
+}
+
+.token.symbol,
+.token.deleted {
+  color: var(--color-error);
+}
+
+.token.number {
+  color: var(--color-warning-light);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--color-violet);
+}
+
+.token.variable {
+  color: var(--color-violet);
+}
+
+.token.operator {
+  color: var(--color-violet);
+}
+
+.token.entity {
+  color: #ffffb6;
+  cursor: help;
+}
+
+.token.url {
+  color: var(--color-success);
+}
+
+.language-css .token.string,
+.style .token.string {
+  color: var(--color-violet);
+}
+
+.token.atrule,
+.token.attr-value {
+  color: var(--color-accent-5);
+}
+
+.token.function {
+  color: var(--color-success);
+}
+
+.token.regex {
+  color: #e9c062;
+}
+
+.token.important {
+  color: var(--color-warning);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}

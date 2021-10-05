@@ -3,23 +3,20 @@ import path from "path";
 import matter from "gray-matter";
 import { bundleMDX } from "mdx-bundler";
 import readingTime from "reading-time";
+import { remarkMdxCodeMeta } from "remark-mdx-code-meta";
 
-export const POSTS_PATH = path.join(process.cwd(), "data/_posts");
-
-export function getSourceOfFile(fileName: string) {
-  return fs.readFileSync(path.join(POSTS_PATH, fileName)).toString();
-}
-
-export function getRecentPosts(limit: number) {
-  return getAllPosts().slice(0, limit);
-}
-
-export function getAllPosts() {
+export function getSourceOfFile(type: string, fileName: string) {
   return fs
-    .readdirSync(POSTS_PATH)
+    .readFileSync(path.join(process.cwd(), "data", type, fileName))
+    .toString();
+}
+
+export function getAllFilesFrontMatter(type: string) {
+  return fs
+    .readdirSync(path.join(process.cwd(), "data", type))
     .filter((path) => /\.mdx$/.test(path))
     .map((fileName) => {
-      const source = getSourceOfFile(fileName);
+      const source = getSourceOfFile(type, fileName);
       const slug = fileName.replace(/\.mdx$/, "");
       const { data: frontmatter } = matter(source);
       const { text: timeToRead } = readingTime(source);
@@ -36,14 +33,19 @@ export function getAllPosts() {
     );
 }
 
-export async function getPostBySlug(slug: string) {
-  const source = getSourceOfFile(slug + ".mdx");
+export async function getFileBySlug(type: string, slug: string) {
+  const source = getSourceOfFile(type, slug + ".mdx");
   const { text: timeToRead } = readingTime(source);
-
   const { code, frontmatter } = await bundleMDX(source, {
-    cwd: POSTS_PATH,
+    xdmOptions(options) {
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? []),
+        remarkMdxCodeMeta,
+      ];
+      options.rehypePlugins = [...(options.rehypePlugins ?? [])];
+      return options;
+    },
   });
-
   return {
     frontmatter,
     code,
