@@ -1,7 +1,6 @@
 import {
   createContext,
   ReactNode,
-  useCallback,
   useContext,
   useEffect,
   useState,
@@ -20,6 +19,12 @@ type MusicProviderContext = {
   isAuthorized: boolean;
   loading: boolean;
 };
+
+declare global {
+  interface Window {
+    MusicKit: any;
+  }
+}
 
 const defaultContext: MusicProviderContext = {
   authorize: null,
