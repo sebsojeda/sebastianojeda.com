@@ -1,17 +1,16 @@
 import { css } from "@emotion/react";
 import { ReactNode } from "react";
 
-interface ButtonProps {
+type ButtonProps = {
   prefix?: ReactNode;
   suffix?: ReactNode;
   onClick?: any;
   children: ReactNode;
-}
+};
 
 const Styles = {
   button: css`
-    padding: 0;
-    position: relative;
+    padding: 0.35rem;
     background-color: var(--color-background);
     color: var(--color-foreground);
     border: 1px solid var(--color-accent-2);
@@ -29,13 +28,11 @@ const Styles = {
   `,
   prefix: css`
     color: var(--color-accent-5);
-    position: absolute;
-    left: 0.5rem;
+    padding-right: 0.35rem;
   `,
   suffix: css`
     color: var(--color-accent-5);
-    position: absolute;
-    right: 0.5rem;
+    padding-left: 0.35rem;
   `,
 };
 

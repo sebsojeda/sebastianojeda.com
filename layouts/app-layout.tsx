@@ -1,12 +1,12 @@
 import { css } from "@emotion/react";
 import { ReactNode } from "react";
-import Container from "./container";
-import Footer from "./footer";
-import Navigation from "./navigation";
+import Container from "../components/container";
+import Footer from "../components/footer";
+import Navigation from "../components/navigation";
 
-interface LayoutProps {
+type AppLayoutProps = {
   children: ReactNode;
-}
+};
 
 const Styles = {
   layout: css`
@@ -17,7 +17,7 @@ const Styles = {
   `,
 };
 
-export default function Layout(props: LayoutProps) {
+export default function AppLayout(props: AppLayoutProps) {
   return (
     <div css={Styles.layout}>
       <Navigation />

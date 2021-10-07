@@ -2,13 +2,13 @@ import Head from "next/head";
 import { getAllFilesFrontMatter } from "../lib/mdx";
 import PostsList from "../components/posts-list";
 import { css } from "@emotion/react";
-import Layout from "../components/layout";
+import AppLayout from "../layouts/app-layout";
 import Header from "../components/header";
 import Link from "next/link";
 
-interface HomeProps {
+type HomeProps = {
   posts: any[];
-}
+};
 
 const Styles = {
   postsHeader: css`
@@ -35,7 +35,7 @@ const Styles = {
 
 export default function Home(props: HomeProps) {
   return (
-    <Layout>
+    <AppLayout>
       <Head>
         <title>Sebastian Ojeda</title>
       </Head>
@@ -62,7 +62,7 @@ export default function Home(props: HomeProps) {
           </div>
         </div>
       </div>
-    </Layout>
+    </AppLayout>
   );
 }
 

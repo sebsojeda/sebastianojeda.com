@@ -1,16 +1,16 @@
 import Head from "next/head";
 import Header from "../../components/header";
-import Layout from "../../components/layout";
+import AppLayout from "../../layouts/app-layout";
 
 export default function Snippets() {
   return (
-    <Layout>
+    <AppLayout>
       <Head>
         <title>Snippets</title>
       </Head>
       <Header>
         <h1>Snippets</h1>
       </Header>
-    </Layout>
+    </AppLayout>
   );
 }

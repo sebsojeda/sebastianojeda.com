@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { css } from "@emotion/react";
 
-interface PostPreviewProps {
+type PostPreviewProps = {
   title: string;
   abstract: string;
   slug: string;
-}
+};
 
 const Styles = {
   card: css`

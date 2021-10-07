@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
 
-interface PostHeaderProps {
+type PostHeaderProps = {
   title: string;
-}
+};
 
 const Styles = {
   title: css`

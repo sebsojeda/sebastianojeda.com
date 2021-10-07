@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
 import { ReactNode } from "react";
 
-interface HeaderProps {
+type HeaderProps = {
   children: ReactNode;
-}
+};
 
 const Styles = {
   header: css`

@@ -4,11 +4,11 @@ import React from "react";
 import PostHeader from "../../components/post-header";
 import Mdx from "../../components/mdx";
 import DateFormatter from "../../components/date-formatter";
-import Layout from "../../components/layout";
+import AppLayout from "../../layouts/app-layout";
 import { css } from "@emotion/react";
 import Image from "next/image";
 
-interface BlogProps {
+type BlogProps = {
   post: {
     frontmatter: {
       title: string;
@@ -18,7 +18,7 @@ interface BlogProps {
     };
     code: string;
   };
-}
+};
 
 const Styles = {
   date: css`
@@ -47,7 +47,7 @@ export default function Blog(props: BlogProps) {
     [props.post.code]
   );
   return (
-    <Layout>
+    <AppLayout>
       <PostHeader title={props.post.frontmatter.title} />
       {props.post.frontmatter.image && (
         <div css={Styles.postImage}>
@@ -62,7 +62,7 @@ export default function Blog(props: BlogProps) {
       <div css={Styles.date}>
         Published on <DateFormatter dateString={props.post.frontmatter.date} />
       </div>
-    </Layout>
+    </AppLayout>
   );
 }
 

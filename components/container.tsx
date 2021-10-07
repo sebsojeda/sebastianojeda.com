@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 import { css } from "@emotion/react";
-interface ContainerProps {
+
+type ContainerProps = {
   children: ReactNode;
-}
+};
 
 const Styles = {
   container: css`

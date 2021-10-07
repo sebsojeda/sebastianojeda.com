@@ -8,9 +8,9 @@ import {
   useState,
 } from "react";
 
-interface ThemeProviderProps {
+type ThemeProviderProps = {
   children: ReactNode;
-}
+};
 
 const defaultContext: {
   theme: string;

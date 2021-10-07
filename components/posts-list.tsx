@@ -1,7 +1,7 @@
 import React from "react";
 import PostPreview from "./post-preview";
 
-interface PostsListProps {
+type PostsListProps = {
   posts: {
     frontmatter: {
       title: string;
@@ -9,7 +9,7 @@ interface PostsListProps {
     };
     slug: string;
   }[];
-}
+};
 
 export default function PostsList(props: PostsListProps) {
   return (

@@ -5,7 +5,7 @@ import { calculateLinesToHighlight, copyToClipboard } from "../../lib/utils";
 import Copy from "../icons/copy";
 import Check from "../icons/check";
 
-interface CodeProps {
+type CodeProps = {
   highlight?: string;
   filename?: string;
   children: {
@@ -14,7 +14,7 @@ interface CodeProps {
       children: string;
     };
   };
-}
+};
 
 const Styles = {
   container: css`

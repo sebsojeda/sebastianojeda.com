@@ -9,60 +9,81 @@ const KEY_ID = process.env.APPLE_MUSIC_KEY_ID || "";
 const EXPIRATION = process.env.APPLE_MUSIC_TOKEN_EXPIRATION || "";
 
 const RECENTLY_PLAYED_ENDPOINT =
-  "https://api.music.apple.com/v1/me/recent/played/tracks?limit=1&types=songs";
-const TOKEN_NAME = "apple_developer_token";
+  "https://api.music.apple.com/v1/me/recent/played/tracks?limit=1";
+const DEVELOPER_TOKEN_NAME = "apple_developer_token";
+const MUSIC_USER_TOKEN_NAME = "apple_music_user_token";
 
-async function getOrCreateDeveloperToken() {
+export async function getMusicUserToken() {
   const { data, error } = await supabase
     .from("tokens")
-    .select("value")
-    .eq("name", TOKEN_NAME);
+    .select("name, value")
+    .eq("name", MUSIC_USER_TOKEN_NAME);
   if (error) {
-    throw new Error(JSON.stringify(error));
-  } else if (data && data.length != 0) {
-    return data[0].value;
+    throw new Error(error.message);
+  }
+  return data ? data[0] : null;
+}
+
+export async function createMusicUserToken(token: string) {
+  const { data, error } = await supabase
+    .from("tokens")
+    .insert([{ name: MUSIC_USER_TOKEN_NAME, value: token }]);
+  if (error) {
+    throw new Error(error.message);
   } else {
-    const ecPrivateKey = await importPKCS8(PKCS8, ALG);
-    const jwt = await new SignJWT({ iss: TEAM_ID })
-      .setProtectedHeader({ alg: ALG, kid: KEY_ID })
-      .setIssuedAt()
-      .setExpirationTime(EXPIRATION)
-      .sign(ecPrivateKey);
-    const { data, error } = await supabase
-      .from("tokens")
-      .insert([{ name: TOKEN_NAME, value: jwt }]);
-    if (error) {
-      throw new Error(JSON.stringify(error));
-    } else {
-      return data ? data[0].value : "";
-    }
+    return data ? data[0] : null;
   }
 }
 
-async function deleteDeveloperToken() {
-  await supabase.from("tokens").delete().match({ name: TOKEN_NAME });
+export async function deleteMusicUserToken() {
+  await supabase.from("tokens").delete().eq("name", MUSIC_USER_TOKEN_NAME);
+}
+
+export async function getDeveloperToken() {
+  const { data, error } = await supabase
+    .from("tokens")
+    .select("name, value")
+    .eq("name", DEVELOPER_TOKEN_NAME);
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data ? data[0] : null;
+}
+
+export async function createDeveloperToken() {
+  const ecPrivateKey = await importPKCS8(PKCS8, ALG);
+  const jwt = await new SignJWT({ iss: TEAM_ID })
+    .setProtectedHeader({ alg: ALG, kid: KEY_ID })
+    .setIssuedAt()
+    .setExpirationTime(EXPIRATION)
+    .sign(ecPrivateKey);
+  const { data, error } = await supabase
+    .from("tokens")
+    .insert([{ name: DEVELOPER_TOKEN_NAME, value: jwt }]);
+  if (error) {
+    throw new Error(error.message);
+  } else {
+    return data ? data[0] : null;
+  }
+}
+
+export async function deleteDeveloperToken() {
+  await supabase.from("tokens").delete().eq("name", DEVELOPER_TOKEN_NAME);
 }
 
 export async function getRecentlyPlayed(): Promise<any> {
-  const jwt = await getOrCreateDeveloperToken();
-  let response = await fetch(RECENTLY_PLAYED_ENDPOINT, {
+  const developerToken = await getDeveloperToken();
+  const musicUserToken = await getMusicUserToken();
+  const response = await fetch(RECENTLY_PLAYED_ENDPOINT, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${developerToken.value}`,
+      "Music-User-Token": musicUserToken.value,
     },
+    credentials: "same-origin",
   });
-  let retries = 3;
-  while (retries > 0) {
-    if (response.ok) {
-      return await response.json();
-    }
-    response = await fetch(RECENTLY_PLAYED_ENDPOINT, {
-      method: "GET",
-      headers: {
-        Authorization: jwt,
-      },
-    });
-    retries--;
+  if (!response.ok) {
+    throw new Error(response.statusText);
   }
-  throw new Error(response.statusText);
+  return await response.json();
 }

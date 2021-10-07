@@ -1,8 +1,8 @@
 import { parseISO, format } from "date-fns";
 
-interface DateFormatterProps {
+type DateFormatterProps = {
   dateString: string;
-}
+};
 
 export default function DateFormatter(props: DateFormatterProps) {
   const date = parseISO(props.dateString);

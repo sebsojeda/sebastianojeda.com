@@ -2,10 +2,10 @@ import { css } from "@emotion/react";
 import { ChangeEventHandler, useEffect, useRef } from "react";
 import MagnifyingGlass from "./icons/magnifying-glass";
 
-interface SearchProps {
+type SearchProps = {
   onChange: ChangeEventHandler<HTMLInputElement>;
   value: string;
-}
+};
 
 const Styles = {
   container: css`

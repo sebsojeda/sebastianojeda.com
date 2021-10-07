@@ -1,12 +1,12 @@
 import { css } from "@emotion/react";
 import { useState } from "react";
 import Header from "../../components/header";
-import Layout from "../../components/layout";
+import AppLayout from "../../layouts/app-layout";
 import PostsList from "../../components/posts-list";
 import Search from "../../components/search";
 import { getAllFilesFrontMatter } from "../../lib/mdx";
 
-interface PostsProps {
+type PostsProps = {
   posts: {
     frontmatter: {
       title: string;
@@ -16,7 +16,7 @@ interface PostsProps {
     slug: string;
     timeToRead: string;
   }[];
-}
+};
 
 const Styles = {
   results: css`
@@ -31,7 +31,7 @@ export default function Posts(props: PostsProps) {
   );
 
   return (
-    <Layout>
+    <AppLayout>
       <Header>
         <h1>Blog</h1>
         <Search onChange={(e) => setQuery(e.target.value)} value={query} />
@@ -39,7 +39,7 @@ export default function Posts(props: PostsProps) {
       <div css={Styles.results}>
         <PostsList posts={results} />
       </div>
-    </Layout>
+    </AppLayout>
   );
 }
 
