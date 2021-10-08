@@ -7,10 +7,11 @@ const Styles = {
   wrapper: css`
     background-color: var(--color-accent-1);
     border-top: 1px solid var(--color-accent-2);
-    padding: 1rem;
+    padding: 1rem 0;
   `,
   image: css`
     border-radius: 10px;
+    width: 50px !important;
   `,
   sectionName: css`
     font-weight: 900;
@@ -34,6 +35,9 @@ const Styles = {
   `,
   songInfo: css`
     margin-left: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   `,
 };
 

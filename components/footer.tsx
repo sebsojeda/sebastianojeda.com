@@ -16,7 +16,7 @@ const Styles = {
   wrapper: css`
     display: grid;
     grid-template-columns: 1fr;
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 425px) {
       grid-template-columns: 1fr 1fr;
     }
   `,
@@ -33,34 +33,42 @@ const Styles = {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: start;
+    @media only screen and (min-width: 425px) {
+      h5 {
+        margin-top: 0;
+      }
+    }
   `,
   banner: css`
     display: flex;
     flex-direction: column;
     align-items: center;
-    @media only screen and (min-width: 768px) {
+    margin-bottom: 1rem;
+    @media only screen and (min-width: 425px) {
       flex-direction: row;
       justify-content: space-between;
+      margin-bottom: 0;
     }
   `,
   externalLink: css`
     color: var(--color-accent-5);
   `,
   externalLinks: css`
-    margin-bottom: 1rem;
-    @media only screen and (min-width: 768px) {
-      margin-bottom: 0;
-    }
+    color: var(--color-accent-5);
     * + * {
-      margin-left: 0.5rem;
+      margin-left: 1rem;
+    }
+    margin-bottom: 1rem;
+    @media only screen and (min-width: 425px) {
+      margin-bottom: 0;
     }
   `,
   copyright: css`
+    border-top: 1px solid var(--color-accent-2);
     color: var(--color-accent-5);
-    margin-top: 1rem;
-    @media only screen and (min-width: 768px) {
-      margin-top: 0;
-    }
+    padding-top: 1rem;
+    font-size: 0.75rem;
   `,
 };
 
@@ -120,9 +128,10 @@ export default function Footer() {
               </a>
             </div>
             <ThemeToggle />
-            <div css={Styles.copyright}>
-              &copy; 2021-present. All Rights Reserved.
-            </div>
+          </div>
+          <div css={Styles.copyright}>
+            Copyright &copy; {new Date().getFullYear()} Sebastian Ojeda. All
+            Rights Reserved.
           </div>
         </Container>
       </footer>
