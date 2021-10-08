@@ -8,6 +8,11 @@ export default async function handler(
 ) {
   try {
     const response = await getRecentlyPlayed();
+    if (response.data.length == 0) {
+      res.status(200).json({
+        data: null,
+      });
+    }
     const { attributes } = response.data[0];
     res.status(200).json({
       data: {

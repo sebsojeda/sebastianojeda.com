@@ -17,6 +17,7 @@ const Styles = {
   `,
   abstract: css`
     color: var(--color-accent-5);
+    line-height: 1.5rem;
   `,
   action: css`
     font-weight: 600;

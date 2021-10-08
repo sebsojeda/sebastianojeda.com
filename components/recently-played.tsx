@@ -55,20 +55,26 @@ export default function RecentlyPlayed() {
   return (
     <div css={Styles.wrapper}>
       <Container>
-        <a href={data && data.data.url} css={Styles.flexContainer}>
+        <a href={data?.data && data.data.url} css={Styles.flexContainer}>
           <Image
             height={50}
             width={50}
-            loader={data && artworkLoader}
-            src={data ? data.data.artwork : "/images/apple-music-icon.svg"}
-            alt={data && `${data.data.name} by ${data.data.artistName}`}
+            loader={data?.data ? artworkLoader : undefined}
+            src={
+              data?.data ? data.data.artwork : "/images/apple-music-icon.svg"
+            }
+            alt={data?.data && `${data.data.name} by ${data.data.artistName}`}
             css={Styles.image}
           />
           <div css={Styles.songInfo}>
             <div css={Styles.sectionName}>Recently Played</div>
-            <div css={Styles.song}>{data ? data.data.name : "..."}</div>
+            <div css={Styles.song}>
+              {data?.data ? data.data.name : "Not Playing"}
+            </div>
             <div css={Styles.artist}>
-              {data && data.data.artistName} - {data && data.data.albumName}
+              {data?.data
+                ? `${data.data.artistName} - ${data.data.albumName}`
+                : "..."}
             </div>
           </div>
         </a>

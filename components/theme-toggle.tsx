@@ -9,6 +9,10 @@ import { ThemeContext } from "./theme-provider";
 export default function ThemeToggle() {
   const { theme, setTheme } = useContext(ThemeContext);
 
+  if (!theme) {
+    return null;
+  }
+
   return (
     <Select
       prefix={

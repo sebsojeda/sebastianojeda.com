@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
-import ThemeToggle from "./theme-toggle";
 
 const Styles = {
   container: css`
@@ -31,9 +30,9 @@ const Styles = {
     display: flex;
     align-items: center;
     padding: 0;
-    margin: 0 1rem;
+    margin-left: 1rem;
     * + * {
-      margin-left: 0.5rem;
+      margin-left: 1rem;
     }
   `,
   link: css`
@@ -50,18 +49,25 @@ export default function Navigation() {
         <Link href="/">
           <a css={Styles.logo}>Sebastian Ojeda</a>
         </Link>
-        <div css={Styles.nav}>
-          <nav>
-            <ul css={Styles.navList}>
-              <li>
-                <Link href="/blog">
-                  <a css={Styles.link}>Blog</a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <ThemeToggle />
-        </div>
+        <nav css={Styles.nav}>
+          <ul css={Styles.navList}>
+            <li>
+              <Link href="/blog">
+                <a css={Styles.link}>Blog</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <a css={Styles.link}>About</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/extras">
+                <a css={Styles.link}>Extras</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );

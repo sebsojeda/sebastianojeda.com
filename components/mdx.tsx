@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import ArrowRight from "../icons/arrow-right";
+import ArrowRight from "./icons/arrow-right";
 import Code from "./code";
 
 const h1 = (props: any) => (
@@ -56,7 +56,14 @@ const h6 = (props: any) => (
   />
 );
 
-const p = (props: any) => <p {...props} />;
+const p = (props: any) => (
+  <p
+    css={css`
+      line-height: 2rem;
+    `}
+    {...props}
+  />
+);
 
 const pre = (props: any) => <Code {...props} />;
 

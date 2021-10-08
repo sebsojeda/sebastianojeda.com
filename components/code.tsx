@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import { useState } from "react";
-import { calculateLinesToHighlight, copyToClipboard } from "../../lib/utils";
-import Copy from "../icons/copy";
-import Check from "../icons/check";
+import { calculateLinesToHighlight, copyToClipboard } from "../lib/utils";
+import Copy from "./icons/copy";
+import Check from "./icons/check";
 
 type CodeProps = {
   highlight?: string;

@@ -26,7 +26,8 @@
     "react-hook-form": "^7.17.1",
     "reading-time": "^1.4.0",
     "remark-mdx-code-meta": "^1.0.0",
-    "swr": "^1.0.1"
+    "swr": "^1.0.1",
+    "terser": "^5.9.0"
   },
   "devDependencies": {
     "@types/musickit-js": "^1.0.1",

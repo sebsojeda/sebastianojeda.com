@@ -17,6 +17,7 @@ type BlogProps = {
       image: string;
     };
     code: string;
+    timeToRead: string;
   };
 };
 
@@ -26,16 +27,12 @@ const Styles = {
     color: var(--color-accent-5);
   `,
   postImage: css`
-    width: 100%;
-
-    & > div {
+    div {
       position: unset !important;
       border-radius: 5px;
       img {
-        object-fit: contain;
-        width: 100% !important;
-        position: relative !important;
         height: unset !important;
+        position: relative !important;
       }
     }
   `,
@@ -48,12 +45,15 @@ export default function Blog(props: BlogProps) {
   );
   return (
     <AppLayout>
-      <PostHeader title={props.post.frontmatter.title} />
+      <PostHeader
+        title={props.post.frontmatter.title}
+        timeToRead={props.post.timeToRead}
+      />
       {props.post.frontmatter.image && (
         <div css={Styles.postImage}>
           <Image
             src={props.post.frontmatter.image}
-            alt="Post hero"
+            alt={props.post.frontmatter.title}
             layout="fill"
           />
         </div>

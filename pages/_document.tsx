@@ -1,4 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import FallbackStyles from "../components/fallback-styles";
+import MagicScriptTag from "../components/magic-script-tag";
 
 export default class MyDocument extends Document {
   render() {
@@ -16,7 +18,9 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
+        <FallbackStyles />
         <body>
+          <MagicScriptTag />
           <Main />
           <NextScript />
         </body>

@@ -46,14 +46,14 @@ export default function Home(props: HomeProps) {
             <br />
             I’m Sebastian Ojeda
           </h1>
-          <h4 css={Styles.subHeader}>
+          <h3 css={Styles.subHeader}>
             I’m a developer and creative coder. I make it my mission to deliver
             value through user-centered tools, applications, and seamless
             integration with the cloud. If you’d like, you can{" "}
             <Link href="/about">
               <a css={Styles.link}>learn more about me here.</a>
             </Link>
-          </h4>
+          </h3>
         </Header>
         <div>
           <h2 css={Styles.postsHeader}>Recently published</h2>

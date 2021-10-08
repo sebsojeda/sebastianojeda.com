@@ -11,7 +11,7 @@ type SelectProps = {
 
 const Styles = {
   container: css`
-    width: 6rem;
+    width: 6.5rem;
     box-sizing: border-box;
     padding: 0.35rem;
     position: relative;
@@ -38,9 +38,9 @@ const Styles = {
   `,
   select: css`
     position: absolute;
-    text-align: center;
+    padding: 0 1.85rem;
     left: 0;
-    right: 0;
+    top: 0;
     background-color: transparent;
     color: var(--color-foreground);
     border: none;
@@ -50,7 +50,6 @@ const Styles = {
     appearance: none;
     width: 100%;
     height: 100%;
-    z-index: 1;
     :hover {
       cursor: pointer;
     }
