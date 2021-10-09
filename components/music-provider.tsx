@@ -112,6 +112,7 @@ export default function MusicProvider(props: MusicProviderProps) {
       <Script
         src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"
         onLoad={() => {
+          window.localStorage.setItem("music.ns4695lqpz.u", data.data[1].value);
           window.MusicKit.configure({
             developerToken: data.data[0].value,
             app: {
