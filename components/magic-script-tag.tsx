@@ -6,7 +6,7 @@ function setInitialColorMode() {
   const storedPreference = window.localStorage.getItem("color-mode");
   const systemPreference =
     window.matchMedia("(prefers-color-scheme: dark)").matches && "dark";
-  const initialColorMode = storedPreference || "system";
+  const initialColorMode = storedPreference ?? "system";
   const initialTheme: any = (() => {
     if (storedPreference && storedPreference !== "system") {
       return storedPreference;

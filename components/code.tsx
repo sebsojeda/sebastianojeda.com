@@ -90,7 +90,7 @@ const Styles = {
 export default function Code(props: CodeProps) {
   const { children: code, className } = props.children.props;
   const language = className?.replace(/language-/, "") || "text";
-  const shouldHighlightLine = calculateLinesToHighlight(props.highlight || "");
+  const shouldHighlightLine = calculateLinesToHighlight(props.highlight ?? "");
   const [copied, setCopied] = useState(false);
 
   const handleCopyCode = async () => {

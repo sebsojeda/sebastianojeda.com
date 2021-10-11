@@ -8,6 +8,7 @@ import {
 import Script from "next/script";
 import useSWR from "swr";
 import { useAuth } from "./auth-provider";
+import { TEAM_ID } from "../lib/apple-music";
 
 type MusicProviderProps = {
   children: ReactNode;
@@ -112,9 +113,12 @@ export default function MusicProvider(props: MusicProviderProps) {
       <Script
         src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"
         onLoad={() => {
-          window.localStorage.setItem("music.ns4695lqpz.u", data.data[1].value);
+          window.localStorage.setItem(
+            `music.${TEAM_ID}.u`,
+            data.data[1].attributes.musicUserToken
+          );
           window.MusicKit.configure({
-            developerToken: data.data[0].value,
+            developerToken: data.data[0].attributes.developerToken,
             app: {
               name: "sebastianojeda.com",
               builid: "0.0.1",
