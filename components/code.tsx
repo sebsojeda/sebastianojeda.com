@@ -18,6 +18,7 @@ type CodeProps = {
 
 const Styles = {
   container: css`
+    background: var(--color-accent-1);
     position: relative;
     & > button {
       opacity: 0;
@@ -31,6 +32,8 @@ const Styles = {
     margin-bottom: 1rem;
   `,
   code: css`
+    font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier,
+      monospace;
     border-bottom: 1px solid var(--color-accent-2);
     border-left: 1px solid var(--color-accent-2);
     border-right: 1px solid var(--color-accent-2);
@@ -45,9 +48,7 @@ const Styles = {
     justify-content: space-between;
     background-color: var(--color-accent-1);
     border-radius: 5px 5px 0 0;
-    border-top: 1px solid var(--color-accent-2);
-    border-left: 1px solid var(--color-accent-2);
-    border-right: 1px solid var(--color-accent-2);
+    border: 1px solid var(--color-accent-2);
     margin-top: 1rem;
     padding: 0.5rem 1rem;
   `,
@@ -83,6 +84,21 @@ const Styles = {
     right: 0.75rem;
     &:hover {
       cursor: pointer;
+      border: 1px solid var(--color-accent-4);
+      color: var(--color-accent-4);
+    }
+  `,
+  check: css`
+    border: 1px solid var(--color-success);
+    color: var(--color-success);
+    background-color: var(--color-accent-1);
+    position: absolute;
+    border-radius: 5px;
+    padding: 0.5rem;
+    top: 2.75rem;
+    right: 0.75rem;
+    &:hover {
+      cursor: pointer;
     }
   `,
 };
@@ -105,7 +121,10 @@ export default function Code(props: CodeProps) {
         <span css={Styles.filename}>{props.filename || ""}</span>
         <span css={Styles.language}>{language}</span>
       </div>
-      <button css={Styles.copy} onClick={handleCopyCode}>
+      <button
+        css={copied ? Styles.check : Styles.copy}
+        onClick={handleCopyCode}
+      >
         {copied ? <Check /> : <Copy />}
       </button>
       <pre css={Styles.pre}>

@@ -64,6 +64,8 @@ const code = (props: any) => (
       background-color: var(--color-accent-2);
       padding: 0.125rem;
       border-radius: 5px;
+      font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier,
+        monospace;
     `}
     {...props}
   />
