@@ -19,6 +19,30 @@ type PostsProps = {
 };
 
 const Styles = {
+  headerText: css`
+    display: inline-block;
+    font-weight: bold;
+    background: -webkit-linear-gradient(
+      to right,
+      var(--color-success-dark) 0%,
+      var(--color-success-light) 50%,
+      var(--color-cyan) 100%
+    );
+    background: -moz-linear-gradient(
+      to right,
+      var(--color-success-dark) 0%,
+      var(--color-success-light) 50%,
+      var(--color-cyan) 100%
+    );
+    background: linear-gradient(
+      to right,
+      var(--color-success-dark) 0%,
+      var(--color-success-light) 50%,
+      var(--color-cyan) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  `,
   results: css`
     margin-bottom: 3.5rem;
   `,
@@ -33,7 +57,7 @@ export default function Posts(props: PostsProps) {
   return (
     <AppLayout>
       <Header>
-        <h1>Blog</h1>
+        <h1 css={Styles.headerText}>Blog</h1>
         <Search onChange={(e) => setQuery(e.target.value)} value={query} />
       </Header>
       <div css={Styles.results}>

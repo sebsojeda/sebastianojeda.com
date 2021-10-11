@@ -12,8 +12,28 @@ type HomeProps = {
 
 const Styles = {
   postsHeader: css`
-    color: var(--color-highlight-pink);
+    display: inline-block;
     font-weight: bold;
+    background: -webkit-linear-gradient(
+      to right,
+      var(--color-violet) 0%,
+      var(--color-highlight-purple) 50%,
+      var(--color-highlight-pink) 100%
+    );
+    background: -moz-linear-gradient(
+      to right,
+      var(--color-violet) 0%,
+      var(--color-highlight-purple) 50%,
+      var(--color-highlight-pink) 100%
+    );
+    background: linear-gradient(
+      to right,
+      var(--color-violet) 0%,
+      var(--color-highlight-purple) 50%,
+      var(--color-highlight-pink) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   `,
   subHeader: css`
     color: var(--color-accent-5);

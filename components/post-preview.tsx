@@ -28,7 +28,7 @@ export default function PostPreview(props: PostPreviewProps) {
   return (
     <Link href={`/blog/${props.slug}`} passHref>
       <a css={Styles.card}>
-        <h2 css={Styles.title}>{props.title}</h2>
+        <h3 css={Styles.title}>{props.title}</h3>
         <p css={Styles.abstract}>{props.abstract}</p>
         <div css={Styles.action}>
           Read More <span>&rarr;</span>
