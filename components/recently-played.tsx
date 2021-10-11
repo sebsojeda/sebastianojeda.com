@@ -59,36 +59,27 @@ export default function RecentlyPlayed() {
   return (
     <div css={Styles.wrapper}>
       <Container>
-        <a
-          href={data?.data.length === 1 ? data.data[0].attributes.url : "#"}
-          css={Styles.flexContainer}
-        >
+        <a href={data?.data ? data.data.url : "#"} css={Styles.flexContainer}>
           <Image
             height={50}
             width={50}
-            loader={data?.data.length === 1 ? artworkLoader : undefined}
+            loader={data?.data ? artworkLoader : undefined}
             src={
-              data?.data.length === 1
-                ? data.data[0].attributes.artwork
-                : "/images/apple-music-icon.svg"
+              data?.data ? data.data.artwork : "/images/apple-music-icon.svg"
             }
             alt={
-              data?.data.length === 1
-                ? `${data.data[0].attributes.name} by ${data.data[0].attributes.artistName}`
-                : ""
+              data?.data ? `${data.data.name} by ${data.data.artistName}` : ""
             }
             css={Styles.image}
           />
           <div css={Styles.songInfo}>
             <div css={Styles.sectionName}>Recently Played</div>
             <div css={Styles.song}>
-              {data?.data.length === 1
-                ? data.data[0].attributes.name
-                : "Not Playing"}
+              {data?.data ? data.data.name : "Not Playing"}
             </div>
             <div css={Styles.artist}>
-              {data?.data.length === 1
-                ? `${data.data[0].attributes.artistName} - ${data.data[0].attributes.albumName}`
+              {data?.data
+                ? `${data.data.artistName} - ${data.data.albumName}`
                 : "..."}
             </div>
           </div>

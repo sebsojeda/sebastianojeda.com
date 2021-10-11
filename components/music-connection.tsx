@@ -20,7 +20,7 @@ const Styles = {
 export default function MusicConnection() {
   const { authorize, unauthorize, isAuthorized, loading } = useMusicKit();
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading music kit...</div>;
   }
 
   return (

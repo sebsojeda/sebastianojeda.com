@@ -64,7 +64,7 @@ export default function Login() {
     useForm<LoginFormInputs>();
 
   const onSubmit: SubmitHandler<LoginFormInputs> = async ({ email }) => {
-    await fetch("/api/auth", {
+    await fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),

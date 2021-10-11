@@ -16,7 +16,7 @@ const MUSIC_USER_TOKEN_NAME = "apple_music_user_token";
 export async function getMusicUserToken() {
   const { data, error } = await supabase
     .from("tokens")
-    .select("value")
+    .select("*")
     .eq("name", MUSIC_USER_TOKEN_NAME);
   if (error) {
     return { data: null, error };
@@ -54,7 +54,7 @@ export async function deleteMusicUserToken() {
 export async function getDeveloperToken() {
   const { data, error } = await supabase
     .from("tokens")
-    .select("value")
+    .select("*")
     .eq("name", DEVELOPER_TOKEN_NAME);
   if (error) {
     return { data: null, error };
@@ -92,7 +92,7 @@ export async function deleteDeveloperToken() {
   return { error };
 }
 
-export async function getMusicTokens() {
+export async function getRecentlyPlayed() {
   const { data: developerToken, error: developerTokenError } =
     await getDeveloperToken();
   if (developerTokenError) {
@@ -103,25 +103,11 @@ export async function getMusicTokens() {
   if (musicUserTokenError) {
     return { data: null, error: musicUserTokenError };
   }
-  return {
-    data: {
-      musicUserToken: musicUserToken.value,
-      developerToken: developerToken.value,
-    },
-    error: null,
-  };
-}
-
-export async function getRecentlyPlayed() {
-  const { data: tokens, error } = await getMusicTokens();
-  if (error) {
-    return { data: null, error };
-  }
   const response = await fetch(RECENTLY_PLAYED_ENDPOINT, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${tokens?.developerToken}`,
-      "Music-User-Token": tokens?.musicUserToken,
+      Authorization: `Bearer ${developerToken.value}`,
+      "Music-User-Token": musicUserToken.value,
     },
     credentials: "same-origin",
   });
@@ -129,5 +115,8 @@ export async function getRecentlyPlayed() {
     return { data: null, error: new Error("Unable to get recently played") };
   }
   const data = await response.json();
-  return { data: data.data, error: null };
+  if (data.data.length === 0) {
+    return { data: null, error: null };
+  }
+  return { data: { ...data.data[0].attributes }, error: null };
 }

@@ -1,14 +1,12 @@
 export type ApiResponse = {
   data: {
-    attributes: {
-      [key: string]: any;
-    };
-  }[];
+    [key: string]: any;
+  } | null;
 };
 
 export type ApiError = {
-  errors: {
+  error: {
     status: number;
     message: string;
-  }[];
+  };
 };

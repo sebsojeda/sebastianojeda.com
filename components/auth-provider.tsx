@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import Login from "./login";
 
 type AuthProviderProps = {
   client: SupabaseClient;
@@ -60,7 +61,11 @@ export default function AuthProvider({
   }, [supabase]);
 
   if (state.loading) {
-    return <div>Loading...</div>;
+    return <div>Loading session...</div>;
+  }
+
+  if (!state.user) {
+    return <Login />;
   }
 
   return (

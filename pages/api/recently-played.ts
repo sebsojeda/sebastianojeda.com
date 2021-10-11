@@ -6,29 +6,30 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ApiResponse | ApiError>
 ) {
-  const { data, error } = await getRecentlyPlayed();
-  if (error) {
-    res.status(500).json({
-      errors: [{ status: 500, message: error.message }],
-    });
-  }
-  if (data.length === 0) {
+  if (req.method === "GET") {
+    const { data, error } = await getRecentlyPlayed();
+    if (error) {
+      res.status(500).json({
+        error: { status: 500, message: error.message },
+      });
+    }
+    if (!data) {
+      res.status(200).json({
+        data: null,
+      });
+    }
     res.status(200).json({
-      data: [],
-    });
-  }
-  const { attributes } = data[0];
-  res.status(200).json({
-    data: [
-      {
-        attributes: {
-          artwork: `${attributes.artwork.url}`.replace(/\/{w}x{h}bb.jpg/g, ""),
-          artistName: attributes.artistName,
-          name: attributes.name,
-          albumName: attributes.albumName,
-          url: attributes.url,
-        },
+      data: {
+        artwork: `${data.artwork.url}`.replace(/\/{w}x{h}bb.jpg/g, ""),
+        artistName: data.artistName,
+        name: data.name,
+        albumName: data.albumName,
+        url: data.url,
       },
-    ],
-  });
+    });
+  } else {
+    res
+      .status(405)
+      .json({ error: { status: 405, message: "Method Not Allowed" } });
+  }
 }

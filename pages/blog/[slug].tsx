@@ -4,9 +4,11 @@ import React from "react";
 import PostHeader from "../../components/post-header";
 import Mdx from "../../components/mdx";
 import DateFormatter from "../../components/date-formatter";
-import AppLayout from "../../layouts/app-layout";
 import { css } from "@emotion/react";
 import Image from "next/image";
+import Likes from "../../components/likes";
+import Container from "../../components/container";
+import PostLayout from "../../layouts/post-layout";
 
 type BlogProps = {
   post: {
@@ -16,6 +18,7 @@ type BlogProps = {
       abstract: string;
       image: string;
     };
+    slug: string;
     code: string;
     timeToRead: string;
   };
@@ -36,6 +39,7 @@ const Styles = {
       }
     }
   `,
+  likes: css``,
 };
 
 export default function Blog(props: BlogProps) {
@@ -44,37 +48,39 @@ export default function Blog(props: BlogProps) {
     [props.post.code]
   );
   return (
-    <AppLayout>
-      <PostHeader
-        title={props.post.frontmatter.title}
-        timeToRead={props.post.timeToRead}
-      />
-      {props.post.frontmatter.image && (
-        <div css={Styles.postImage}>
-          <Image
-            src={props.post.frontmatter.image}
-            alt={props.post.frontmatter.title}
-            layout="fill"
-          />
+    <PostLayout>
+      <Likes slug={props.post.slug} css={Styles.likes} />
+      <Container>
+        <PostHeader
+          title={props.post.frontmatter.title}
+          timeToRead={props.post.timeToRead}
+        />
+        {props.post.frontmatter.image && (
+          <div css={Styles.postImage}>
+            <Image
+              src={props.post.frontmatter.image}
+              alt={props.post.frontmatter.title}
+              layout="fill"
+            />
+          </div>
+        )}
+        <PostBody components={Mdx} />
+        <div css={Styles.date}>
+          Published on{" "}
+          <DateFormatter dateString={props.post.frontmatter.date} />
         </div>
-      )}
-      <PostBody components={Mdx} />
-      <div css={Styles.date}>
-        Published on <DateFormatter dateString={props.post.frontmatter.date} />
-      </div>
-    </AppLayout>
+      </Container>
+    </PostLayout>
   );
 }
 
-export async function getStaticProps({ params }: { params: any }) {
-  const { frontmatter, code, timeToRead } = await getFileBySlug(
-    "_posts",
-    params.slug
-  );
+export async function getStaticProps({ params: { slug } }: { params: any }) {
+  const { frontmatter, code, timeToRead } = await getFileBySlug("_posts", slug);
 
   return {
     props: {
       post: {
+        slug,
         frontmatter,
         code,
         timeToRead,

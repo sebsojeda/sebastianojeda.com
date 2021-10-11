@@ -50,20 +50,33 @@ export default function MusicProvider(props: MusicProviderProps) {
     authorized: false,
   });
 
-  const { data, error } = useSWR("/api/music", (url) =>
-    fetch(url, {
-      method: "GET",
-      headers: {
-        token: session?.access_token ?? "",
-      },
-      credentials: "same-origin",
-    }).then((res) => res.json())
+  const { data: developerToken, error: developerTokenError } = useSWR(
+    "/api/developer-token",
+    (url) =>
+      fetch(url, {
+        method: "GET",
+        headers: {
+          token: session?.access_token ?? "",
+        },
+        credentials: "same-origin",
+      }).then((res) => res.json())
+  );
+  const { data: musicUserToken, error: musicUserTokenError } = useSWR(
+    "/api/music-user-token",
+    (url) =>
+      fetch(url, {
+        method: "GET",
+        headers: {
+          token: session?.access_token ?? "",
+        },
+        credentials: "same-origin",
+      }).then((res) => res.json())
   );
 
   const handleAuthorize = async () => {
     setState({ ...state, loading: true });
     await state.musicKit.authorize();
-    await fetch("/api/music", {
+    await fetch("/api/music-user-token", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +93,7 @@ export default function MusicProvider(props: MusicProviderProps) {
   const handleUnauthorize = async () => {
     setState({ ...state, loading: true });
     await state.musicKit.unauthorize();
-    await fetch("/api/music", {
+    await fetch("/api/music-user-token", {
       method: "DELETE",
       headers: {
         token: session?.access_token ?? "",
@@ -100,12 +113,12 @@ export default function MusicProvider(props: MusicProviderProps) {
     }
   }, []);
 
-  if (error) {
+  if (musicUserTokenError || developerTokenError) {
     return <div>Failed to load apple music connection</div>;
   }
 
-  if (!data) {
-    return <div>Loading...</div>;
+  if (!developerToken || !musicUserToken) {
+    return <div>Loading music connections...</div>;
   }
 
   return (
@@ -115,10 +128,10 @@ export default function MusicProvider(props: MusicProviderProps) {
         onLoad={() => {
           window.localStorage.setItem(
             `music.${TEAM_ID}.u`,
-            data.data[1].attributes.musicUserToken
+            musicUserToken.data.value
           );
           window.MusicKit.configure({
-            developerToken: data.data[0].attributes.developerToken,
+            developerToken: developerToken.data.value,
             app: {
               name: "sebastianojeda.com",
               builid: "0.0.1",
