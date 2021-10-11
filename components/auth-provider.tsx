@@ -22,14 +22,12 @@ type AuthProviderState = {
 type AuthContextState = {
   user: User | null;
   session: Session | null;
-  loading: boolean;
   logout: () => any;
 };
 
 const defaultContext: AuthContextState = {
   user: null,
   session: null,
-  loading: true,
   logout: () => {},
 };
 
@@ -61,9 +59,17 @@ export default function AuthProvider({
     return () => listener?.unsubscribe();
   }, [supabase]);
 
+  if (state.loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <AuthContext.Provider
-      value={{ ...state, logout: () => supabase.auth.signOut() }}
+      value={{
+        user: state.user,
+        session: state.session,
+        logout: () => supabase.auth.signOut(),
+      }}
     >
       {props.children}
     </AuthContext.Provider>

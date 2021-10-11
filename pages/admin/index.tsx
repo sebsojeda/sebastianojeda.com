@@ -1,25 +1,14 @@
-import { useAuth } from "../../components/auth-provider";
-import Login from "../../components/login";
-import MusicConnection from "../../components/music-connection";
+import AuthProvider from "../../components/auth-provider";
 import MusicProvider from "../../components/music-provider";
-import AdminLayout from "../../layouts/admin-layout";
+import { supabase } from "../../lib/supabase";
+import Dashboard from "../../components/dashboard";
 
 export default function Admin() {
-  const { user, loading } = useAuth();
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user) {
-    return <Login />;
-  }
-
   return (
-    <MusicProvider>
-      <AdminLayout>
-        <MusicConnection />
-      </AdminLayout>
-    </MusicProvider>
+    <AuthProvider client={supabase}>
+      <MusicProvider>
+        <Dashboard />
+      </MusicProvider>
+    </AuthProvider>
   );
 }
