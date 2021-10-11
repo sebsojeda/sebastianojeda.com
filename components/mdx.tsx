@@ -64,8 +64,8 @@ const code = (props: any) => (
       background-color: var(--color-accent-2);
       padding: 0.125rem;
       border-radius: 5px;
-      font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier,
-        monospace;
+      font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
     `}
     {...props}
   />

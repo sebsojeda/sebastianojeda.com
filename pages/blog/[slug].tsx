@@ -30,6 +30,7 @@ const Styles = {
     color: var(--color-accent-5);
   `,
   postImage: css`
+    margin: 2rem 0;
     div {
       position: unset !important;
       border-radius: 5px;

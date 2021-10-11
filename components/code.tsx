@@ -32,8 +32,8 @@ const Styles = {
     margin-bottom: 1rem;
   `,
   code: css`
-    font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier,
-      monospace;
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
     border-bottom: 1px solid var(--color-accent-2);
     border-left: 1px solid var(--color-accent-2);
     border-right: 1px solid var(--color-accent-2);

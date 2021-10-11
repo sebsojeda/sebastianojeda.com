@@ -35,7 +35,7 @@ export const colors = {
     "accent-8": "#111",
     foreground: "#000",
     "highlight-background": "var(--color-cyan)",
-    "highlight-foreground": "#fff",
+    "highlight-foreground": "var(--color-foreground)",
   },
   dark: {
     "error-lighter": "#f7d4d6",
@@ -73,6 +73,6 @@ export const colors = {
     "accent-8": "#fafafa",
     foreground: "#fff",
     "highlight-background": "var(--color-highlight-purple)",
-    "highlight-foreground": "#fff",
+    "highlight-foreground": "var(--color-foreground)",
   },
 };

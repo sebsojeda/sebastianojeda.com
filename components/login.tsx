@@ -11,7 +11,9 @@ const Styles = {
   layout: css`
     color: var(--color-foreground);
     background-color: var(--color-background);
-    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;
