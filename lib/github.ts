@@ -17,15 +17,14 @@ export async function listGists() {
   const data: any[] = await response.json();
   return data.map((gist) => {
     const { description, id, files } = gist;
-    const filename = Object.keys(files)[0];
-    const title = filename.replace(/\.[A-Za-z]+$/, "");
+    const filesNames = Object.keys(files);
+    const title = filesNames[0].replace(/\.[A-Za-z]+$/, "");
     const slug = kebabCase(title);
     return {
       title,
       slug,
       description,
       id,
-      filename,
     };
   });
 }

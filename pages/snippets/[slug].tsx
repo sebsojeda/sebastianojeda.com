@@ -12,9 +12,11 @@ type SnippetProps = {
     slug: string;
     description: string;
     id: string;
-    filename: string;
-    content: string;
-    language: string;
+    files: {
+      filename: string;
+      content: string;
+      language: string;
+    }[];
   };
 };
 
@@ -105,11 +107,14 @@ export default function Snippet(props: SnippetProps) {
         title={props.snippet.title}
         description={props.snippet.description}
       />
-      <SnippetCode
-        content={props.snippet.content}
-        filename={props.snippet.filename}
-        language={props.snippet.language}
-      />
+      {props.snippet.files.map((file) => (
+        <SnippetCode
+          key={file.filename}
+          content={file.content}
+          filename={file.filename}
+          language={file.language}
+        />
+      ))}
     </AppLayout>
   );
 }
@@ -121,14 +126,13 @@ export async function getStaticProps({ params: { slug } }: any) {
   const gists = JSON.parse(data);
   const gist = gists.filter((gist: any) => gist.slug === slug)[0];
   const snippet = await getGistById(gist.id);
-  const fileData = snippet.files[Object.keys(snippet.files)[0]];
+  const files = Object.entries(snippet.files).map(([_, file]) => file);
 
   return {
     props: {
       snippet: {
         ...gist,
-        content: fileData.content,
-        language: fileData.language,
+        files,
       },
     },
   };
