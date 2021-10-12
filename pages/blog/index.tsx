@@ -43,9 +43,6 @@ const Styles = {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   `,
-  results: css`
-    margin-bottom: 3.5rem;
-  `,
 };
 
 export default function Posts(props: PostsProps) {
@@ -60,9 +57,7 @@ export default function Posts(props: PostsProps) {
         <h1 css={Styles.headerText}>Blog</h1>
         <Search onChange={(e) => setQuery(e.target.value)} value={query} />
       </Header>
-      <div css={Styles.results}>
-        <PostsList posts={results} />
-      </div>
+      <PostsList posts={results} />
     </AppLayout>
   );
 }

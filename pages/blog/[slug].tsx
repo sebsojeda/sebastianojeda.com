@@ -7,10 +7,9 @@ import DateFormatter from "../../components/date-formatter";
 import { css } from "@emotion/react";
 import Image from "next/image";
 import Likes from "../../components/likes";
-import Container from "../../components/container";
 import PostLayout from "../../layouts/post-layout";
 
-type BlogProps = {
+type PostProps = {
   post: {
     frontmatter: {
       title: string;
@@ -43,7 +42,7 @@ const Styles = {
   likes: css``,
 };
 
-export default function Blog(props: BlogProps) {
+export default function Post(props: PostProps) {
   const PostBody = React.useMemo(
     () => getMDXComponent(props.post.code),
     [props.post.code]
@@ -51,31 +50,28 @@ export default function Blog(props: BlogProps) {
   return (
     <PostLayout>
       <Likes slug={props.post.slug} css={Styles.likes} />
-      <Container>
-        <PostHeader
-          title={props.post.frontmatter.title}
-          timeToRead={props.post.timeToRead}
-        />
-        {props.post.frontmatter.image && (
-          <div css={Styles.postImage}>
-            <Image
-              src={props.post.frontmatter.image}
-              alt={props.post.frontmatter.title}
-              layout="fill"
-            />
-          </div>
-        )}
-        <PostBody components={Mdx} />
-        <div css={Styles.date}>
-          Published on{" "}
-          <DateFormatter dateString={props.post.frontmatter.date} />
+      <PostHeader
+        title={props.post.frontmatter.title}
+        timeToRead={props.post.timeToRead}
+      />
+      {props.post.frontmatter.image && (
+        <div css={Styles.postImage}>
+          <Image
+            src={props.post.frontmatter.image}
+            alt={props.post.frontmatter.title}
+            layout="fill"
+          />
         </div>
-      </Container>
+      )}
+      <PostBody components={Mdx} />
+      <div css={Styles.date}>
+        Published on <DateFormatter dateString={props.post.frontmatter.date} />
+      </div>
     </PostLayout>
   );
 }
 
-export async function getStaticProps({ params: { slug } }: { params: any }) {
+export async function getStaticProps({ params: { slug } }: any) {
   const { frontmatter, code, timeToRead } = await getFileBySlug("_posts", slug);
 
   return {

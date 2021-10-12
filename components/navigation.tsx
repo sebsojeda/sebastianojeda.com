@@ -62,7 +62,7 @@ export default function Navigation() {
               </Link>
             </li>
             <li>
-              <Link href="/extras">
+              <Link href="/">
                 <a css={Styles.link}>Extras</a>
               </Link>
             </li>

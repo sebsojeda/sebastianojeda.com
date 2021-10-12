@@ -23,7 +23,9 @@ export default function PostLayout(props: PostLayoutProps) {
   return (
     <div css={Styles.layout}>
       <Navigation />
-      <main>{props.children}</main>
+      <Container>
+        <main>{props.children}</main>
+      </Container>
       <Footer />
     </div>
   );
