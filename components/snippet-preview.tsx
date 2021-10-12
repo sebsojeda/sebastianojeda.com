@@ -17,6 +17,7 @@ const Styles = {
   `,
   title: css`
     margin-top: 0;
+    word-break: break-all;
   `,
   description: css`
     height: 3rem;

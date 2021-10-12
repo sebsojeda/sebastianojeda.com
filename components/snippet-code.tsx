@@ -53,10 +53,14 @@ const Styles = {
     text-transform: uppercase;
     user-select: none;
     color: var(--color-accent-5);
+    margin-left: 1rem;
   `,
   filename: css`
     user-select: none;
     color: var(--color-accent-5);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   `,
   line: css`
     box-sizing: border-box;

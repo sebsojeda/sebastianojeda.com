@@ -11,7 +11,6 @@ const Styles = {
   `,
   image: css`
     border-radius: 10px;
-    width: 50px !important;
   `,
   sectionName: css`
     font-weight: 900;
@@ -23,21 +22,23 @@ const Styles = {
   artist: css`
     font-size: 0.75rem;
     color: var(--color-accent-5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   `,
-  flexContainer: css`
+  gridContainer: css`
     text-decoration: none;
     color: var(--color-foreground);
-    display: inline-flex;
     font-size: 1rem;
     :hover {
       cursor: pointer;
     }
+    display: inline-grid;
+    grid-template-columns: 50px 1fr;
   `,
   songInfo: css`
     margin-left: 0.5rem;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
   `,
 };
 
@@ -59,7 +60,7 @@ export default function RecentlyPlayed() {
   return (
     <div css={Styles.wrapper}>
       <Container>
-        <a href={data?.data ? data.data.url : "#"} css={Styles.flexContainer}>
+        <a href={data?.data ? data.data.url : "#"} css={Styles.gridContainer}>
           <Image
             height={50}
             width={50}

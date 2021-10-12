@@ -11,6 +11,7 @@ const Styles = {
   `,
   title: css`
     font-weight: bold;
+    word-break: break-all;
   `,
   description: css`
     color: var(--color-accent-5);
