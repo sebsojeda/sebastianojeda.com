@@ -25,7 +25,7 @@ type PostProps = {
 
 const Styles = {
   date: css`
-    margin: 2rem 0 3rem 0;
+    margin: 2rem 0 3.5rem 0;
     color: var(--color-accent-5);
   `,
   postImage: css`

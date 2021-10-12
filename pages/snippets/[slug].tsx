@@ -12,6 +12,7 @@ type SnippetProps = {
     slug: string;
     description: string;
     id: string;
+    url: string;
     files: {
       filename: string;
       content: string;
@@ -98,6 +99,14 @@ const Styles = {
       cursor: pointer;
     }
   `,
+  link: css`
+    margin: 2rem 0 3.5rem 0;
+    display: inline-block;
+    color: var(--color-success);
+    :hover {
+      color: var(--color-success-dark);
+    }
+  `,
 };
 
 export default function Snippet(props: SnippetProps) {
@@ -115,6 +124,9 @@ export default function Snippet(props: SnippetProps) {
           language={file.language}
         />
       ))}
+      <a href={props.snippet.url} css={Styles.link}>
+        View in GitHub
+      </a>
     </AppLayout>
   );
 }
@@ -133,6 +145,7 @@ export async function getStaticProps({ params: { slug } }: any) {
       snippet: {
         ...gist,
         files,
+        url: snippet.html_url,
       },
     },
   };

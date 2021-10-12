@@ -16,7 +16,6 @@ const Styles = {
   container: css`
     background: var(--color-accent-1);
     position: relative;
-    margin: 3.5rem 0;
     & > button {
       opacity: 0;
     }

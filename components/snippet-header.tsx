@@ -7,7 +7,7 @@ type SnippetHeaderProps = {
 
 const Styles = {
   wrapper: css`
-    margin: 3rem 0 2rem 0;
+    margin: 3rem 0 3.5rem 0;
   `,
   title: css`
     font-weight: bold;
