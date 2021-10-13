@@ -2,7 +2,6 @@ import Head from "next/head";
 import { getAllFilesFrontMatter } from "../lib/mdx";
 import PostsList from "../components/posts-list";
 import { css } from "@emotion/react";
-import AppLayout from "../layouts/app-layout";
 import Header from "../components/header";
 import Link from "next/link";
 
@@ -55,7 +54,7 @@ const Styles = {
 
 export default function Home(props: HomeProps) {
   return (
-    <AppLayout>
+    <>
       <Head>
         <title>Sebastian Ojeda</title>
       </Head>
@@ -82,12 +81,12 @@ export default function Home(props: HomeProps) {
           </div>
         </div>
       </div>
-    </AppLayout>
+    </>
   );
 }
 
 export async function getStaticProps() {
-  const posts = getAllFilesFrontMatter("_posts").slice(0, 5);
+  const posts = getAllFilesFrontMatter("blog").slice(0, 5);
 
   return {
     props: { posts },

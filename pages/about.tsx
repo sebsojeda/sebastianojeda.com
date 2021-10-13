@@ -1,7 +1,6 @@
 import { css } from "@emotion/react";
 import Head from "next/head";
 import Header from "../components/header";
-import AppLayout from "../layouts/app-layout";
 
 const Styles = {
   headerText: css`
@@ -43,7 +42,7 @@ const Styles = {
 
 export default function About() {
   return (
-    <AppLayout>
+    <>
       <Head>
         <title>About Me</title>
       </Head>
@@ -70,6 +69,6 @@ export default function About() {
           climbing, and hanging out with friends and family in Dever, CO.
         </p>
       </div>
-    </AppLayout>
+    </>
   );
 }

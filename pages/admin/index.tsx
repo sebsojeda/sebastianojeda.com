@@ -1,21 +1,24 @@
-import AuthProvider from "../../components/auth-provider";
-import MusicProvider from "../../components/music-provider";
-import { supabase } from "../../lib/supabase";
 import Dashboard from "../../components/dashboard";
 import AdminLayout from "../../layouts/admin-layout";
 import Head from "next/head";
+import AdminProviders from "../../components/admin-providers";
+import { ReactElement } from "react";
 
 export default function Admin() {
   return (
-    <AuthProvider client={supabase}>
-      <MusicProvider>
-        <AdminLayout>
-          <Head>
-            <title>Admin</title>
-          </Head>
-          <Dashboard />
-        </AdminLayout>
-      </MusicProvider>
-    </AuthProvider>
+    <>
+      <Head>
+        <title>Admin</title>
+      </Head>
+      <Dashboard />
+    </>
   );
 }
+
+Admin.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <AdminProviders>
+      <AdminLayout>{page}</AdminLayout>
+    </AdminProviders>
+  );
+};

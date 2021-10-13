@@ -1,13 +1,12 @@
 import { getAllFilesFrontMatter, getFileBySlug } from "../../lib/mdx";
 import { getMDXComponent } from "mdx-bundler/client";
-import React from "react";
+import React, { useEffect } from "react";
 import PostHeader from "../../components/post-header";
 import Mdx from "../../components/mdx";
 import DateFormatter from "../../components/date-formatter";
 import { css } from "@emotion/react";
 import Image from "next/image";
 import Likes from "../../components/likes";
-import AppLayout from "../../layouts/app-layout";
 import Head from "next/head";
 
 type PostProps = {
@@ -48,8 +47,20 @@ export default function Post(props: PostProps) {
     () => getMDXComponent(props.post.code),
     [props.post.code]
   );
+
+  useEffect(() => {
+    const addView = async () => {
+      await fetch("/api/view-post", {
+        method: "POST",
+        body: JSON.stringify({ slug: props.post.slug }),
+        credentials: "same-origin",
+      });
+    };
+    addView();
+  }, [props.post.slug]);
+
   return (
-    <AppLayout>
+    <>
       <Head>
         <title>{props.post.frontmatter.title}</title>
       </Head>
@@ -71,12 +82,12 @@ export default function Post(props: PostProps) {
       <div css={Styles.date}>
         Published on <DateFormatter dateString={props.post.frontmatter.date} />
       </div>
-    </AppLayout>
+    </>
   );
 }
 
 export async function getStaticProps({ params: { slug } }: any) {
-  const { frontmatter, code, timeToRead } = await getFileBySlug("_posts", slug);
+  const { frontmatter, code, timeToRead } = await getFileBySlug("blog", slug);
 
   return {
     props: {
@@ -91,7 +102,7 @@ export async function getStaticProps({ params: { slug } }: any) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllFilesFrontMatter("_posts");
+  const posts = getAllFilesFrontMatter("blog");
 
   return {
     paths: posts.map((post) => {

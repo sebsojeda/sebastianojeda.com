@@ -1,7 +1,6 @@
 import { css } from "@emotion/react";
 import { useState } from "react";
 import Header from "../../components/header";
-import AppLayout from "../../layouts/app-layout";
 import PostsList from "../../components/posts-list";
 import Search from "../../components/search";
 import { getAllFilesFrontMatter } from "../../lib/mdx";
@@ -53,7 +52,7 @@ export default function Posts(props: PostsProps) {
   );
 
   return (
-    <AppLayout>
+    <>
       <Head>
         <title>Blog</title>
       </Head>
@@ -73,12 +72,12 @@ export default function Posts(props: PostsProps) {
         <Search onChange={(e) => setQuery(e.target.value)} value={query} />
       </Header>
       <PostsList posts={results} />
-    </AppLayout>
+    </>
   );
 }
 
 export async function getStaticProps() {
-  const posts = getAllFilesFrontMatter("_posts");
+  const posts = getAllFilesFrontMatter("blog");
 
   return {
     props: { posts },

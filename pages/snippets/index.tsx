@@ -2,7 +2,6 @@ import { css } from "@emotion/react";
 import Head from "next/head";
 import Header from "../../components/header";
 import SnippetsList from "../../components/snippets-list";
-import AppLayout from "../../layouts/app-layout";
 import { listGists } from "../../lib/github";
 
 type SnippetsProps = {
@@ -43,7 +42,7 @@ const Styles = {
 
 export default function Snippets(props: SnippetsProps) {
   return (
-    <AppLayout>
+    <>
       <Head>
         <title>Code Snippets</title>
       </Head>
@@ -60,7 +59,7 @@ export default function Snippets(props: SnippetsProps) {
         time. I hope you find them as useful as I have.
       </p>
       <SnippetsList snippets={props.snippets} />
-    </AppLayout>
+    </>
   );
 }
 

@@ -34,7 +34,7 @@ export default function Meta() {
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
         name="description"
-        content={`A statically generated blog example using Next.js.`}
+        content="Hi there, I'm Sebastian Ojeda. I’m a developer and creative coder. I make it my mission to deliver value through user-centered tools, applications, and seamless integration with the cloud."
       />
       <meta property="og:image" content="" />
     </Head>

@@ -2,7 +2,7 @@ import { supabase } from "./supabase";
 
 export async function getLikesBySlug(slug: string) {
   const { count, error } = await supabase
-    .from("likes_by_user")
+    .from("blog_likes")
     .select("*", { count: "exact" })
     .eq("slug", slug);
   if (error) {
@@ -16,7 +16,7 @@ export async function getLikesBySlug(slug: string) {
 
 export async function hasLikeByUser(ipHash: string, slug: string) {
   const { data, error } = await supabase
-    .from("likes_by_user")
+    .from("blog_likes")
     .select("*")
     .match({ ip_hash: ipHash, slug });
   if (error) {
@@ -33,7 +33,7 @@ export async function hasLikeByUser(ipHash: string, slug: string) {
 
 export async function createLikeByUser(ipHash: string, slug: string) {
   const { data, error } = await supabase
-    .from("likes_by_user")
+    .from("blog_likes")
     .insert([{ ip_hash: ipHash, slug }]);
   if (error) {
     return { data: null, error };
