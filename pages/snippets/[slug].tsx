@@ -136,7 +136,7 @@ export default function Snippet(props: SnippetProps) {
 
 export async function getStaticProps({ params: { slug } }: any) {
   const data = fs
-    .readFileSync(path.join(__dirname, "../../../cache/gists.json"))
+    .readFileSync(path.join(__filename, "../../../../cache/gists.json"))
     .toString();
   const gists = JSON.parse(data);
   const gist = gists.filter((gist: any) => gist.slug === slug)[0];
@@ -157,7 +157,7 @@ export async function getStaticProps({ params: { slug } }: any) {
 export async function getStaticPaths() {
   const gists = await listGists();
   fs.writeFileSync(
-    path.join(__dirname, "../../../cache/gists.json"),
+    path.join(__filename, "../../../../cache/gists.json"),
     JSON.stringify(gists)
   );
 
