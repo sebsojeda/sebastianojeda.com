@@ -1,6 +1,6 @@
-import { kebabCase } from "./utils";
+import kebabCase from "lodash.kebabcase";
 
-const ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
+const ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN ?? "";
 
 const USER_GISTS_ENDPOINT = "https://api.github.com/users/sebsojeda/gists";
 const USER_GIST_ENDPOINT = "https://api.github.com/gists";
