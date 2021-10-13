@@ -16,6 +16,8 @@ const Styles = {
       Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   `,
 };
 

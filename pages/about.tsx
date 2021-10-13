@@ -39,6 +39,7 @@ export default function About() {
       <Header>
         <h1 css={Styles.headerText}>About Me</h1>
       </Header>
+      <p>Hey, I&apos;m Sebastian.</p>
     </AppLayout>
   );
 }

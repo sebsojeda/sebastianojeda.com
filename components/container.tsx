@@ -6,13 +6,20 @@ type ContainerProps = {
 };
 
 const Styles = {
+  grow: css`
+    flex-grow: 1;
+  `,
   container: css`
     max-width: 50rem;
-    margin: auto;
     padding: 0 1.25rem;
+    margin: 0 auto;
   `,
 };
 
 export default function Container(props: ContainerProps) {
-  return <div css={Styles.container}>{props.children}</div>;
+  return (
+    <div css={Styles.grow}>
+      <div css={Styles.container}>{props.children}</div>
+    </div>
+  );
 }
