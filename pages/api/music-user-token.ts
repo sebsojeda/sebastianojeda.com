@@ -15,31 +15,33 @@ export default async function handler(
   const { user, error } = await supabase.auth.api.getUser(token);
   if (error || !user) {
     res.status(401).json({ error: { status: 401, message: "Unauthorized" } });
-  }
-  if (req.method === "GET") {
+  } else if (req.method === "GET") {
     const { data, error } = await getMusicUserToken();
     if (error) {
       res.status(500).json({
         error: { status: 500, message: error.message },
       });
+    } else {
+      res.status(200).json({ data: { ...data } });
     }
-    res.status(200).json({ data: { ...data } });
   } else if (req.method === "POST") {
     const { data, error } = await createMusicUserToken(req.body.token);
     if (error) {
       res.status(500).json({
         error: { status: 500, message: error.message },
       });
+    } else {
+      res.status(201).json({ data: { ...data } });
     }
-    res.status(201).json({ data: { ...data } });
   } else if (req.method === "DELETE") {
     const { error } = await deleteMusicUserToken();
     if (error) {
       res.status(500).json({
         error: { status: 500, message: error.message },
       });
+    } else {
+      res.status(204).send(null);
     }
-    res.status(204).send(null);
   } else {
     res
       .status(405)

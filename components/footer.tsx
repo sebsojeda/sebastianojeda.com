@@ -68,7 +68,7 @@ const Styles = {
     border-top: 1px solid var(--color-accent-2);
     color: var(--color-accent-5);
     padding-top: 1rem;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   `,
 };
 

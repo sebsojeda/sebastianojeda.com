@@ -1,6 +1,6 @@
 import { getAllFilesFrontMatter, getFileBySlug } from "../../lib/mdx";
 import { getMDXComponent } from "mdx-bundler/client";
-import React, { useEffect } from "react";
+import React from "react";
 import PostHeader from "../../components/post-header";
 import Mdx from "../../components/mdx";
 import DateFormatter from "../../components/date-formatter";
@@ -48,17 +48,6 @@ export default function Post(props: PostProps) {
     [props.post.code]
   );
 
-  useEffect(() => {
-    const addView = async () => {
-      await fetch("/api/view-post", {
-        method: "POST",
-        body: JSON.stringify({ slug: props.post.slug }),
-        credentials: "same-origin",
-      });
-    };
-    addView();
-  }, [props.post.slug]);
-
   return (
     <>
       <Head>
@@ -68,6 +57,7 @@ export default function Post(props: PostProps) {
       <PostHeader
         title={props.post.frontmatter.title}
         timeToRead={props.post.timeToRead}
+        slug={props.post.slug}
       />
       {props.post.frontmatter.image && (
         <div css={Styles.postImage}>

@@ -16,6 +16,7 @@ export default async function handler(
       res.status(500).json({
         error: { status: 500, message: likesError.message },
       });
+      return;
     }
     const { data: hasLiked, error: hasLikedError } = await hasLikeByUser(
       ipHash,
@@ -25,6 +26,7 @@ export default async function handler(
       res.status(500).json({
         error: { status: 500, message: hasLikedError.message },
       });
+      return;
     }
     res.status(200).json({
       data: { likes: likes?.count, hasLiked: hasLiked?.likedByUser },

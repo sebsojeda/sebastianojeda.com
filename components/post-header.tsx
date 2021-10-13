@@ -1,8 +1,10 @@
 import { css } from "@emotion/react";
+import PageViews from "./page-views";
 
 type PostHeaderProps = {
   title: string;
   timeToRead: string;
+  slug: string;
 };
 
 const Styles = {
@@ -12,8 +14,9 @@ const Styles = {
   title: css`
     font-weight: bold;
   `,
-  timeToRead: css`
+  metadata: css`
     color: var(--color-accent-5);
+    font-size: 0.85rem;
   `,
 };
 
@@ -21,7 +24,9 @@ export default function PostHeader(props: PostHeaderProps) {
   return (
     <div css={Styles.wrapper}>
       <h1 css={Styles.title}>{props.title}</h1>
-      <div css={Styles.timeToRead}>{props.timeToRead}</div>
+      <div css={Styles.metadata}>
+        <span>{props.timeToRead}</span> • <PageViews slug={props.slug} />
+      </div>
     </div>
   );
 }

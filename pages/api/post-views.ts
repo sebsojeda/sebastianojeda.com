@@ -13,8 +13,9 @@ export default async function handler(
       res.status(500).json({
         error: { status: 500, message: error.message },
       });
+    } else {
+      res.status(200).json({ data: { ...data } });
     }
-    res.status(200).json({ data: { ...data } });
   } else {
     res
       .status(405)

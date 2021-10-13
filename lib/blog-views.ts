@@ -23,16 +23,3 @@ export async function incrementView(slug: string) {
   }
   return { data: { success: true }, error: null };
 }
-
-export async function createView(slug: string) {
-  const { data, error } = await supabase
-    .from("blog_views")
-    .insert([{ slug, views: 0 }]);
-  if (error) {
-    return { data: null, error };
-  }
-  if (!data || data.length === 0) {
-    return { data: null, error: new Error("Unable to create like by user") };
-  }
-  return { data: { ...data[0] }, error: null };
-}
