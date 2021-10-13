@@ -10,11 +10,6 @@ type AppLayoutProps = {
 
 const Styles = {
   layout: css`
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

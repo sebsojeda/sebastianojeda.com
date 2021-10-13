@@ -45,7 +45,7 @@ export default function Snippets(props: SnippetsProps) {
   return (
     <AppLayout>
       <Head>
-        <title>Snippets</title>
+        <title>Code Snippets</title>
       </Head>
       <Header>
         <h1 css={Styles.headerText}>Snippets</h1>

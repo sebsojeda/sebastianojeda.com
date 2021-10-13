@@ -45,7 +45,7 @@ export default function About() {
   return (
     <AppLayout>
       <Head>
-        <title>About</title>
+        <title>About Me</title>
       </Head>
       <Header>
         <h1 css={Styles.headerText}>About Me</h1>

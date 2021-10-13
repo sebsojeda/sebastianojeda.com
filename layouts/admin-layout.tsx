@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import { ReactNode } from "react";
-import Container from "../components/container";
 import SideNav from "../components/sidenav";
 
 type AdminLayoutProps = {
@@ -9,11 +8,6 @@ type AdminLayoutProps = {
 
 const Styles = {
   layout: css`
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
     min-height: 100vh;
     display: grid;
     grid-template-columns: auto 1fr;

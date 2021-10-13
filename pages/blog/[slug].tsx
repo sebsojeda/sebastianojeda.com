@@ -7,7 +7,8 @@ import DateFormatter from "../../components/date-formatter";
 import { css } from "@emotion/react";
 import Image from "next/image";
 import Likes from "../../components/likes";
-import PostLayout from "../../layouts/post-layout";
+import AppLayout from "../../layouts/app-layout";
+import Head from "next/head";
 
 type PostProps = {
   post: {
@@ -48,7 +49,10 @@ export default function Post(props: PostProps) {
     [props.post.code]
   );
   return (
-    <PostLayout>
+    <AppLayout>
+      <Head>
+        <title>{props.post.frontmatter.title}</title>
+      </Head>
       <Likes slug={props.post.slug} css={Styles.likes} />
       <PostHeader
         title={props.post.frontmatter.title}
@@ -67,7 +71,7 @@ export default function Post(props: PostProps) {
       <div css={Styles.date}>
         Published on <DateFormatter dateString={props.post.frontmatter.date} />
       </div>
-    </PostLayout>
+    </AppLayout>
   );
 }
 

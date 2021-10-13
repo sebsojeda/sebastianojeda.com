@@ -1,15 +1,14 @@
-import { useContext } from "react";
 import ChevronUpDown from "./icons/chevron-up-down";
 import Display from "./icons/display";
 import Moon from "./icons/moon";
 import Sun from "./icons/sun";
 import Select from "./select";
-import { ThemeContext } from "./theme-provider";
+import { useTheme } from "./theme-provider";
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { colorMode, setColorMode } = useTheme();
 
-  if (!theme) {
+  if (!colorMode) {
     return null;
   }
 
@@ -17,14 +16,14 @@ export default function ThemeToggle() {
     <Select
       prefix={
         <>
-          {theme == "system" && <Display />}
-          {theme == "light" && <Sun />}
-          {theme == "dark" && <Moon />}
+          {colorMode == "system" && <Display />}
+          {colorMode == "light" && <Sun />}
+          {colorMode == "dark" && <Moon />}
         </>
       }
       suffix={<ChevronUpDown />}
-      value={theme}
-      onChange={(e) => setTheme(e.target.value)}
+      value={colorMode}
+      onChange={(e) => setColorMode(e.target.value)}
     >
       <option value="system">System</option>
       <option value="light">Light</option>

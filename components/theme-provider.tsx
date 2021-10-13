@@ -3,32 +3,35 @@ import {
   Dispatch,
   ReactNode,
   SetStateAction,
+  useContext,
   useEffect,
   useState,
 } from "react";
-import { colors } from "../lib/colors";
+import { theme } from "../lib/theme";
 
 type ThemeProviderProps = {
   children: ReactNode;
 };
 
 const defaultContext: {
-  theme: string;
-  setTheme: Dispatch<SetStateAction<string>>;
-} = { theme: "system", setTheme: () => {} };
+  colorMode: string;
+  setColorMode: Dispatch<SetStateAction<string>>;
+} = { colorMode: "system", setColorMode: () => {} };
 
 export const ThemeContext = createContext(defaultContext);
 
+export const useTheme = () => useContext(ThemeContext);
+
 export default function ThemeProvider(props: ThemeProviderProps) {
   const [systemPreference, setSystemPreference] = useState("");
-  const [theme, setTheme] = useState("");
+  const [colorMode, setColorMode] = useState("");
 
   useEffect(() => {
     const root = window.document.documentElement;
     const initialColorValue = root.style.getPropertyValue(
       "--initial-color-mode"
     );
-    setTheme(initialColorValue);
+    setColorMode(initialColorValue);
   }, []);
 
   useEffect(() => {
@@ -53,20 +56,20 @@ export default function ThemeProvider(props: ThemeProviderProps) {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    if ((theme == "system" && !systemPreference) || theme == "light") {
-      Object.entries(colors["light"]).forEach(([colorName, colorValue]) =>
+    if ((colorMode == "system" && !systemPreference) || colorMode == "light") {
+      Object.entries(theme.colors.light).forEach(([colorName, colorValue]) =>
         root.style.setProperty(`--color-${colorName}`, colorValue)
       );
     } else {
-      Object.entries(colors["dark"]).forEach(([colorName, colorValue]) =>
+      Object.entries(theme.colors.dark).forEach(([colorName, colorValue]) =>
         root.style.setProperty(`--color-${colorName}`, colorValue)
       );
     }
-    window.localStorage.setItem("color-mode", theme);
-  }, [theme, systemPreference]);
+    window.localStorage.setItem("color-mode", colorMode);
+  }, [colorMode, systemPreference]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ colorMode, setColorMode }}>
       {props.children}
     </ThemeContext.Provider>
   );

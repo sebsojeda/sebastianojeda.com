@@ -5,6 +5,7 @@ import AppLayout from "../../layouts/app-layout";
 import PostsList from "../../components/posts-list";
 import Search from "../../components/search";
 import { getAllFilesFrontMatter } from "../../lib/mdx";
+import Head from "next/head";
 
 type PostsProps = {
   posts: {
@@ -53,6 +54,9 @@ export default function Posts(props: PostsProps) {
 
   return (
     <AppLayout>
+      <Head>
+        <title>Blog</title>
+      </Head>
       <Header>
         <h1 css={Styles.headerText}>Blog</h1>
         <p

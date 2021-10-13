@@ -1,7 +1,7 @@
-import { colors } from "../lib/colors";
+import { theme } from "../lib/theme";
 
 function setInitialColorMode() {
-  const theme = "🌈";
+  const theme: any = "🌈";
   const root = document.documentElement;
   const storedPreference = window.localStorage.getItem("color-mode");
   const systemPreference =
@@ -16,17 +16,19 @@ function setInitialColorMode() {
       return "light";
     }
   })();
-  Object.entries(theme[initialTheme]).forEach(([colorName, colorValue]) => {
-    const cssVarName = `--color-${colorName}`;
-    root.style.setProperty(cssVarName, colorValue);
-  });
+  Object.entries<any>(theme.colors[initialTheme]).forEach(
+    ([colorName, colorValue]) => {
+      const cssVarName = `--color-${colorName}`;
+      root.style.setProperty(cssVarName, colorValue);
+    }
+  );
   root.style.setProperty("--initial-color-mode", initialColorMode);
 }
 
 export default function MagicScriptTag() {
   const themeScript = String(setInitialColorMode).replace(
     '"🌈"',
-    JSON.stringify(colors)
+    JSON.stringify(theme)
   );
 
   return <script dangerouslySetInnerHTML={{ __html: `(${themeScript})()` }} />;
