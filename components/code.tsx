@@ -122,7 +122,7 @@ export default function Code(props: CodeProps) {
   return (
     <div css={Styles.container}>
       <div css={Styles.metadata}>
-        <span css={Styles.filename}>{props.filename || ""}</span>
+        <span css={Styles.filename}>{props.filename ?? ""}</span>
         <span css={Styles.language}>{language}</span>
       </div>
       <button

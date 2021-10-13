@@ -50,6 +50,15 @@ export default function Snippets(props: SnippetsProps) {
       <Header>
         <h1 css={Styles.headerText}>Snippets</h1>
       </Header>
+      <p
+        css={css`
+          color: var(--color-accent-5);
+          line-height: 1.5rem;
+        `}
+      >
+        These are snippets I&apos;ve come across and reference from time to
+        time. I hope you find them as useful as I have.
+      </p>
       <SnippetsList snippets={props.snippets} />
     </AppLayout>
   );

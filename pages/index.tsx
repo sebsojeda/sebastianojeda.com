@@ -37,8 +37,8 @@ const Styles = {
   `,
   subHeader: css`
     color: var(--color-accent-5);
-    font-weight: 400;
     padding-bottom: 5rem;
+    line-height: 1.5rem;
   `,
   link: css`
     color: var(--color-success);
@@ -66,14 +66,14 @@ export default function Home(props: HomeProps) {
             <br />
             I’m Sebastian Ojeda
           </h1>
-          <h3 css={Styles.subHeader}>
+          <p css={Styles.subHeader}>
             I’m a developer and creative coder. I make it my mission to deliver
             value through user-centered tools, applications, and seamless
             integration with the cloud. If you’d like, you can{" "}
             <Link href="/about">
               <a css={Styles.link}>learn more about me here.</a>
             </Link>
-          </h3>
+          </p>
         </Header>
         <div>
           <h2 css={Styles.postsHeader}>Recently published</h2>

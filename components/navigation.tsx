@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
+import Popup from "./popup";
 
 const Styles = {
   container: css`
@@ -62,9 +63,14 @@ export default function Navigation() {
               </Link>
             </li>
             <li>
-              <Link href="/">
-                <a css={Styles.link}>Extras</a>
-              </Link>
+              <Popup label="Extras">
+                <Link href="/snippets">
+                  <a>Snippets</a>
+                </Link>
+                <Link href="/public/resume">
+                  <a>Resume</a>
+                </Link>
+              </Popup>
             </li>
           </ul>
         </nav>

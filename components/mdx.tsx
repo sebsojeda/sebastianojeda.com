@@ -29,6 +29,9 @@ const a = (props: any) => (
   <a
     css={css`
       color: var(--color-success);
+      :hover {
+        color: var(--color-success-dark);
+      }
     `}
     {...props}
   />

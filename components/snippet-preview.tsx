@@ -21,6 +21,7 @@ const Styles = {
   `,
   description: css`
     height: 3rem;
+    color: var(--color-accent-5);
   `,
   action: css``,
 };
