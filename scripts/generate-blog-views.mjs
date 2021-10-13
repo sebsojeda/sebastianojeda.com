@@ -9,7 +9,7 @@ async function generateBlogViews() {
   const supabase = createClient(URL, KEY);
 
   pages.forEach(async (page) => {
-    const path = page.replace("data/blog", "").replace(".mdx", "");
+    const path = page.replace("data/blog/", "").replace(".mdx", "");
     await supabase.from("blog_views").insert([{ slug: path, views: 0 }]);
   });
 }
