@@ -1,4 +1,5 @@
-import { writeFileSync } from "fs";
+import fs from "fs";
+import path from "path";
 import { globby } from "globby";
 import prettier from "prettier";
 
@@ -13,6 +14,11 @@ async function generateSiteMap() {
     "!pages/404.tsx",
     "!pages/**/[slug].tsx",
   ]);
+
+  const gists = fs.readFileSync(
+    path.join(__dirname, "../cache/gists.json").toString()
+  );
+  const snippets = JSON.parse(gists);
 
   const sitemap = `
     <?xml version="1.0" encoding="UTF-8"?>
@@ -33,6 +39,13 @@ async function generateSiteMap() {
             `;
           })
           .join("")}
+          ${snippets.map((snippet) => {
+            return `
+              <url>
+                <loc>${`https://www.sebastianojeda.com/snippets/${snippet.slug}`}</loc>
+              </url>
+            `.join("");
+          })}
     </urlset>
     `;
 
@@ -41,7 +54,7 @@ async function generateSiteMap() {
     parser: "html",
   });
 
-  writeFileSync("public/sitemap.xml", formatted);
+  fs.writeFileSync("public/sitemap.xml", formatted);
 }
 
 generateSiteMap();
