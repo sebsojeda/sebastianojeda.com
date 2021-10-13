@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prebuild": "node ./scripts/generate-blog-views.mjs",
-    "postbuild": "node ./scripts/generate-sitemap.mjs && node ./scripts/generate-rss.mjs"
+    "postbuild": "node ./scripts/generate-site-map.mjs && node ./scripts/generate-rss.mjs"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.3.0",
