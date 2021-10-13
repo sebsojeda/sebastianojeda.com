@@ -16,7 +16,7 @@ async function generateSiteMap() {
   ]);
 
   const gists = fs.readFileSync(
-    path.join(__filename, "../../cache/gists.json").toString()
+    path.join(import.meta.url, "../../cache/gists.json").toString()
   );
   const snippets = JSON.parse(gists);
 
