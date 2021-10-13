@@ -17,16 +17,17 @@ export default async function handler(
       res.status(200).json({
         data: null,
       });
+    } else {
+      res.status(200).json({
+        data: {
+          artwork: `${data.artwork.url}`.replace(/\/{w}x{h}bb.jpg/g, ""),
+          artistName: data.artistName,
+          name: data.name,
+          albumName: data.albumName,
+          url: data.url,
+        },
+      });
     }
-    res.status(200).json({
-      data: {
-        artwork: `${data.artwork.url}`.replace(/\/{w}x{h}bb.jpg/g, ""),
-        artistName: data.artistName,
-        name: data.name,
-        albumName: data.albumName,
-        url: data.url,
-      },
-    });
   } else {
     res
       .status(405)
