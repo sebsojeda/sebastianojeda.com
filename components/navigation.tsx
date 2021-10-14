@@ -16,6 +16,8 @@ const Styles = {
     border-bottom: 1px solid var(--color-accent-2);
   `,
   logo: css`
+    color: var(--color-foreground);
+    text-decoration: none;
     font-size: 1.25rem;
     font-weight: bold;
     :hover {
@@ -37,6 +39,8 @@ const Styles = {
     }
   `,
   link: css`
+    color: var(--color-foreground);
+    text-decoration: none;
     :hover {
       cursor: pointer;
     }
@@ -47,24 +51,24 @@ export default function Navigation() {
   return (
     <div css={Styles.border}>
       <div css={Styles.container}>
-        <Link href="/">
+        <Link href="/" passHref>
           <a css={Styles.logo}>Sebastian Ojeda</a>
         </Link>
         <nav css={Styles.nav}>
           <ul css={Styles.navList}>
             <li>
-              <Link href="/blog">
+              <Link href="/blog" passHref>
                 <a css={Styles.link}>Blog</a>
               </Link>
             </li>
             <li>
-              <Link href="/about">
+              <Link href="/about" passHref>
                 <a css={Styles.link}>About</a>
               </Link>
             </li>
             <li>
               <Popup label="Extras">
-                <Link href="/snippets">
+                <Link href="/snippets" passHref>
                   <a>Snippets</a>
                 </Link>
                 <Link href="/public/resume">

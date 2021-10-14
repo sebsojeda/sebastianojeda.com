@@ -19,7 +19,8 @@ const Styles = {
     & > button {
       opacity: 0;
     }
-    :hover > button {
+    :hover > button,
+    > button:focus {
       opacity: 1;
     }
   `,

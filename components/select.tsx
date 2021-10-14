@@ -23,7 +23,8 @@ const Styles = {
     justify-content: space-between;
     border-radius: 5px;
     font-size: 0.75rem;
-    :hover {
+    :hover,
+    :focus-within {
       span {
         color: var(--color-foreground);
       }

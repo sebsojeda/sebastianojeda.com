@@ -15,10 +15,7 @@ const Styles = {
     -ms-user-select: none;
     :hover,
     .popup:hover,
-    .triangle:hover,
-    :active,
-    .popup:active,
-    .triangle:active {
+    .triangle:hover {
       .popup,
       .triangle {
         visibility: visible;

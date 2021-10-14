@@ -82,17 +82,17 @@ export default function Footer() {
             <div css={Styles.section}>
               <h5>Pages</h5>
               <div>
-                <Link href="/">
+                <Link href="/" passHref>
                   <a css={Styles.link}>Home</a>
                 </Link>
               </div>
               <div>
-                <Link href="/blog">
+                <Link href="/blog" passHref>
                   <a css={Styles.link}>Blog</a>
                 </Link>
               </div>
               <div>
-                <Link href="/about">
+                <Link href="/about" passHref>
                   <a css={Styles.link}>About</a>
                 </Link>
               </div>
@@ -100,7 +100,7 @@ export default function Footer() {
             <div css={Styles.section}>
               <h5>Extras</h5>
               <div>
-                <Link href="/snippets">
+                <Link href="/snippets" passHref>
                   <a css={Styles.link}>Snippets</a>
                 </Link>
               </div>

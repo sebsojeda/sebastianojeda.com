@@ -69,7 +69,7 @@ export default function Home(props: HomeProps) {
             I’m a developer and creative coder. I make it my mission to deliver
             value through user-centered tools, applications, and seamless
             integration with the cloud. If you’d like, you can{" "}
-            <Link href="/about">
+            <Link href="/about" passHref>
               <a css={Styles.link}>learn more about me here.</a>
             </Link>
           </p>
