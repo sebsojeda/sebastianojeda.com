@@ -2,8 +2,8 @@ export default function Rss() {
   return (
     <svg
       viewBox="0 0 24 24"
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"

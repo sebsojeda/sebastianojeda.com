@@ -64,7 +64,7 @@ async function generateRss() {
       content: abstract,
       author: [author],
       date: new Date(date),
-      image: image ? `${baseUrl}/${image}` : undefined,
+      image: image ? `${baseUrl}${image}` : undefined,
     });
   });
 

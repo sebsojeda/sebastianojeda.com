@@ -3,6 +3,7 @@ import Link from "next/link";
 import Container from "./container";
 import GitHub from "./icons/github";
 import LinkedIn from "./icons/linkedin";
+import Rss from "./icons/rss";
 import Twitter from "./icons/twitter";
 import RecentlyPlayed from "./recently-played";
 import ThemeToggle from "./theme-toggle";
@@ -125,6 +126,9 @@ export default function Footer() {
                 css={Styles.externalLink}
               >
                 <LinkedIn />
+              </a>
+              <a href="/rss.xml" css={Styles.externalLink}>
+                <Rss />
               </a>
             </div>
             <ThemeToggle />
