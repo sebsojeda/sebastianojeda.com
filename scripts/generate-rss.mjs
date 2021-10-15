@@ -1,16 +1,15 @@
-import fs from "fs";
+import { globby } from "globby";
 import { Feed } from "feed";
-import path from "path";
+import fs from "fs";
 import matter from "gray-matter";
 
-function getPostFrontmatter() {
-  const posts = fs
-    .readdirSync(path.resolve("./data/blog/"))
+async function getPostFrontmatter() {
+  const posts = await globby(["data/**/*.mdx"]);
+
+  return posts
     .filter((path) => /\.mdx$/.test(path))
     .map((fileName) => {
-      const source = fs
-        .readFileSync(path.resolve("./data/blog", fileName))
-        .toString();
+      const source = fs.readFileSync(fileName).toString();
       const slug = fileName.replace(/\.mdx$/, "");
       const { data: frontmatter } = matter(source);
       return {
@@ -22,7 +21,6 @@ function getPostFrontmatter() {
     .sort((post1, post2) =>
       post1.frontmatter.date > post2.frontmatter.date ? -1 : 1
     );
-  return posts;
 }
 
 async function generateRss() {
@@ -49,7 +47,9 @@ async function generateRss() {
 
   feed.addCategory("Software Development");
 
-  getPostFrontmatter().forEach((post) => {
+  const posts = await getPostFrontmatter();
+
+  posts.forEach((post) => {
     const {
       slug,
       frontmatter: { date, title, abstract, image },
