@@ -5,11 +5,11 @@ import matter from "gray-matter";
 
 function getPostFrontmatter() {
   const posts = fs
-    .readdirSync(path.join(import.meta.url, "../../data/blog/"))
+    .readdirSync(path.resolve("./data/blog/"))
     .filter((path) => /\.mdx$/.test(path))
     .map((fileName) => {
       const source = fs
-        .readFileSync(path.join(import.meta.url, "../../data/blog", fileName))
+        .readFileSync(path.resolve("./data/blog", fileName))
         .toString();
       const slug = fileName.replace(/\.mdx$/, "");
       const { data: frontmatter } = matter(source);
