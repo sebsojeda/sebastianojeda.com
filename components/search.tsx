@@ -52,7 +52,7 @@ export default function Search(props: SearchProps) {
 
   useEffect(() => {
     document.addEventListener("keypress", (e) => {
-      if (e.key == "/") {
+      if (e.key === "/") {
         e.preventDefault();
         inputRef?.current?.focus();
       }

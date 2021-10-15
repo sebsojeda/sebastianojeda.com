@@ -21,7 +21,7 @@ export async function getMusicUserToken() {
   if (error) {
     return { data: null, error };
   }
-  if (!data || data.length == 0) {
+  if (!data || data.length === 0) {
     return { data: null, error: new Error("Unable to get music user token") };
   }
   return { data: { ...data[0] }, error: null };
@@ -34,7 +34,7 @@ export async function createMusicUserToken(token: string) {
   if (error) {
     return { data: null, error };
   }
-  if (!data || data.length == 0) {
+  if (!data || data.length === 0) {
     return {
       data: null,
       error: new Error("Unable to create music user token"),
@@ -59,7 +59,7 @@ export async function getDeveloperToken() {
   if (error) {
     return { data: null, error };
   }
-  if (!data || data.length == 0) {
+  if (!data || data.length === 0) {
     return { data: null, error: new Error("Unable to get developer token") };
   }
   return { data: { ...data[0] }, error: null };
@@ -78,7 +78,7 @@ export async function createDeveloperToken() {
   if (error) {
     return { data: null, error };
   }
-  if (!data || data.length == 0) {
+  if (!data || data.length === 0) {
     return { data: null, error: new Error("Unable to insert developer token") };
   }
   return { data: { ...data[0] }, error: null };

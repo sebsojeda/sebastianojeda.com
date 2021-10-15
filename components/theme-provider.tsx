@@ -56,7 +56,10 @@ export default function ThemeProvider(props: ThemeProviderProps) {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    if ((colorMode == "system" && !systemPreference) || colorMode == "light") {
+    if (
+      (colorMode === "system" && !systemPreference) ||
+      colorMode === "light"
+    ) {
       Object.entries(theme.colors.light).forEach(([colorName, colorValue]) =>
         root.style.setProperty(`--color-${colorName}`, colorValue)
       );

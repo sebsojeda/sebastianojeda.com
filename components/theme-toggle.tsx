@@ -16,9 +16,9 @@ export default function ThemeToggle() {
     <Select
       prefix={
         <>
-          {colorMode == "system" && <Display />}
-          {colorMode == "light" && <Sun />}
-          {colorMode == "dark" && <Moon />}
+          {colorMode === "system" && <Display />}
+          {colorMode === "light" && <Sun />}
+          {colorMode === "dark" && <Moon />}
         </>
       }
       suffix={<ChevronUpDown />}
