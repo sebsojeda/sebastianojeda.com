@@ -66,7 +66,7 @@ export default function Likes(props: LikesProps) {
         body: JSON.stringify({ slug: props.slug }),
         credentials: "same-origin",
       });
-      setState((prevState) => ({
+      setState((prevState: any) => ({
         ...prevState,
         likes: prevState.likes + 1,
         hasLiked: true,
