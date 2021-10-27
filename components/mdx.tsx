@@ -65,6 +65,7 @@ const code = (props: any) => (
   <code
     css={css`
       background-color: var(--color-accent-2);
+      color: var(--color-foreground);
       padding: 0.125rem;
       border-radius: 5px;
       font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
@@ -78,11 +79,11 @@ const blockquote = (props: any) => (
   <blockquote
     css={css`
       background-color: var(--color-accent-1);
+      color: var(--color-accent-5);
       padding: 0.5rem 1.5rem;
       margin: 1rem 0;
       border-radius: 5px;
-      color: var(--color-warning);
-      border: 1px solid var(--color-warning-dark);
+      border: 1px solid var(--color-accent-2);
     `}
     {...props}
   />
