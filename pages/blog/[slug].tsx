@@ -30,7 +30,7 @@ const Styles = {
   `,
   postImage: css`
     margin: 2rem 0;
-    div {
+    span {
       position: unset !important;
       border-radius: 5px;
       img {

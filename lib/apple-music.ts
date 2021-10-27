@@ -1,5 +1,4 @@
-import { importPKCS8 } from "jose/key/import";
-import { SignJWT } from "jose/jwt/sign";
+import { importPKCS8, SignJWT } from "jose";
 import { supabase } from "./supabase";
 
 const PKCS8 = process.env.APPLE_MUSIC_PKCS8 ?? "";
