@@ -27,7 +27,9 @@ export function getAllFilesFrontMatter(type: string) {
         timeToRead,
       };
     })
-    .filter((post) => !post.frontmatter.draft)
+    .filter((post) =>
+      process.env.NODE_ENV !== "production" ? true : !post.frontmatter.draft
+    )
     .sort((post1, post2) =>
       post1.frontmatter.date > post2.frontmatter.date ? -1 : 1
     );
