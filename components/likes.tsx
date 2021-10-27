@@ -27,7 +27,7 @@ const Styles = {
 };
 
 export default function Likes(props: LikesProps) {
-  const [state, setState] = useState({
+  const [state, setState] = useState<any>({
     error: null,
     loading: true,
     likes: 0,
@@ -42,11 +42,11 @@ export default function Likes(props: LikesProps) {
           credentials: "same-origin",
         });
         const data = await res.json();
-        setState((prevState) => ({ ...prevState, ...data.data }));
+        setState((prevState: any) => ({ ...prevState, ...data.data }));
       } catch (error) {
-        setState((prevState) => ({ ...prevState, error }));
+        setState((prevState: any) => ({ ...prevState, error }));
       } finally {
-        setState((prevState) => ({ ...prevState, loading: false }));
+        setState((prevState: any) => ({ ...prevState, loading: false }));
       }
     };
     fetchData();
