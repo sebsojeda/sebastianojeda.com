@@ -57,6 +57,11 @@ export default function Home(props: HomeProps) {
     <>
       <Head>
         <title>Sebastian Ojeda</title>
+        <meta
+          name="description"
+          content="Hi there, I'm Sebastian Ojeda. I’m a developer and creative coder. I make it my mission to deliver value through user-centered tools, applications, and seamless integration with the cloud."
+        />
+        {/* <meta property="og:image" content="" /> */}
       </Head>
       <div>
         <Header>
