@@ -4,6 +4,8 @@ import matter from "gray-matter";
 import { bundleMDX } from "mdx-bundler";
 import readingTime from "reading-time";
 import { remarkMdxCodeMeta } from "remark-mdx-code-meta";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 export function getSourceOfFile(type: string, fileName: string) {
   return fs
@@ -44,7 +46,11 @@ export async function getFileBySlug(type: string, slug: string) {
         ...(options.remarkPlugins ?? []),
         remarkMdxCodeMeta,
       ];
-      options.rehypePlugins = [...(options.rehypePlugins ?? [])];
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        rehypeSlug,
+        () => rehypeAutolinkHeadings({ behavior: "prepend" }),
+      ];
       return options;
     },
   });

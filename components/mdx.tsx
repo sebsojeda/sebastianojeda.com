@@ -1,18 +1,79 @@
 import { css } from "@emotion/react";
+import Link from "next/link";
 import ArrowRight from "./icons/arrow-right";
 import Code from "./code";
 
-const h1 = (props: any) => <h1 {...props} />;
+const h1 = (props: any) => (
+  <h1
+    css={css`
+      display: inline-block;
+      :hover .icon-link {
+        visibility: visible;
+      }
+    `}
+    {...props}
+  />
+);
 
-const h2 = (props: any) => <h2 {...props} />;
+const h2 = (props: any) => (
+  <h2
+    css={css`
+      display: inline-block;
+      :hover .icon-link {
+        visibility: visible;
+      }
+    `}
+    {...props}
+  />
+);
 
-const h3 = (props: any) => <h3 {...props} />;
+const h3 = (props: any) => (
+  <h3
+    css={css`
+      display: inline-block;
+      :hover .icon-link {
+        visibility: visible;
+      }
+    `}
+    {...props}
+  />
+);
 
-const h4 = (props: any) => <h4 {...props} />;
+const h4 = (props: any) => (
+  <h4
+    css={css`
+      display: inline-block;
+      :hover .icon-link {
+        visibility: visible;
+      }
+    `}
+    {...props}
+  />
+);
 
-const h5 = (props: any) => <h5 {...props} />;
+const h5 = (props: any) => (
+  <h5
+    css={css`
+      display: inline-block;
+      :hover .icon-link {
+        visibility: visible;
+      }
+    `}
+    {...props}
+  />
+);
 
-const h6 = (props: any) => <h6 {...props} />;
+const h6 = (props: any) => (
+  <h6
+    css={css`
+      display: inline-block;
+      :hover .icon-link {
+        visibility: visible;
+      }
+    `}
+    {...props}
+  />
+);
 
 const p = (props: any) => (
   <p
@@ -25,17 +86,30 @@ const p = (props: any) => (
 
 const pre = (props: any) => <Code {...props} />;
 
-const a = (props: any) => (
-  <a
-    css={css`
-      color: var(--color-success);
-      :hover {
-        color: var(--color-success-dark);
-      }
-    `}
-    {...props}
-  />
-);
+const a = (props: any) => {
+  const styles = css`
+    position: relative;
+    color: var(--color-success);
+    :hover {
+      color: var(--color-success-dark);
+    }
+  `;
+
+  const href = props.href;
+  if (href && (href.startsWith("/") || href.startsWith("#"))) {
+    return (
+      <Link href={href}>
+        <a css={styles} {...props}>
+          {props.children}
+        </a>
+      </Link>
+    );
+  }
+
+  return (
+    <a target="_blank" rel="noopener noreferrer" css={styles} {...props} />
+  );
+};
 
 const ul = (props: any) => (
   <ul
