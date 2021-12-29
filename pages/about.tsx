@@ -6,6 +6,7 @@ import Image from "next/image";
 const Styles = {
   image: css`
     border-radius: 100%;
+    z-index: -1;
   `,
   imageContainer: css`
     width: 120px;

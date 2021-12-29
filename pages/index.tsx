@@ -21,6 +21,7 @@ const Styles = {
   `,
   image: css`
     border-radius: 100%;
+    z-index: -1;
   `,
   imageContainer: css`
     width: 80px;
