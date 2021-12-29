@@ -4,12 +4,33 @@ import PostsList from "../components/posts-list";
 import { css } from "@emotion/react";
 import Header from "../components/header";
 import Link from "next/link";
+import Image from "next/image";
 
 type HomeProps = {
   posts: any[];
 };
 
 const Styles = {
+  header: css`
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 5rem;
+    @media only screen and (min-width: 530px) {
+      flex-direction: row;
+    }
+  `,
+  image: css`
+    border-radius: 100%;
+  `,
+  imageContainer: css`
+    width: 80px;
+    flex-shrink: 0;
+    @media only screen and (min-width: 530px) {
+      margin-top: 20px;
+      width: 120px;
+      padding-left: 2rem;
+    }
+  `,
   postsHeader: css`
     display: inline-block;
     font-weight: bold;
@@ -36,7 +57,6 @@ const Styles = {
   `,
   subHeader: css`
     color: var(--color-accent-5);
-    padding-bottom: 5rem;
     line-height: 1.5rem;
   `,
   link: css`
@@ -65,19 +85,32 @@ export default function Home(props: HomeProps) {
       </Head>
       <div>
         <Header>
-          <h1>
-            Hi there 👋
-            <br />
-            I’m Sebastian Ojeda
-          </h1>
-          <p css={Styles.subHeader}>
-            I’m a developer and creative coder. I make it my mission to deliver
-            value through user-centered tools, applications, and seamless
-            integration with the cloud. If you’d like, you can{" "}
-            <Link href="/about" passHref>
-              <a css={Styles.link}>learn more about me here.</a>
-            </Link>
-          </p>
+          <div css={Styles.header}>
+            <div>
+              <h1>
+                Hi there 👋
+                <br />
+                I’m Sebastian Ojeda
+              </h1>
+              <p css={Styles.subHeader}>
+                I’m a developer and creative coder. I make it my mission to
+                deliver value through user-centered tools, applications, and
+                seamless integration with the cloud. If you’d like, you can{" "}
+                <Link href="/about" passHref>
+                  <a css={Styles.link}>learn more about me here.</a>
+                </Link>
+              </p>
+            </div>
+            <div css={Styles.imageContainer}>
+              <Image
+                src="/images/sebastian-ojeda.jpeg"
+                height={120}
+                width={120}
+                alt=""
+                css={Styles.image}
+              />
+            </div>
+          </div>
         </Header>
         <div>
           <h2 css={Styles.postsHeader}>Recently published</h2>

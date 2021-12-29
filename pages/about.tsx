@@ -1,8 +1,15 @@
 import { css } from "@emotion/react";
 import Head from "next/head";
 import Header from "../components/header";
+import Image from "next/image";
 
 const Styles = {
+  image: css`
+    border-radius: 100%;
+  `,
+  imageContainer: css`
+    width: 120px;
+  `,
   headerText: css`
     display: inline-block;
     font-weight: bold;
@@ -48,6 +55,15 @@ export default function About() {
       </Head>
       <Header>
         <h1 css={Styles.headerText}>About Me</h1>
+        <div css={Styles.imageContainer}>
+          <Image
+            src="/images/sebastian-ojeda.jpeg"
+            height={120}
+            width={120}
+            alt=""
+            css={Styles.image}
+          />
+        </div>
       </Header>
       <div css={Styles.about}>
         <p>
