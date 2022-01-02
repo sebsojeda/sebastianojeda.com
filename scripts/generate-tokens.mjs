@@ -2,11 +2,11 @@ import { importPKCS8, SignJWT } from "jose";
 import client from "@prisma/client";
 
 const PKCS8 = process.env.APPLE_MUSIC_PKCS8 ?? "";
-const KEY_ID = process.env.APPLE_MUSIC_KEY_ID ?? "";
 
 const EXPIRATION = "180d";
 const ALG = "ES256";
 
+const KEY_ID = "668D538MNA";
 const TEAM_ID = "ns4695lqpz";
 const DEVELOPER_TOKEN_NAME = "apple_developer_token";
 const MUSIC_USER_TOKEN_NAME = "apple_music_user_token";
