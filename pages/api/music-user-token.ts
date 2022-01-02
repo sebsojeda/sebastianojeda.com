@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import {
-  createMusicUserToken,
-  deleteMusicUserToken,
+  createOrUpdateMusicUserToken,
   getMusicUserToken,
 } from "../../lib/apple-music";
 import { supabase } from "../../lib/supabase";
@@ -25,22 +24,13 @@ export default async function handler(
       res.status(200).json({ data: { ...data } });
     }
   } else if (req.method === "POST") {
-    const { data, error } = await createMusicUserToken(req.body.token);
+    const { data, error } = await createOrUpdateMusicUserToken(req.body.token);
     if (error) {
       res.status(500).json({
         error: { status: 500, message: error.message },
       });
     } else {
       res.status(201).json({ data: { ...data } });
-    }
-  } else if (req.method === "DELETE") {
-    const { error } = await deleteMusicUserToken();
-    if (error) {
-      res.status(500).json({
-        error: { status: 500, message: error.message },
-      });
-    } else {
-      res.status(204).send(null);
     }
   } else {
     res

@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import crypto from "crypto";
-import { getLikesBySlug, hasLikeByUser } from "../../lib/blog-likes";
 import { ApiError, ApiResponse } from "../../lib/types";
 
 export default async function handler(
@@ -11,25 +10,28 @@ export default async function handler(
     const ip = req.headers["x-real-ip"]?.toString() ?? "";
     const ipHash = crypto.createHash("sha1").update(ip).digest("base64");
     const slug = req.query.slug?.toString() ?? "";
-    const { data: likes, error: likesError } = await getLikesBySlug(slug);
-    if (likesError) {
+    const { data: likes, error: likesError } = {
+      data: {},
+      error: null,
+    };
+    if (!likes || likesError) {
       res.status(500).json({
-        error: { status: 500, message: likesError.message },
+        error: { status: 500, message: "" },
       });
       return;
     }
-    const { data: hasLiked, error: hasLikedError } = await hasLikeByUser(
-      ipHash,
-      slug
-    );
-    if (hasLikedError) {
+    const { data: hasLiked, error: hasLikedError } = {
+      data: {},
+      error: null,
+    };
+    if (!hasLiked || hasLikedError) {
       res.status(500).json({
-        error: { status: 500, message: hasLikedError.message },
+        error: { status: 500, message: "" },
       });
       return;
     }
     res.status(200).json({
-      data: { likes: likes?.count, hasLiked: hasLiked?.likedByUser },
+      data: { likes: 0, hasLiked: false },
     });
   } else {
     res

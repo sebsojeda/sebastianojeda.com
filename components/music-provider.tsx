@@ -8,7 +8,8 @@ import {
 import Script from "next/script";
 import useSWR from "swr";
 import { useAuth } from "./auth-provider";
-import { TEAM_ID } from "../lib/apple-music";
+
+const TEAM_ID = "ns4695lqpz";
 
 type MusicProviderProps = {
   children: ReactNode;

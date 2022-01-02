@@ -1,9 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  getDeveloperToken,
-  createDeveloperToken,
-  deleteDeveloperToken,
-} from "../../lib/apple-music";
+import { getDeveloperToken } from "../../lib/apple-music";
 import { supabase } from "../../lib/supabase";
 import { ApiError, ApiResponse } from "../../lib/types";
 
@@ -23,24 +19,6 @@ export default async function handler(
       res.status(200).json({
         data: { ...data },
       });
-    }
-  } else if (req.method === "POST") {
-    const { data, error } = await createDeveloperToken();
-    if (error) {
-      res.status(500).json({ error: { status: 500, message: error.message } });
-    } else {
-      res.status(200).json({
-        data: { ...data },
-      });
-    }
-  } else if (req.method === "DELETE") {
-    const { error } = await deleteDeveloperToken();
-    if (error) {
-      res.status(500).json({
-        error: { status: 500, message: error.message },
-      });
-    } else {
-      res.status(204).send(null);
     }
   } else {
     res

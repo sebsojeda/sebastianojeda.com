@@ -1,11 +1,26 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-  provider = "prisma-client-js"
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  shadowDatabaseUrl    = env("DATABASE_SHADOW_URL")
+  referentialIntegrity = "prisma"
 }
 
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+model Tokens {
+  id        Int      @default(autoincrement()) @id
+  name      String   @db.VarChar(255) @unique
+  value     String   @db.VarChar(255)
+}
+
+model PostViews {
+  id        Int      @default(autoincrement()) @id
+  slug      String   @db.VarChar(255) @unique
+  views     Int      @default(0)
 }

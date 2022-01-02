@@ -27,5 +27,5 @@ export default function PageViews(props: PageViewProps) {
     addView();
   }, [props.slug]);
 
-  return <span>{data && !error ? data.data.views : "–--"} views</span>;
+  return <span>{data && !error ? data.data.views : "---"} views</span>;
 }
