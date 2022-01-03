@@ -2,9 +2,9 @@ import { getGistById, listGists } from "../../lib/github";
 import fs from "fs";
 import path from "path";
 import { css } from "@emotion/react";
-import Head from "next/head";
 import SnippetCode from "../../components/snippet-code";
 import SnippetHeader from "../../components/snippet-header";
+import Meta from "../../components/meta";
 
 type SnippetProps = {
   snippet: {
@@ -112,9 +112,10 @@ const Styles = {
 export default function Snippet(props: SnippetProps) {
   return (
     <>
-      <Head>
-        <title>{props.snippet.title}</title>
-      </Head>
+      <Meta
+        title={props.snippet.title}
+        description={props.snippet.description}
+      />
       <SnippetHeader
         title={props.snippet.title}
         description={props.snippet.description}

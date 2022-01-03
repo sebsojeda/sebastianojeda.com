@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
-import Head from "next/head";
 import Header from "../components/header";
 import Image from "next/image";
+import Meta from "../components/meta";
 
 const Styles = {
   image: css`
@@ -51,9 +51,10 @@ const Styles = {
 export default function About() {
   return (
     <>
-      <Head>
-        <title>About Me</title>
-      </Head>
+      <Meta
+        title="About Me"
+        description="I make it my mission to deliver value through user-centered tools, applications, and seamless integration with the cloud."
+      />
       <Header>
         <h1 css={Styles.headerText}>About Me</h1>
         <div css={Styles.imageContainer}>

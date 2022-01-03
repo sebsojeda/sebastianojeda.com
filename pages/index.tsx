@@ -1,10 +1,10 @@
-import Head from "next/head";
 import { getAllFilesFrontMatter } from "../lib/mdx";
 import PostsList from "../components/posts-list";
 import { css } from "@emotion/react";
 import Header from "../components/header";
 import Link from "next/link";
 import Image from "next/image";
+import Meta from "../components/meta";
 
 type HomeProps = {
   posts: any[];
@@ -76,14 +76,10 @@ const Styles = {
 export default function Home(props: HomeProps) {
   return (
     <>
-      <Head>
-        <title>Sebastian Ojeda</title>
-        <meta
-          name="description"
-          content="Hi there, I'm Sebastian Ojeda. I’m a developer and creative coder. I make it my mission to deliver value through user-centered tools, applications, and seamless integration with the cloud."
-        />
-        {/* <meta property="og:image" content="" /> */}
-      </Head>
+      <Meta
+        title="Sebastian Ojeda - Developer and creative coder."
+        description="I make it my mission to deliver value through user-centered tools, applications, and seamless integration with the cloud."
+      />
       <div>
         <Header>
           <div css={Styles.header}>

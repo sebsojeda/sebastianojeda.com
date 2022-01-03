@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
-import Head from "next/head";
 import Header from "../../components/header";
+import Meta from "../../components/meta";
 import SnippetsList from "../../components/snippets-list";
 import { listGists } from "../../lib/github";
 
@@ -43,9 +43,10 @@ const Styles = {
 export default function Snippets(props: SnippetsProps) {
   return (
     <>
-      <Head>
-        <title>Code Snippets</title>
-      </Head>
+      <Meta
+        title="Code Snippets"
+        description="These are snippets I've come across and reference from time to time. I hope you find them as useful as I have."
+      />
       <Header>
         <h1 css={Styles.headerText}>Snippets</h1>
       </Header>

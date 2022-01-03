@@ -4,7 +4,7 @@ import Header from "../../components/header";
 import PostsList from "../../components/posts-list";
 import Search from "../../components/search";
 import { getAllFilesFrontMatter } from "../../lib/mdx";
-import Head from "next/head";
+import Meta from "../../components/meta";
 
 type PostsProps = {
   posts: {
@@ -53,9 +53,10 @@ export default function Posts(props: PostsProps) {
 
   return (
     <>
-      <Head>
-        <title>Blog</title>
-      </Head>
+      <Meta
+        title="Blog"
+        description="I've been writing on and off for the past few years on different platforms but decided to gather my thoughts in one place. I like to write about my successes in development and various computer science topics that interest me."
+      />
       <Header>
         <h1 css={Styles.headerText}>Blog</h1>
         <p
