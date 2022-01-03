@@ -8,9 +8,6 @@ const Styles = {
     border-radius: 100%;
     z-index: -1;
   `,
-  imageContainer: css`
-    width: 120px;
-  `,
   headerText: css`
     display: inline-block;
     font-weight: bold;
@@ -57,15 +54,6 @@ export default function About() {
       />
       <Header>
         <h1 css={Styles.headerText}>About Me</h1>
-        <div css={Styles.imageContainer}>
-          <Image
-            src="/images/sebastian-ojeda.jpeg"
-            height={120}
-            width={120}
-            alt=""
-            css={Styles.image}
-          />
-        </div>
       </Header>
       <div css={Styles.about}>
         <p>

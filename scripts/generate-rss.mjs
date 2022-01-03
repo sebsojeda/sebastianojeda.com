@@ -34,7 +34,7 @@ async function generateRss() {
   const feed = new Feed({
     title: "Sebastian Ojeda's Blog",
     description:
-      "Developer and creative coder. I like to write about my successes in development and various computer science topics that interest me.",
+      "Developer and creative coder. I like to write about my successes in software development and various computer science topics that interest me.",
     id: baseUrl,
     link: baseUrl,
     language: "en",
