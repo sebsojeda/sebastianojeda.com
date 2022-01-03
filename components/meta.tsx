@@ -24,7 +24,7 @@ export default function Meta(props: MetaProps) {
       <meta
         property="og:image"
         content={
-          props.image ?? "https://www.sebastianojeda.com/images/banner.jpg"
+          props.image ?? "https://www.sebastianojeda.com/images/banner.png"
         }
       />
 
@@ -39,7 +39,7 @@ export default function Meta(props: MetaProps) {
       <meta
         property="twitter:image"
         content={
-          props.image ?? "https://www.sebastianojeda.com/images/banner.jpg"
+          props.image ?? "https://www.sebastianojeda.com/images/banner.png"
         }
       />
     </Head>
