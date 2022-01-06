@@ -28,6 +28,7 @@ const Styles = {
     display: inline-block;
     :hover {
       cursor: pointer;
+      color: var(--color-foreground);
     }
   `,
   section: css`
@@ -54,6 +55,9 @@ const Styles = {
   `,
   externalLink: css`
     color: var(--color-accent-5);
+    :hover {
+      color: var(--color-foreground);
+    }
   `,
   externalLinks: css`
     color: var(--color-accent-5);

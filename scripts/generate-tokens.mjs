@@ -7,7 +7,7 @@ const EXPIRATION = "180d";
 const ALG = "ES256";
 
 const KEY_ID = "668D538MNA";
-const TEAM_ID = "ns4695lqpz";
+const TEAM_ID = "NS4695LQPZ";
 const DEVELOPER_TOKEN_NAME = "apple_developer_token";
 const MUSIC_USER_TOKEN_NAME = "apple_music_user_token";
 

@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
-import Popup from "./popup";
+import Dropdown from "./dropdown";
 
 const Styles = {
   container: css`
@@ -33,16 +33,16 @@ const Styles = {
     display: flex;
     align-items: center;
     padding: 0;
-    margin-left: 1rem;
-    * + * {
+    li {
       margin-left: 1rem;
     }
   `,
   link: css`
-    color: var(--color-foreground);
+    color: var(--color-accent-5);
     text-decoration: none;
     :hover {
       cursor: pointer;
+      color: var(--color-foreground);
     }
   `,
 };
@@ -67,14 +67,14 @@ export default function Navigation() {
               </Link>
             </li>
             <li>
-              <Popup label="Extras">
+              <Dropdown label="Extras">
                 <Link href="/snippets" passHref>
-                  <a>Snippets</a>
+                  <a css={Styles.link}>Snippets</a>
                 </Link>
                 <Link href="/public/resume">
-                  <a>Resume</a>
+                  <a css={Styles.link}>Resume</a>
                 </Link>
-              </Popup>
+              </Dropdown>
             </li>
           </ul>
         </nav>

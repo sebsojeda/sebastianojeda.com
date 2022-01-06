@@ -15,7 +15,7 @@ const Styles = {
     box-sizing: border-box;
     padding: 0.35rem;
     position: relative;
-    background-color: var(--color-background);
+    background-color: var(--color-accent-1);
     color: var(--color-foreground);
     border: 1px solid var(--color-accent-2);
     display: flex;
