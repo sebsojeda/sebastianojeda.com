@@ -1,32 +1,18 @@
 import { css } from "@emotion/react";
-import Link from "next/link";
+import ActiveLink from "./active-link";
+import Container from "./container";
 import Dropdown from "./dropdown";
 
 const Styles = {
-  container: css`
-    height: 65px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 50rem;
-    margin: auto;
-    padding: 0 0.75rem;
-  `,
   border: css`
     border-bottom: 1px solid var(--color-accent-2);
   `,
-  logo: css`
-    color: var(--color-foreground);
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-    :hover {
-      cursor: pointer;
-    }
-  `,
   nav: css`
+    height: 65px;
     display: flex;
     align-items: center;
+    justify-content: start;
+    margin: auto;
   `,
   navList: css`
     list-style: none;
@@ -34,15 +20,10 @@ const Styles = {
     align-items: center;
     padding: 0;
     li {
-      margin-left: 1rem;
+      margin-left: 1.5rem;
     }
-  `,
-  link: css`
-    color: var(--color-accent-5);
-    text-decoration: none;
-    :hover {
-      cursor: pointer;
-      color: var(--color-foreground);
+    li:first-child {
+      margin-left: 0;
     }
   `,
 };
@@ -50,35 +31,26 @@ const Styles = {
 export default function Navigation() {
   return (
     <div css={Styles.border}>
-      <div css={Styles.container}>
-        <Link href="/" passHref>
-          <a css={Styles.logo}>Sebastian Ojeda</a>
-        </Link>
+      <Container>
         <nav css={Styles.nav}>
           <ul css={Styles.navList}>
             <li>
-              <Link href="/blog" passHref>
-                <a css={Styles.link}>Blog</a>
-              </Link>
+              <ActiveLink href="/" text="Home" />
             </li>
             <li>
-              <Link href="/about" passHref>
-                <a css={Styles.link}>About</a>
-              </Link>
+              <ActiveLink href="/blog" text="Blog" />
+            </li>
+            <li>
+              <ActiveLink href="/about" text="About" />
             </li>
             <li>
               <Dropdown label="Extras">
-                <Link href="/snippets" passHref>
-                  <a css={Styles.link}>Snippets</a>
-                </Link>
-                <Link href="/public/resume">
-                  <a css={Styles.link}>Resume</a>
-                </Link>
+                <ActiveLink href="/snippets" text="Snippets" />
               </Dropdown>
             </li>
           </ul>
         </nav>
-      </div>
+      </Container>
     </div>
   );
 }

@@ -27,7 +27,10 @@ const Styles = {
     width: 80px;
     flex-shrink: 0;
     @media only screen and (min-width: 530px) {
-      margin-top: 20px;
+      width: 100px;
+      padding-left: 2rem;
+    }
+    @media only screen and (min-width: 769px) {
       width: 120px;
       padding-left: 2rem;
     }
@@ -71,6 +74,21 @@ const Styles = {
   posts: css`
     margin-bottom: 3.5rem;
   `,
+  title: css`
+    margin: 1rem 0 0.25rem 0;
+    font-size: 1.75rem;
+    @media only screen and (min-width: 530px) {
+      margin: 0 0 0.25rem 0;
+      font-size: 2rem;
+    }
+    @media only screen and (min-width: 769px) {
+      margin: 0 0 0.25rem 0;
+      font-size: 3rem;
+    }
+  `,
+  subtitle: css`
+    margin-top: 0;
+  `,
 };
 
 export default function Home(props: HomeProps) {
@@ -84,17 +102,14 @@ export default function Home(props: HomeProps) {
         <Header>
           <div css={Styles.header}>
             <div>
-              <h1>
-                Hi there 👋
-                <br />
-                I’m Sebastian Ojeda
-              </h1>
+              <h1 css={Styles.title}>Sebastian Ojeda</h1>
+              <p css={Styles.subtitle}>Developer and creative coder.</p>
               <p css={Styles.subHeader}>
-                I’m a developer and creative coder. I make it my mission to
-                deliver value through user-centered tools, applications, and
-                seamless integration with the cloud. If you’d like, you can{" "}
+                I make it my mission to deliver value through user-centered
+                tools, applications, and seamless integration with the cloud. If
+                you’d like, you can learn more{" "}
                 <Link href="/about" passHref>
-                  <a css={Styles.link}>learn more about me here.</a>
+                  <a css={Styles.link}>about me here.</a>
                 </Link>
               </p>
             </div>
@@ -110,7 +125,7 @@ export default function Home(props: HomeProps) {
           </div>
         </Header>
         <div>
-          <h2 css={Styles.postsHeader}>Recently published</h2>
+          <h1 css={Styles.postsHeader}>Recently published</h1>
           <div css={Styles.posts}>
             <PostsList posts={props.posts} />
           </div>

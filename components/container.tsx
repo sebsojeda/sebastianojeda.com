@@ -10,7 +10,7 @@ const Styles = {
     flex-grow: 1;
   `,
   container: css`
-    max-width: 50rem;
+    max-width: 45rem;
     padding: 0 1.55rem;
     margin: 0 auto;
   `,

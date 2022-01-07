@@ -7,7 +7,7 @@ type HeaderProps = {
 
 const Styles = {
   header: css`
-    padding-top: 2rem;
+    padding-top: 4rem;
   `,
 };
 

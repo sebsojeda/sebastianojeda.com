@@ -109,11 +109,6 @@ export default function Footer() {
                   <a css={Styles.link}>Snippets</a>
                 </Link>
               </div>
-              <div>
-                <Link href="/public/resume">
-                  <a css={Styles.link}>Resume</a>
-                </Link>
-              </div>
             </div>
           </div>
           <div css={Styles.banner}>
