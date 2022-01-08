@@ -12,7 +12,6 @@ const Styles = {
     display: flex;
     align-items: center;
     justify-content: start;
-    margin: auto;
   `,
   navList: css`
     list-style: none;

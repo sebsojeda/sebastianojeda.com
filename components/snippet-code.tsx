@@ -28,7 +28,7 @@ const Styles = {
     margin-top: 0;
     margin-bottom: 1rem;
   `,
-  code: css`
+  code: (hasMetaData: boolean) => css`
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
       DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
     border-bottom: 1px solid var(--color-accent-2);
@@ -38,6 +38,11 @@ const Styles = {
     display: block;
     padding: 1rem 0;
     overflow: auto;
+    ${!hasMetaData &&
+    `
+    border-top: 1px solid var(--color-accent-2);
+    border-radius: 5px;
+    `}
   `,
   metadata: css`
     display: flex;
@@ -67,7 +72,7 @@ const Styles = {
     padding: 0 1rem;
     min-width: fit-content;
   `,
-  copy: css`
+  copy: (copied: boolean) => css`
     border: 1px solid var(--color-accent-2);
     color: var(--color-accent-2);
     background-color: var(--color-accent-1);
@@ -81,6 +86,15 @@ const Styles = {
       border: 1px solid var(--color-accent-4);
       color: var(--color-accent-4);
     }
+    ${copied &&
+    `
+    border: 1px solid var(--color-success);
+    color: var(--color-success);
+    &:hover {
+      border: 1px solid var(--color-success);
+      color: var(--color-success);
+    }
+    `}
   `,
   check: css`
     border: 1px solid var(--color-success);
@@ -99,6 +113,8 @@ const Styles = {
 
 export default function SnippetCode(props: SnippetCodeProps) {
   const [copied, setCopied] = useState(false);
+  const language = props.language;
+  const filename = props.filename;
 
   const handleCopyCode = async () => {
     setCopied(true);
@@ -108,14 +124,13 @@ export default function SnippetCode(props: SnippetCodeProps) {
 
   return (
     <div css={Styles.container}>
-      <div css={Styles.metadata}>
-        <span css={Styles.filename}>{props.filename}</span>
-        <span css={Styles.language}>{props.language}</span>
-      </div>
-      <button
-        css={copied ? Styles.check : Styles.copy}
-        onClick={handleCopyCode}
-      >
+      {(filename || language) && (
+        <div css={Styles.metadata}>
+          <span css={Styles.filename}>{filename ?? ""}</span>
+          <span css={Styles.language}>{language ?? ""}</span>
+        </div>
+      )}
+      <button css={Styles.copy(copied)} onClick={handleCopyCode}>
         {copied ? <Check /> : <Copy />}
       </button>
       <pre css={Styles.pre}>
@@ -126,7 +141,11 @@ export default function SnippetCode(props: SnippetCodeProps) {
           theme={undefined}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <code className={className} style={{ ...style }} css={Styles.code}>
+            <code
+              className={className}
+              style={{ ...style }}
+              css={Styles.code(filename || language ? true : false)}
+            >
               {tokens.map((line, index) => {
                 return (
                   <div
