@@ -152,9 +152,8 @@ const code = (props: any) => (
 const blockquote = (props: any) => (
   <blockquote
     css={css`
-      background-color: var(--color-accent-1);
-      color: var(--color-accent-5);
-      padding: 0.5rem 1.5rem;
+      color: var(--color-foreground);
+      padding: 0 1rem;
       margin: 1rem 0;
       border-radius: 5px;
       border: 1px solid var(--color-accent-2);

@@ -1,18 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { getSession } from "next-auth/react";
 import {
   createOrUpdateMusicUserToken,
   getMusicUserToken,
 } from "../../lib/apple-music";
-import { supabase } from "../../lib/supabase";
 import { ApiError, ApiResponse } from "../../lib/types";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ApiResponse | ApiError | null>
 ) {
-  const token = req.headers.token?.toString() ?? "";
-  const { user, error } = await supabase.auth.api.getUser(token);
-  if (error || !user) {
+  const session = await getSession({ req });
+  if (!session) {
     res.status(401).json({ error: { status: 401, message: "Unauthorized" } });
   } else if (req.method === "GET") {
     const { data, error } = await getMusicUserToken();
