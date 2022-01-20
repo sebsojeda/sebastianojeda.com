@@ -7,7 +7,6 @@ import {
 } from "react";
 import Script from "next/script";
 import useSWR from "swr";
-import { useAuth } from "./auth-provider";
 
 const TEAM_ID = "ns4695lqpz";
 
@@ -40,7 +39,6 @@ const MusicContext = createContext(defaultContext);
 export const useMusicKit = () => useContext(MusicContext);
 
 export default function MusicProvider(props: MusicProviderProps) {
-  const { session } = useAuth();
   const [state, setState] = useState<{
     loading: boolean;
     musicKit: any;
@@ -56,9 +54,6 @@ export default function MusicProvider(props: MusicProviderProps) {
     (url) =>
       fetch(url, {
         method: "GET",
-        headers: {
-          token: session?.access_token ?? "",
-        },
         credentials: "same-origin",
       }).then((res) => res.json())
   );
@@ -67,9 +62,6 @@ export default function MusicProvider(props: MusicProviderProps) {
     (url) =>
       fetch(url, {
         method: "GET",
-        headers: {
-          token: session?.access_token ?? "",
-        },
         credentials: "same-origin",
       }).then((res) => res.json())
   );
@@ -81,7 +73,6 @@ export default function MusicProvider(props: MusicProviderProps) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        token: session?.access_token ?? "",
       },
       body: JSON.stringify({
         token: state.musicKit.musicUserToken,
@@ -96,9 +87,6 @@ export default function MusicProvider(props: MusicProviderProps) {
     await state.musicKit.unauthorize();
     await fetch("/api/music-user-token", {
       method: "DELETE",
-      headers: {
-        token: session?.access_token ?? "",
-      },
       credentials: "same-origin",
     });
     setState({ ...state, loading: false, authorized: false });
@@ -129,10 +117,10 @@ export default function MusicProvider(props: MusicProviderProps) {
         onLoad={() => {
           window.localStorage.setItem(
             `music.${TEAM_ID}.u`,
-            musicUserToken.data.value
+            musicUserToken.data?.value
           );
           window.MusicKit.configure({
-            developerToken: developerToken.data.value,
+            developerToken: developerToken.data?.value,
             app: {
               name: "sebastianojeda.com",
               builid: "0.0.1",

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Button from "./button";
 import ThemeToggle from "./theme-toggle";
 import Logout from "./icons/logout";
-import { useAuth } from "./auth-provider";
+import { signOut } from "next-auth/react";
 
 const Styles = {
   container: css`
@@ -29,7 +29,6 @@ const Styles = {
 };
 
 export default function SideNav() {
-  const { logout } = useAuth();
   return (
     <div css={Styles.container}>
       <div>
@@ -39,7 +38,7 @@ export default function SideNav() {
       </div>
       <div css={Styles.buttons}>
         <ThemeToggle />
-        <Button prefix={<Logout />} onClick={logout}>
+        <Button prefix={<Logout />} onClick={signOut}>
           Sign Out
         </Button>
       </div>
