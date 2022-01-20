@@ -10,9 +10,8 @@ import ThemeToggle from "./theme-toggle";
 
 const Styles = {
   footer: css`
-    border-top: 1px solid var(--color-accent-2);
     background-color: var(--color-accent-1);
-    padding: 3rem 0;
+    padding: 2rem 0 3rem 0;
   `,
   wrapper: css`
     display: grid;

@@ -7,7 +7,7 @@ const Styles = {
   wrapper: css`
     background-color: var(--color-accent-1);
     border-top: 1px solid var(--color-accent-2);
-    padding: 1rem 0;
+    padding-top: 3rem;
   `,
   image: css`
     border-radius: 10px;
