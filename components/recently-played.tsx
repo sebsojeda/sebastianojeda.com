@@ -1,13 +1,10 @@
 import { css } from "@emotion/react";
 import Image from "next/image";
 import useSWR from "swr";
-import Container from "./container";
 
 const Styles = {
   wrapper: css`
     background-color: var(--color-accent-1);
-    border-top: 1px solid var(--color-accent-2);
-    padding-top: 3rem;
   `,
   image: css`
     border-radius: 10px;
@@ -59,29 +56,25 @@ export default function RecentlyPlayed() {
 
   return (
     <div css={Styles.wrapper}>
-      <Container>
-        <a href={data?.data.url ?? "#"} css={Styles.gridContainer}>
-          <Image
-            height={50}
-            width={50}
-            loader={data?.data ? artworkLoader : undefined}
-            src={data?.data.artwork ?? "/images/apple-music-icon.svg"}
-            alt={
-              data?.data ? `${data.data.name} by ${data.data.artistName}` : ""
-            }
-            css={Styles.image}
-          />
-          <div css={Styles.songInfo}>
-            <div css={Styles.sectionName}>Recently Played</div>
-            <div css={Styles.song}>{data?.data.name ?? "Not Playing"}</div>
-            <div css={Styles.artist}>
-              {data?.data
-                ? `${data.data.artistName} - ${data.data.albumName}`
-                : "..."}
-            </div>
+      <a href={data?.data.url ?? "#"} css={Styles.gridContainer}>
+        <Image
+          height={50}
+          width={50}
+          loader={data?.data ? artworkLoader : undefined}
+          src={data?.data.artwork ?? "/images/apple-music-icon.svg"}
+          alt={data?.data ? `${data.data.name} by ${data.data.artistName}` : ""}
+          css={Styles.image}
+        />
+        <div css={Styles.songInfo}>
+          <div css={Styles.sectionName}>Recently Played</div>
+          <div css={Styles.song}>{data?.data.name ?? "Not Playing"}</div>
+          <div css={Styles.artist}>
+            {data?.data
+              ? `${data.data.artistName} - ${data.data.albumName}`
+              : "..."}
           </div>
-        </a>
-      </Container>
+        </div>
+      </a>
     </div>
   );
 }

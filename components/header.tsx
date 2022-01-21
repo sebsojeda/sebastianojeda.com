@@ -5,12 +5,8 @@ type HeaderProps = {
   children: ReactNode;
 };
 
-const Styles = {
-  header: css`
-    padding-top: 4rem;
-  `,
-};
+const Styles = {};
 
 export default function Header(props: HeaderProps) {
-  return <header css={Styles.header}>{props.children}</header>;
+  return <header>{props.children}</header>;
 }

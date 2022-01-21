@@ -5,10 +5,11 @@ import Dropdown from "./dropdown";
 
 const Styles = {
   nav: css`
-    height: 65px;
     display: flex;
     align-items: center;
     justify-content: start;
+    padding-bottom: 4rem;
+    padding-top: 1.75rem;
   `,
   navList: css`
     list-style: none;

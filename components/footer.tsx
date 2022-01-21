@@ -10,10 +10,12 @@ import ThemeToggle from "./theme-toggle";
 
 const Styles = {
   footer: css`
+    border-top: 1px solid var(--color-accent-2);
     background-color: var(--color-accent-1);
-    padding: 2rem 0 3rem 0;
+    padding: 3rem 0;
   `,
   wrapper: css`
+    padding-top: 2rem;
     display: grid;
     grid-template-columns: 1fr;
     @media only screen and (min-width: 425px) {
@@ -78,65 +80,63 @@ const Styles = {
 
 export default function Footer() {
   return (
-    <>
-      <RecentlyPlayed />
-      <footer css={Styles.footer}>
-        <Container>
-          <div css={Styles.wrapper}>
-            <div css={Styles.section}>
-              <h5>Pages</h5>
-              <div>
-                <Link href="/" passHref>
-                  <a css={Styles.link}>Home</a>
-                </Link>
-              </div>
-              <div>
-                <Link href="/blog" passHref>
-                  <a css={Styles.link}>Blog</a>
-                </Link>
-              </div>
-              <div>
-                <Link href="/about" passHref>
-                  <a css={Styles.link}>About</a>
-                </Link>
-              </div>
+    <footer css={Styles.footer}>
+      <Container>
+        <RecentlyPlayed />
+        <div css={Styles.wrapper}>
+          <div css={Styles.section}>
+            <h5>Pages</h5>
+            <div>
+              <Link href="/" passHref>
+                <a css={Styles.link}>Home</a>
+              </Link>
             </div>
-            <div css={Styles.section}>
-              <h5>Extras</h5>
-              <div>
-                <Link href="/snippets" passHref>
-                  <a css={Styles.link}>Snippets</a>
-                </Link>
-              </div>
+            <div>
+              <Link href="/blog" passHref>
+                <a css={Styles.link}>Blog</a>
+              </Link>
+            </div>
+            <div>
+              <Link href="/about" passHref>
+                <a css={Styles.link}>About</a>
+              </Link>
             </div>
           </div>
-          <div css={Styles.banner}>
-            <h4>Sebastian Ojeda</h4>
-            <div css={Styles.externalLinks}>
-              <a href="https://github.com/sebsojeda" css={Styles.externalLink}>
-                <GitHub />
-              </a>
-              <a href="https://twitter.com/sebsojeda" css={Styles.externalLink}>
-                <Twitter />
-              </a>
-              <a
-                href="https://linkedin.com/in/sebastian-ojeda"
-                css={Styles.externalLink}
-              >
-                <LinkedIn />
-              </a>
-              <a href="/rss.xml" css={Styles.externalLink}>
-                <Rss />
-              </a>
+          <div css={Styles.section}>
+            <h5>Extras</h5>
+            <div>
+              <Link href="/snippets" passHref>
+                <a css={Styles.link}>Snippets</a>
+              </Link>
             </div>
-            <ThemeToggle />
           </div>
-          <div css={Styles.copyright}>
-            Copyright &copy; {new Date().getFullYear()} Sebastian Ojeda. All
-            Rights Reserved.
+        </div>
+        <div css={Styles.banner}>
+          <h4>Sebastian Ojeda</h4>
+          <div css={Styles.externalLinks}>
+            <a href="https://github.com/sebsojeda" css={Styles.externalLink}>
+              <GitHub />
+            </a>
+            <a href="https://twitter.com/sebsojeda" css={Styles.externalLink}>
+              <Twitter />
+            </a>
+            <a
+              href="https://linkedin.com/in/sebastian-ojeda"
+              css={Styles.externalLink}
+            >
+              <LinkedIn />
+            </a>
+            <a href="/rss.xml" css={Styles.externalLink}>
+              <Rss />
+            </a>
           </div>
-        </Container>
-      </footer>
-    </>
+          <ThemeToggle />
+        </div>
+        <div css={Styles.copyright}>
+          Copyright &copy; {new Date().getFullYear()} Sebastian Ojeda. All
+          Rights Reserved.
+        </div>
+      </Container>
+    </footer>
   );
 }
