@@ -75,9 +75,7 @@ export default function Post(props: PostProps) {
           />
         </div>
       )}
-      <article
-        className={`prose lg:prose-xl max-w-none ${isDark && "prose-invert"}`}
-      >
+      <article className={`prose max-w-none ${isDark && "prose-invert"}`}>
         <PostBody components={Mdx} />
       </article>
       <div className="text-accent-5 my-16">
