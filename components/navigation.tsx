@@ -1,35 +1,12 @@
-import { css } from "@emotion/react";
 import ActiveLink from "./active-link";
 import Container from "./container";
 import Dropdown from "./dropdown";
 
-const Styles = {
-  nav: css`
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    padding-bottom: 4rem;
-    padding-top: 1.75rem;
-  `,
-  navList: css`
-    list-style: none;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    li {
-      margin-left: 1.5rem;
-    }
-    li:first-child {
-      margin-left: 0;
-    }
-  `,
-};
-
 export default function Navigation() {
   return (
     <Container>
-      <nav css={Styles.nav}>
-        <ul css={Styles.navList}>
+      <nav className="pb-16 pt-7">
+        <ul className="flex items-center gap-6">
           <li>
             <ActiveLink href="/" text="Home" />
           </li>

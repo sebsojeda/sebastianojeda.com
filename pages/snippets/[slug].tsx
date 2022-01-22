@@ -1,10 +1,9 @@
 import { getGistById, listGists } from "../../lib/github";
 import fs from "fs";
 import path from "path";
-import { css } from "@emotion/react";
-import SnippetCode from "../../components/snippet-code";
-import SnippetHeader from "../../components/snippet-header";
 import Meta from "../../components/meta";
+import Title from "../../components/title";
+import Code from "../../components/code";
 
 type SnippetProps = {
   snippet: {
@@ -21,94 +20,6 @@ type SnippetProps = {
   };
 };
 
-const Styles = {
-  container: css`
-    background: var(--color-accent-1);
-    position: relative;
-    & > button {
-      opacity: 0;
-    }
-    :hover > button {
-      opacity: 1;
-    }
-  `,
-  pre: css`
-    margin-top: 0;
-    margin-bottom: 1rem;
-  `,
-  code: css`
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-    border-bottom: 1px solid var(--color-accent-2);
-    border-left: 1px solid var(--color-accent-2);
-    border-right: 1px solid var(--color-accent-2);
-    border-radius: 0 0 5px 5px;
-    display: block;
-    padding: 1rem 0;
-    overflow: auto;
-  `,
-  metadata: css`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--color-accent-1);
-    border-radius: 5px 5px 0 0;
-    border: 1px solid var(--color-accent-2);
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-  `,
-  language: css`
-    text-transform: uppercase;
-    user-select: none;
-    color: var(--color-accent-5);
-  `,
-  filename: css`
-    user-select: none;
-    color: var(--color-accent-5);
-  `,
-  line: css`
-    box-sizing: border-box;
-    padding: 0 1rem;
-    min-width: fit-content;
-  `,
-  copy: css`
-    border: 1px solid var(--color-accent-2);
-    color: var(--color-accent-2);
-    background-color: var(--color-accent-1);
-    position: absolute;
-    border-radius: 5px;
-    padding: 0.5rem;
-    top: 2.75rem;
-    right: 0.75rem;
-    &:hover {
-      cursor: pointer;
-      border: 1px solid var(--color-accent-4);
-      color: var(--color-accent-4);
-    }
-  `,
-  check: css`
-    border: 1px solid var(--color-success);
-    color: var(--color-success);
-    background-color: var(--color-accent-1);
-    position: absolute;
-    border-radius: 5px;
-    padding: 0.5rem;
-    top: 2.75rem;
-    right: 0.75rem;
-    &:hover {
-      cursor: pointer;
-    }
-  `,
-  link: css`
-    margin: 2rem 0 3.5rem 0;
-    display: inline-block;
-    color: var(--color-success);
-    :hover {
-      color: var(--color-success-dark);
-    }
-  `,
-};
-
 export default function Snippet(props: SnippetProps) {
   return (
     <>
@@ -116,19 +27,22 @@ export default function Snippet(props: SnippetProps) {
         title={props.snippet.title}
         description={props.snippet.description}
       />
-      <SnippetHeader
-        title={props.snippet.title}
-        description={props.snippet.description}
-      />
-      {props.snippet.files.map((file) => (
-        <SnippetCode
-          key={file.filename}
-          content={file.content}
-          filename={file.filename}
-          language={file.language}
-        />
-      ))}
-      <a href={props.snippet.url} css={Styles.link}>
+      <Title text={props.snippet.title} />
+      <p className="text-accent-5 pt-5">{props.snippet.description}</p>
+      <div className="grid grid-cols-1 space-y-4 my-8">
+        {props.snippet.files.map((file) => (
+          <Code
+            key={file.filename}
+            content={file.content}
+            filename={file.filename}
+            language={file.language}
+          />
+        ))}
+      </div>
+      <a
+        href={props.snippet.url}
+        className="text-success hover:text-success-dark underline underline-offset-1 mb-16 inline-block"
+      >
         View in GitHub
       </a>
     </>

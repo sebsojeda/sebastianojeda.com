@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import Link from "next/link";
 import Container from "./container";
 import GitHub from "./icons/github";
@@ -8,133 +7,80 @@ import Twitter from "./icons/twitter";
 import RecentlyPlayed from "./recently-played";
 import ThemeToggle from "./theme-toggle";
 
-const Styles = {
-  footer: css`
-    border-top: 1px solid var(--color-accent-2);
-    background-color: var(--color-accent-1);
-    padding: 3rem 0;
-  `,
-  wrapper: css`
-    padding-top: 2rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    @media only screen and (min-width: 425px) {
-      grid-template-columns: 1fr 1fr;
-    }
-  `,
-  link: css`
-    text-decoration: none;
-    color: var(--color-accent-5);
-    margin: 0.75rem 0;
-    display: inline-block;
-    :hover {
-      cursor: pointer;
-      color: var(--color-foreground);
-    }
-  `,
-  section: css`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: start;
-    @media only screen and (min-width: 425px) {
-      h5 {
-        margin-top: 0;
-      }
-    }
-  `,
-  banner: css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
-    @media only screen and (min-width: 425px) {
-      flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 0;
-    }
-  `,
-  externalLink: css`
-    color: var(--color-accent-5);
-    :hover {
-      color: var(--color-foreground);
-    }
-  `,
-  externalLinks: css`
-    color: var(--color-accent-5);
-    * + * {
-      margin-left: 1rem;
-    }
-    margin-bottom: 1rem;
-    @media only screen and (min-width: 425px) {
-      margin-bottom: 0;
-    }
-  `,
-  copyright: css`
-    border-top: 1px solid var(--color-accent-2);
-    color: var(--color-accent-5);
-    padding-top: 1rem;
-    font-size: 0.85rem;
-  `,
-};
-
 export default function Footer() {
   return (
-    <footer css={Styles.footer}>
+    <footer className="border-t border-t-accent-2 py-12 bg-accent-1">
       <Container>
         <RecentlyPlayed />
-        <div css={Styles.wrapper}>
-          <div css={Styles.section}>
+        <div className="py-4 grid grid-cols-1 sm:grid-cols-2">
+          <div>
             <h5>Pages</h5>
-            <div>
-              <Link href="/" passHref>
-                <a css={Styles.link}>Home</a>
-              </Link>
-            </div>
-            <div>
-              <Link href="/blog" passHref>
-                <a css={Styles.link}>Blog</a>
-              </Link>
-            </div>
-            <div>
-              <Link href="/about" passHref>
-                <a css={Styles.link}>About</a>
-              </Link>
-            </div>
+            <ul>
+              <li>
+                <Link href="/" passHref>
+                  <a className="text-accent-5 my-3 inline-block hover:text-foreground">
+                    Home
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" passHref>
+                  <a className="text-accent-5 my-3 inline-block hover:text-foreground">
+                    Blog
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" passHref>
+                  <a className="text-accent-5 my-3 inline-block hover:text-foreground">
+                    About
+                  </a>
+                </Link>
+              </li>
+            </ul>
           </div>
-          <div css={Styles.section}>
+          <div>
             <h5>Extras</h5>
-            <div>
-              <Link href="/snippets" passHref>
-                <a css={Styles.link}>Snippets</a>
-              </Link>
-            </div>
+            <ul>
+              <li>
+                <Link href="/snippets" passHref>
+                  <a className="text-accent-5 my-3 inline-block hover:text-foreground">
+                    Snippets
+                  </a>
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
-        <div css={Styles.banner}>
+        <div className="flex flex-col items-center pb-4 gap-4 sm:flex-row sm:justify-between">
           <h4>Sebastian Ojeda</h4>
-          <div css={Styles.externalLinks}>
-            <a href="https://github.com/sebsojeda" css={Styles.externalLink}>
+          <div className="flex items-center justify-center gap-4 text-accent-5">
+            <a
+              href="https://github.com/sebsojeda"
+              className="hover:text-foreground"
+            >
               <GitHub />
             </a>
-            <a href="https://twitter.com/sebsojeda" css={Styles.externalLink}>
+            <a
+              href="https://twitter.com/sebsojeda"
+              className="hover:text-foreground"
+            >
               <Twitter />
             </a>
             <a
               href="https://linkedin.com/in/sebastian-ojeda"
-              css={Styles.externalLink}
+              className="hover:text-foreground"
             >
               <LinkedIn />
             </a>
-            <a href="/rss.xml" css={Styles.externalLink}>
+            <a href="/rss.xml" className="hover:text-foreground">
               <Rss />
             </a>
           </div>
           <ThemeToggle />
         </div>
-        <div css={Styles.copyright}>
-          Copyright &copy; {new Date().getFullYear()} Sebastian Ojeda. All
-          Rights Reserved.
+        <div className="border-t border-accent-2 text-xs pt-4">
+          Copyright &copy; 2021-Present Sebastian Ojeda. All Rights Reserved.
         </div>
       </Container>
     </footer>

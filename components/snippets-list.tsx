@@ -24,7 +24,7 @@ const Styles = {
 
 export default function SnippetsList(props: SnippetsListProps) {
   return (
-    <div css={Styles.wrapper}>
+    <div className="my-16 grid grid-cols-1 gap-4 md:grid-cols-2">
       {props.snippets.map((snippet) => (
         <SnippetPreview
           key={snippet.id}

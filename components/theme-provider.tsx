@@ -16,7 +16,8 @@ type ThemeProviderProps = {
 const defaultContext: {
   colorMode: string;
   setColorMode: Dispatch<SetStateAction<string>>;
-} = { colorMode: "system", setColorMode: () => {} };
+  systemPreference: string;
+} = { colorMode: "system", setColorMode: () => {}, systemPreference: "" };
 
 export const ThemeContext = createContext(defaultContext);
 
@@ -72,7 +73,9 @@ export default function ThemeProvider(props: ThemeProviderProps) {
   }, [colorMode, systemPreference]);
 
   return (
-    <ThemeContext.Provider value={{ colorMode, setColorMode }}>
+    <ThemeContext.Provider
+      value={{ colorMode, setColorMode, systemPreference }}
+    >
       {props.children}
     </ThemeContext.Provider>
   );

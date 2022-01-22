@@ -1,49 +1,5 @@
-import { css } from "@emotion/react";
-import Header from "../components/header";
-import Image from "next/image";
+import Title from "../components/title";
 import Meta from "../components/meta";
-
-const Styles = {
-  image: css`
-    border-radius: 100%;
-    z-index: -1;
-  `,
-  headerText: css`
-    display: inline-block;
-    font-weight: bold;
-    background: -webkit-linear-gradient(
-      to right,
-      var(--color-error-light) 0%,
-      var(--color-warning-light) 50%,
-      var(--color-highlight-yellow) 100%
-    );
-    background: -moz-linear-gradient(
-      to right,
-      var(--color-error-light) 0%,
-      var(--color-warning-light) 50%,
-      var(--color-highlight-yellow) 100%
-    );
-    background: linear-gradient(
-      to right,
-      var(--color-error-light) 0%,
-      var(--color-warning-light) 50%,
-      var(--color-highlight-yellow) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  `,
-  about: css`
-    line-height: 1.5rem;
-    color: var(--color-accent-5);
-    a {
-      color: var(--color-success);
-      :hover {
-        color: var(--color-success-dark);
-      }
-    }
-    margin-bottom: 3.5rem;
-  `,
-};
 
 export default function About() {
   return (
@@ -52,10 +8,8 @@ export default function About() {
         title="About Me"
         description="I make it my mission to deliver value through user-centered tools, applications, and seamless integration with the cloud."
       />
-      <Header>
-        <h1 css={Styles.headerText}>About Me</h1>
-      </Header>
-      <div css={Styles.about}>
+      <Title text="About Me" gradient="yellow" />
+      <div className="pt-5 text-accent-5 mb-16">
         <p>
           Hey, I&apos;m Sebastian. I&apos;m a developer, writer, and creative
           coder. I currently work at{" "}

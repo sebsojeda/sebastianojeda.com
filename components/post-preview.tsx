@@ -27,10 +27,10 @@ const Styles = {
 export default function PostPreview(props: PostPreviewProps) {
   return (
     <Link href={`/blog/${props.slug}`} passHref>
-      <a css={Styles.card}>
-        <h3 css={Styles.title}>{props.title}</h3>
-        <p css={Styles.abstract}>{props.abstract}</p>
-        <div css={Styles.action}>
+      <a>
+        <h3 className="text-xl font-medium">{props.title}</h3>
+        <p className="text-accent-5 py-2">{props.abstract}</p>
+        <div className="text-sm">
           Read More <span>&rarr;</span>
         </div>
       </a>

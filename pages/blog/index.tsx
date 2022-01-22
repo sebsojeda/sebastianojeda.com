@@ -1,10 +1,9 @@
-import { css } from "@emotion/react";
 import { useState } from "react";
-import Header from "../../components/header";
 import PostsList from "../../components/posts-list";
 import Search from "../../components/search";
 import { getAllFilesFrontMatter } from "../../lib/mdx";
 import Meta from "../../components/meta";
+import Title from "../../components/title";
 
 type PostsProps = {
   posts: {
@@ -16,33 +15,6 @@ type PostsProps = {
     slug: string;
     timeToRead: string;
   }[];
-};
-
-const Styles = {
-  headerText: css`
-    display: inline-block;
-    font-weight: bold;
-    background: -webkit-linear-gradient(
-      to right,
-      var(--color-success-dark) 0%,
-      var(--color-success-light) 50%,
-      var(--color-cyan) 100%
-    );
-    background: -moz-linear-gradient(
-      to right,
-      var(--color-success-dark) 0%,
-      var(--color-success-light) 50%,
-      var(--color-cyan) 100%
-    );
-    background: linear-gradient(
-      to right,
-      var(--color-success-dark) 0%,
-      var(--color-success-light) 50%,
-      var(--color-cyan) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  `,
 };
 
 export default function Posts(props: PostsProps) {
@@ -57,22 +29,17 @@ export default function Posts(props: PostsProps) {
         title="Blog"
         description="I've been writing on and off for the past few years on different platforms but decided to gather my thoughts in one place. I like to write about my successes in development and various computer science topics that interest me."
       />
-      <Header>
-        <h1 css={Styles.headerText}>Blog</h1>
-        <p
-          css={css`
-            color: var(--color-accent-5);
-            line-height: 1.5rem;
-          `}
-        >
-          I&apos;ve been writing on and off for the past few years on different
-          platforms but decided to gather my thoughts in one place. I like to
-          write about my successes in development and various computer science
-          topics that interest me.
-        </p>
-        <Search onChange={(e) => setQuery(e.target.value)} value={query} />
-      </Header>
-      <PostsList posts={results} />
+      <Title text="Blog" gradient="cyan" />
+      <p className="pt-5 text-accent-5">
+        I&apos;ve been writing on and off for the past few years on different
+        platforms but decided to gather my thoughts in one place. I like to
+        write about my successes in development and various computer science
+        topics that interest me.
+      </p>
+      <Search onChange={(e) => setQuery(e.target.value)} value={query} />
+      <div className="mb-16">
+        <PostsList posts={results} />
+      </div>
     </>
   );
 }

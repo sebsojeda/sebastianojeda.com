@@ -1,7 +1,6 @@
 import { css } from "@emotion/react";
 import Head from "next/head";
 import Link from "next/link";
-import Header from "../components/header";
 
 const Styles = {
   title: css`
@@ -27,9 +26,7 @@ export default function NotFound() {
       <Head>
         <title>Page Not Found</title>
       </Head>
-      <Header>
-        <h1 css={Styles.title}>Page Not Found</h1>
-      </Header>
+      <h1 css={Styles.title}>Page Not Found</h1>
       <p css={Styles.blurb}>
         That page does not exist but you can explore the{" "}
         <Link href="/blog" passHref>

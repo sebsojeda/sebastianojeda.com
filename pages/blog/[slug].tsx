@@ -8,6 +8,7 @@ import { css } from "@emotion/react";
 import Image from "next/image";
 import Likes from "../../components/likes";
 import Meta from "../../components/meta";
+import { useTheme } from "../../components/theme-provider";
 
 type PostProps = {
   post: {
@@ -43,6 +44,10 @@ const Styles = {
 };
 
 export default function Post(props: PostProps) {
+  const { colorMode, systemPreference } = useTheme();
+  const isDark =
+    colorMode === "dark" ||
+    (colorMode === "system" && systemPreference === "dark");
   const PostBody = React.useMemo(
     () => getMDXComponent(props.post.code),
     [props.post.code]
@@ -70,8 +75,12 @@ export default function Post(props: PostProps) {
           />
         </div>
       )}
-      <PostBody components={Mdx} />
-      <div css={Styles.date}>
+      <article
+        className={`prose lg:prose-xl max-w-none ${isDark && "prose-invert"}`}
+      >
+        <PostBody components={Mdx} />
+      </article>
+      <div className="text-accent-5 my-16">
         Published on <DateFormatter dateString={props.post.frontmatter.date} />
       </div>
     </>

@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import Link from "next/link";
 
 type SnippetPreviewProps = {
@@ -7,32 +6,13 @@ type SnippetPreviewProps = {
   description: string;
 };
 
-const Styles = {
-  card: css`
-    text-decoration: none;
-    color: var(--color-foreground);
-    padding: 1rem;
-    border-radius: 5px;
-    border: 1px solid var(--color-accent-2);
-  `,
-  title: css`
-    margin-top: 0;
-    word-break: break-all;
-  `,
-  description: css`
-    height: 3rem;
-    color: var(--color-accent-5);
-  `,
-  action: css``,
-};
-
 export default function SnippetPreview(props: SnippetPreviewProps) {
   return (
     <Link href={`/snippets/${props.slug}`} passHref>
-      <a css={Styles.card}>
-        <h3 css={Styles.title}>{props.title}</h3>
-        <p css={Styles.description}>{props.description}</p>
-        <div css={Styles.action}>
+      <a className="p-4 rounded-lg border border-accent-2 flex flex-col">
+        <h3 className="text-xl font-medium">{props.title}</h3>
+        <p className="text-accent-5 py-2 grow">{props.description}</p>
+        <div className="text-sm">
           View Code <span>&rarr;</span>
         </div>
       </a>
