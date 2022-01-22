@@ -4,9 +4,10 @@ import { useRouter } from "next/router";
 type ActiveLinkProps = {
   href: string;
   text: string;
+  [key: string]: any;
 };
 
-export default function ActiveLink({ href, text }: ActiveLinkProps) {
+export default function ActiveLink({ href, text, ...rest }: ActiveLinkProps) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
@@ -16,6 +17,7 @@ export default function ActiveLink({ href, text }: ActiveLinkProps) {
         className={
           isActive ? "text-foreground" : "text-accent-5 hover:text-foreground"
         }
+        {...rest}
       >
         {text}
       </a>

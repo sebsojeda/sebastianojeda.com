@@ -1,83 +1,42 @@
-import { css } from "@emotion/react";
-import { ReactNode, useEffect, useState } from "react";
-import Triangle from "./icons/triangle";
+import { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import ActiveLink from "./active-link";
 
 type DropdownProps = {
   label: string;
-  children: ReactNode;
-};
-
-const Styles = {
-  dropdown: css`
-    position: relative;
-    user-select: none;
-    }
-  `,
-  triangle: css`
-    width: 100%;
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 1rem;
-    padding-top: 5px;
-  `,
-  label: css`
-    margin-left: 0;
-    color: var(--color-accent-5);
-    :hover {
-      cursor: pointer;
-      color: var(--color-foreground);
-    }
-  `,
-  dropdownItems: css`
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: auto;
-    min-width: max-content;
-    background-color: var(--color-background);
-    border: 1px solid var(--color-accent-2);
-    border-radius: 5px;
-    padding: 1rem;
-    position: absolute;
-    top: 35px;
-    right: 0;
-  `,
 };
 
 export default function Dropdown(props: DropdownProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      if (isOpen) {
-        window.addEventListener("click", () => setIsOpen(false));
-      } else {
-        window.removeEventListener("click", () => setIsOpen(false));
-      }
-    }, 0);
-    return window.removeEventListener("click", () => setIsOpen(false));
-  }, [isOpen]);
   return (
-    <div css={Styles.dropdown}>
-      <div
-        css={Styles.label}
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsOpen(!isOpen);
-        }}
-      >
-        {props.label}
+    <Menu as="div" className="relative">
+      <div className="text-accent-5 hover:text-foreground">
+        <Menu.Button>{props.label}</Menu.Button>
       </div>
-      {isOpen && (
-        <div css={Styles.triangle}>
-          <Triangle />
-        </div>
-      )}
-      {isOpen && (
-        <div role="list" css={Styles.dropdownItems}>
-          {props.children}
-        </div>
-      )}
-    </div>
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="absolute right-0 mt-2 origin-top-right rounded-lg ring-1 ring-accent-2 p-2">
+          <Menu.Item>
+            {({ active }) => (
+              <ActiveLink
+                href="/snippets"
+                text="Snippets"
+                className={
+                  active
+                    ? "text-foreground"
+                    : "text-accent-5 hover:text-foreground"
+                }
+              />
+            )}
+          </Menu.Item>
+        </Menu.Items>
+      </Transition>
+    </Menu>
   );
 }

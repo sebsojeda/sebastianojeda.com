@@ -17,9 +17,7 @@ export default function Navigation() {
             <ActiveLink href="/about" text="About" />
           </li>
           <li>
-            <Dropdown label="Extras">
-              <ActiveLink href="/snippets" text="Snippets" />
-            </Dropdown>
+            <Dropdown label="Extras" />
           </li>
         </ul>
       </nav>
