@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useTheme } from "./theme-provider";
 
 type MetaProps = {
   title: string;
@@ -9,6 +10,10 @@ type MetaProps = {
 
 export default function Meta(props: MetaProps) {
   const router = useRouter();
+  const { colorMode, systemPreference } = useTheme();
+  const isDark =
+    colorMode === "dark" ||
+    (colorMode === "system" && systemPreference === "dark");
   return (
     <Head>
       <title>{props.title}</title>
@@ -42,6 +47,7 @@ export default function Meta(props: MetaProps) {
           props.image ?? "https://www.sebastianojeda.com/images/banner.png"
         }
       />
+      <meta name="theme-color" content={isDark ? "#000000" : "#ffffff"} />
     </Head>
   );
 }
