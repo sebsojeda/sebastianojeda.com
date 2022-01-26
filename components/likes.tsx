@@ -1,29 +1,9 @@
-import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import Heart from "./icons/heart";
 import HeartFill from "./icons/heart-fill";
 
 type LikesProps = {
   slug: string;
-};
-
-const Styles = {
-  container: css`
-    position: fixed;
-    width: 100%;
-    border: 1px solid red;
-    left: 0;
-    top: 50vh;
-  `,
-  wrapper: css`
-    max-width: 58rem;
-    margin: auto;
-    padding: 0 1.25rem;
-    border: 1px solid green;
-  `,
-  likes: css`
-    border: 1px solid blue;
-  `,
 };
 
 export default function Likes(props: LikesProps) {
@@ -77,9 +57,9 @@ export default function Likes(props: LikesProps) {
   return null;
 
   return (
-    <div css={Styles.container}>
-      <div css={Styles.wrapper}>
-        <div css={Styles.likes}>
+    <div>
+      <div>
+        <div>
           <button onClick={handleLike}>
             {state.hasLiked ? <HeartFill /> : <Heart />}
           </button>

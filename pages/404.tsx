@@ -1,24 +1,5 @@
-import { css } from "@emotion/react";
 import Head from "next/head";
 import Link from "next/link";
-
-const Styles = {
-  title: css`
-    display: inline-block;
-    font-weight: bold;
-  `,
-  blurb: css`
-    margin-bottom: 3.5rem;
-    line-height: 1.5rem;
-    color: var(--color-accent-5);
-    a {
-      color: var(--color-success);
-      :hover {
-        color: var(--color-success-dark);
-      }
-    }
-  `,
-};
 
 export default function NotFound() {
   return (
@@ -26,11 +7,11 @@ export default function NotFound() {
       <Head>
         <title>Page Not Found</title>
       </Head>
-      <h1 css={Styles.title}>Page Not Found</h1>
-      <p css={Styles.blurb}>
+      <h1 className="inline-block font-bold">Page Not Found</h1>
+      <p className="mb-14 text-accent-5">
         That page does not exist but you can explore the{" "}
         <Link href="/blog" passHref>
-          <a>Blog</a>
+          <a className="text-success hover:text-success-dark">Blog</a>
         </Link>
         .
       </p>

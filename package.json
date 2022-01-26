@@ -11,8 +11,6 @@
     "postbuild": "node ./scripts/generate-site-map.mjs && node ./scripts/generate-rss.mjs"
   },
   "dependencies": {
-    "@emotion/babel-plugin": "^11.3.0",
-    "@emotion/react": "^11.4.1",
     "@headlessui/react": "^1.4.3",
     "@next-auth/prisma-adapter": "^1.0.1",
     "@prisma/client": "^3.8.1",

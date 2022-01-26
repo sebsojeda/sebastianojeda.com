@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import { ChangeEventHandler, ReactNode } from "react";
 
 type SelectProps = {
@@ -9,62 +8,26 @@ type SelectProps = {
   onChange?: ChangeEventHandler<HTMLSelectElement>;
 };
 
-const Styles = {
-  container: css`
-    width: 6.5rem;
-    box-sizing: border-box;
-    padding: 0.35rem;
-    position: relative;
-    background-color: var(--color-accent-1);
-    color: var(--color-foreground);
-    border: 1px solid var(--color-accent-2);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 5px;
-    font-size: 0.75rem;
-    :hover,
-    :focus-within {
-      span {
-        color: var(--color-foreground);
-      }
-      border: 1px solid var(--color-foreground);
-    }
-  `,
-  prefix: css`
-    color: var(--color-accent-5);
-  `,
-  suffix: css`
-    color: var(--color-accent-5);
-  `,
-  select: css`
-    position: absolute;
-    padding: 0 1.85rem;
-    left: 0;
-    top: 0;
-    background-color: transparent;
-    color: var(--color-foreground);
-    border: none;
-    outline: none;
-    -moz-appearance: none; /* Firefox */
-    -webkit-appearance: none; /* Safari and Chrome */
-    appearance: none;
-    width: 100%;
-    height: 100%;
-    :hover {
-      cursor: pointer;
-    }
-  `,
-};
-
 export default function Select(props: SelectProps) {
   return (
-    <div css={Styles.container}>
-      {props.prefix && <span css={Styles.prefix}>{props.prefix}</span>}
-      <select value={props.value} onChange={props.onChange} css={Styles.select}>
+    <div className="w-28 box-border p-2 relative bg-accent-1 border border-accent-2 flex items-center justify-between rounded-lg text-xs group hover:border-foreground focus-within:border-foreground">
+      {props.prefix && (
+        <span className="text-accent-5 group-focus-within:text-foreground group-hover:text-foreground">
+          {props.prefix}
+        </span>
+      )}
+      <select
+        value={props.value}
+        onChange={props.onChange}
+        className="absolute px-7 left-0 top-0 bg-transparent border-none outline-none appearance-none w-full h-full hover:cursor-pointer"
+      >
         {props.children}
       </select>
-      {props.suffix && <span css={Styles.suffix}>{props.suffix}</span>}
+      {props.suffix && (
+        <span className="text-accent-5 group-focus-within:text-foreground group-hover:text-foreground">
+          {props.suffix}
+        </span>
+      )}
     </div>
   );
 }
