@@ -29,7 +29,7 @@ export default function Posts(props: PostsProps) {
         title="Blog"
         description="I've been writing on and off for the past few years on different platforms but decided to gather my thoughts in one place. I like to write about my successes in development and various computer science topics that interest me."
       />
-      <Title text="Blog" gradient="cyan" />
+      <Title text="Blog" gradient="pink" />
       <p className="pt-5 text-accent-5">
         I&apos;ve been writing on and off for the past few years on different
         platforms but decided to gather my thoughts in one place. I like to

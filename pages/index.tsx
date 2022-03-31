@@ -27,7 +27,7 @@ export default function Home(props: HomeProps) {
           />
         </div>
         <div className="pt-5 md:pt-0 md:pr-8">
-          <Title text="Sebastian Ojeda" gradient="pink" />
+          <Title text="Sebastian Ojeda" gradient="cyan" />
           <h2>Developer and creative coder.</h2>
           <p className="text-accent-5 pt-5">
             I make it my mission to deliver value through user-centered tools,
