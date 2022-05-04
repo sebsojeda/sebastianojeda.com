@@ -54,7 +54,7 @@ export default function Code(props: CodeProps) {
           className={`opacity-0 border bg-accent-1 absolute rounded-lg p-2 right-2 group-hover:opacity-100 hover:cursor-pointer ${
             copied
               ? "text-success border-success hover:border-success hover:text-success opacity-100"
-              : "text-accent-2 border-accent-2 hover:border-accent-4 hover:text-accent-4"
+              : "text-accent-4 border-accent-2 hover:border-accent-4"
           }`}
           onClick={handleCopyCode}
         >
