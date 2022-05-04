@@ -1,9 +1,11 @@
-export default function Heart() {
+import { IconProps } from ".";
+
+export default function Heart({ size }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
-      width="24"
-      height="24"
+      width={size ?? 24}
+      height={size ?? 24}
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"

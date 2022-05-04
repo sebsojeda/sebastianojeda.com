@@ -16,12 +16,12 @@ export default function ThemeToggle() {
     <Select
       prefix={
         <>
-          {colorMode === "system" && <Display />}
-          {colorMode === "light" && <Sun />}
-          {colorMode === "dark" && <Moon />}
+          {colorMode === "system" && <Display size={14} />}
+          {colorMode === "light" && <Sun size={14} />}
+          {colorMode === "dark" && <Moon size={14} />}
         </>
       }
-      suffix={<ChevronUpDown />}
+      suffix={<ChevronUpDown size={14} />}
       value={colorMode}
       onChange={(e) => setColorMode(e.target.value)}
     >

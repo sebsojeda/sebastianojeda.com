@@ -9,7 +9,7 @@ type PostPreviewProps = {
 export default function PostPreview(props: PostPreviewProps) {
   return (
     <Link href={`/blog/${props.slug}`} passHref>
-      <a>
+      <a className="block">
         <h3 className="text-xl font-medium">{props.title}</h3>
         <p className="text-accent-5 py-2">{props.abstract}</p>
         <div className="text-sm">

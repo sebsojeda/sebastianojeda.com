@@ -61,7 +61,7 @@ export default function Post(props: PostProps) {
       <article className={`prose max-w-none ${isDark && "prose-invert"}`}>
         <PostBody components={Mdx} />
       </article>
-      <div className="text-accent-5 my-16">
+      <div className="text-accent-7 my-16">
         Published on <DateFormatter dateString={props.post.frontmatter.date} />
       </div>
     </>

@@ -1,9 +1,11 @@
-export default function Twitter() {
+import { IconProps } from ".";
+
+export default function Twitter({ size }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
-      width="20"
-      height="20"
+      width={size ?? 24}
+      height={size ?? 24}
       fill="currentColor"
       shapeRendering="geometricPrecision"
     >

@@ -10,7 +10,12 @@ export default function PageViews(props: PageViewProps) {
     fetch(url, {
       method: "GET",
       credentials: "same-origin",
-    }).then((res) => res.json())
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error("Error while fetching data.");
+      }
+      return res.json();
+    })
   );
 
   useEffect(() => {

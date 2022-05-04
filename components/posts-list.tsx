@@ -13,7 +13,7 @@ type PostsListProps = {
 
 export default function PostsList(props: PostsListProps) {
   return (
-    <div className="py-5">
+    <div className="py-5 space-y-7">
       {props.posts.map(({ frontmatter, slug }) => (
         <PostPreview
           key={slug}

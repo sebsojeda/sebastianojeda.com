@@ -59,22 +59,22 @@ export default function Footer() {
               href="https://github.com/sebsojeda"
               className="hover:text-foreground"
             >
-              <GitHub />
+              <GitHub size={14} />
             </a>
             <a
               href="https://twitter.com/sebsojeda"
               className="hover:text-foreground"
             >
-              <Twitter />
+              <Twitter size={18} />
             </a>
             <a
               href="https://linkedin.com/in/sebastian-ojeda"
               className="hover:text-foreground"
             >
-              <LinkedIn />
+              <LinkedIn size={18} />
             </a>
             <a href="/rss.xml" className="hover:text-foreground">
-              <Rss />
+              <Rss size={18} />
             </a>
           </div>
           <ThemeToggle />

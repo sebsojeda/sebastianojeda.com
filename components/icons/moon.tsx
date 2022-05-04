@@ -1,9 +1,11 @@
-export default function Moon() {
+import { IconProps } from ".";
+
+export default function Moon({ size }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
-      width="14"
-      height="14"
+      width={size ?? 24}
+      height={size ?? 24}
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"

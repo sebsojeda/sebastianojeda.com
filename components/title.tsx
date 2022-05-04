@@ -14,7 +14,7 @@ export default function Title({ text, gradient }: TitleProps) {
   return (
     <div>
       <span
-        className={`text-3xl md:text-5xl font-bold break-all ${
+        className={`text-3xl md:text-5xl font-bold ${
           gradient &&
           `bg-clip-text text-transparent bg-gradient-to-r ${transition}`
         }`}

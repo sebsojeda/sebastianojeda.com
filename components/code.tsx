@@ -44,15 +44,21 @@ export default function Code(props: CodeProps) {
         </div>
       )}
       <pre className="overflow-auto py-4">
+        {copied && (
+          <div className="bg-accent-4 absolute rounded-md p-1 right-12 text-xs mt-1 text-[#fff]">
+            Copied!
+          </div>
+        )}
         <button
-          className={`opacity-0 border bg-accent-1 absolute rounded-lg p-2 right-2 focus:opacity-100 group-hover:opacity-100 hover:cursor-pointer ${
+          tabIndex={-1}
+          className={`opacity-0 border bg-accent-1 absolute rounded-lg p-2 right-2 group-hover:opacity-100 hover:cursor-pointer ${
             copied
-              ? "text-success border-success hover:border-success hover:text-success"
+              ? "text-success border-success hover:border-success hover:text-success opacity-100"
               : "text-accent-2 border-accent-2 hover:border-accent-4 hover:text-accent-4"
           }`}
           onClick={handleCopyCode}
         >
-          {copied ? <Check /> : <Copy />}
+          {copied ? <Check size={14} /> : <Copy size={14} />}
         </button>
         <Highlight
           {...defaultProps}
