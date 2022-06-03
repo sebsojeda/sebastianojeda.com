@@ -32,7 +32,7 @@ export default function PostHeader(props: PostHeaderProps) {
           <span>
             <span>{props.timeToRead}</span> • <PageViews slug={props.slug} />
           </span>
-          <span className="flex items-center space-x-2">
+          <span className="flex items-center space-x-4">
             <a
               href={`https://twitter.com/intent/tweet?url=https://www.sebastianojeda.com${router.asPath}`}
               target="_blank"
