@@ -69,7 +69,7 @@ export default function MusicProvider(props: MusicProviderProps) {
   const handleAuthorize = async () => {
     setState({ ...state, loading: true });
     await state.musicKit.authorize();
-    await fetch("/api/music-user-token", {
+    fetch("/api/music-user-token", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,13 +82,9 @@ export default function MusicProvider(props: MusicProviderProps) {
     setState({ ...state, loading: false, authorized: true });
   };
 
-  const handleUnauthorize = async () => {
+  const handleUnauthorize = () => {
     setState({ ...state, loading: true });
-    await state.musicKit.unauthorize();
-    await fetch("/api/music-user-token", {
-      method: "DELETE",
-      credentials: "same-origin",
-    });
+    state.musicKit.unauthorize();
     setState({ ...state, loading: false, authorized: false });
   };
 
@@ -115,10 +111,11 @@ export default function MusicProvider(props: MusicProviderProps) {
       <Script
         src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"
         onLoad={() => {
-          window.localStorage.setItem(
-            `music.${TEAM_ID}.u`,
-            musicUserToken.data?.value
-          );
+          musicUserToken.data &&
+            window.localStorage.setItem(
+              `music.${TEAM_ID}.u`,
+              musicUserToken.data.value
+            );
           window.MusicKit.configure({
             developerToken: developerToken.data?.value,
             app: {
