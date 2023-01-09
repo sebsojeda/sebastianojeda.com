@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .clip-path-none {
+    clip-path: none;
+  }
+  .clip-path-inset-100 {
+    clip-path: inset(100%);
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+:root ::selection {
+  @apply text-white bg-teal-500;
+}
+
+:root.dark ::selection {
+  @apply text-white bg-fuchsia-500;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--color-accent-4);
+}
+
+.token.punctuation {
+  color: var(--color-foreground);
+}
+
+.token.property,
+.token.tag {
+  color: #22c55e;
+}
+
+.token.keyword {
+  color: #3b82f6;
+}
+
+.token.class-name {
+  color: #ec4899;
+}
+
+.token.boolean,
+.token.constant {
+  color: #22c55e;
+}
+
+.token.symbol,
+.token.deleted {
+  color: #ec4899;
+}
+
+.token.number {
+  color: #10b981;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a855f7;
+}
+
+.token.variable {
+  color: #eab308;
+}
+
+.token.operator {
+  color: #eab308;
+}
+
+.token.entity {
+  color: #ffffb6;
+  cursor: help;
+}
+
+.token.url {
+  color: #3b82f6;
+}
+
+.language-css .token.string,
+.style .token.string {
+  color: #a855f7;
+}
+
+.token.atrule,
+.token.attr-value {
+  color: #3b82f6;
+}
+
+.token.function {
+  color: #ec4899;
+}
+
+.token.regex {
+  color: #e9c062;
+}
+
+.token.important {
+  color: #ec4899;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
