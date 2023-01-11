@@ -1,4 +1,5 @@
 import fs from "fs";
+import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
 import readingTime from "reading-time";
@@ -16,6 +17,7 @@ export default async function getPost(slug) {
     .readFileSync(path.join(process.cwd(), "content", "blog", `${slug}.mdx`))
     .toString();
   const { text: timeToRead } = readingTime(source);
+  const { data: frontmatter } = matter(source);
   const mdxSource = await serialize(source, {
     parseFrontmatter: true,
     mdxOptions: {
@@ -29,6 +31,7 @@ export default async function getPost(slug) {
   });
   return {
     mdxSource,
+    frontmatter,
     timeToRead,
   };
 }

@@ -4,7 +4,7 @@
  * @typedef {object} MetaProps
  * @property {string} title - The text to display in the HTML `title` tag.
  * @property {string} description - Page description.
- * @property {string} [path] - Page `path` beginning with `/`.
+ * @property {string} path - Page `path` beginning with `/`.
  * @property {string} [image] - Featured page image.
  */
 
@@ -21,7 +21,7 @@ export default function Meta(props) {
 
       <meta
         property="og:url"
-        content={`https://www.sebastianojeda.com${props.path}`}
+        content={`https://www.sebastianojeda.com${props.path ?? ""}`}
       />
       <meta property="og:type" content="text/html" />
       <meta property="og:title" content={props.title} />
@@ -37,7 +37,7 @@ export default function Meta(props) {
       <meta property="twitter:domain" content="sebastianojeda.com" />
       <meta
         property="twitter:url"
-        content={`https://www.sebastianojeda.com${props.path}`}
+        content={`https://www.sebastianojeda.com${props.path ?? ""}`}
       />
       <meta property="twitter:title" content={props.title} />
       <meta property="twitter:description" content={props.description} />

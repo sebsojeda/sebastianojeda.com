@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Code from "../../../components/Code";
-import Meta from "../../../components/Meta";
 import Title from "../../../components/Title";
 import { getGist } from "../../../utils/getGist";
 
@@ -24,7 +23,6 @@ export default async function SnippetsCodePage({ params }) {
 
   return (
     <>
-      <Meta title={snippet.title} description={snippet.description} />
       <Title text={snippet.title} />
       <p className="text-neutral-500 dark:text-neutral-400 pt-5">
         {snippet.description}

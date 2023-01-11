@@ -1,6 +1,5 @@
 import Image from "next/image";
 import DateFormatter from "../../../components/DateFormatter";
-import Meta from "../../../components/Meta";
 import PostContent from "../../../components/PostContent";
 import PostHeader from "../../../components/PostHeader";
 import getPost from "../../../utils/getPost";
@@ -21,27 +20,22 @@ import viewPost from "../../../utils/viewPost";
  */
 export default async function BlogPostPage({ params }) {
   const { slug } = params;
-  const { mdxSource: source, timeToRead } = await getPost(slug);
+  const { mdxSource, frontmatter, timeToRead } = await getPost(slug);
   viewPost(slug);
 
   return (
     <>
-      <Meta
-        title={source.frontmatter.title}
-        description={source.frontmatter.abstract}
-        image={source.frontmatter.image}
-      />
       <PostHeader
-        title={source.frontmatter.title}
+        title={frontmatter.title}
         timeToRead={timeToRead}
         slug={slug}
       />
-      {source.frontmatter.image && (
+      {frontmatter.image && (
         <div className="my-8">
           <Image
             priority
-            src={source.frontmatter.image}
-            alt={source.frontmatter.title}
+            src={frontmatter.image}
+            alt={frontmatter.title}
             width="1200"
             height="500"
             className="rounded-lg"
@@ -49,10 +43,10 @@ export default async function BlogPostPage({ params }) {
         </div>
       )}
       <article className={`prose dark:prose-invert max-w-none`}>
-        <PostContent source={source} />
+        <PostContent source={mdxSource} />
       </article>
       <div className="text-neutral-600 dark:text-neutral-300 my-16">
-        Published on <DateFormatter dateString={source.frontmatter.date} />
+        Published on <DateFormatter dateString={frontmatter.date} />
       </div>
     </>
   );
