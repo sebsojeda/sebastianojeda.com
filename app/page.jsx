@@ -16,7 +16,7 @@ export default async function Home() {
       <div className="flex mb-16 flex-col md:flex-row-reverse">
         <div className="md:w-28 w-20 shrink-0">
           <Image
-            src="/images/sebastian-ojeda.jpeg"
+            src="/images/sebastian-ojeda.png"
             height={112}
             width={112}
             alt="Headshot of Sebastian Ojeda"

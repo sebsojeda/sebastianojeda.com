@@ -25,7 +25,7 @@ export default function PostHeader(props) {
       <div className="text-neutral-500 dark:text-neutral-400 my-8 flex flex-col md:flex-row md:space-x-2">
         <div className="flex items-center space-x-2">
           <Image
-            src="/images/sebastian-ojeda.jpeg"
+            src="/images/sebastian-ojeda.png"
             className="rounded-full"
             height={24}
             width={24}
