@@ -1,4 +1,5 @@
 import { Inter } from "@next/font/google";
+import AnalyticsWrapper from "../components/Analytics";
 import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
           <main id="skip-to-content">{children}</main>
         </Container>
         <Footer />
+        <AnalyticsWrapper />
       </body>
     </html>
   );
