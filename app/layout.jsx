@@ -1,11 +1,11 @@
 import { Inter } from "@next/font/google";
-import AnalyticsWrapper from "../components/Analytics";
-import Container from "../components/Container";
-import Footer from "../components/Footer";
-import Navigation from "../components/Navigation";
-import SkipToContent from "../components/SkipToContent";
-import ThemeHydration from "../components/ThemeHydration";
 import "../styles/global.css";
+import AnalyticsWrapper from "./components/Analytics";
+import Container from "./components/Container";
+import Footer from "./components/Footer";
+import Navigation from "./components/Navigation";
+import SkipToContent from "./components/SkipToContent";
+import ThemeHydration from "./components/ThemeHydration";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 

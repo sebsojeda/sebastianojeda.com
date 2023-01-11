@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import useSWR from "swr";
-import fetcher from "../lib/swr";
+import fetcher from "../../lib/swr";
 
 /**
  * Shows the most recently played song from Apple Music.

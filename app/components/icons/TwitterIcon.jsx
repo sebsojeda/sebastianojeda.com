@@ -1,7 +1,7 @@
 /**
  * TwitterIcon.
  *
- * @param {import("../../typedefs").IconProps} props
+ * @param {import("../../../typedefs").IconProps} props
  */
 export default function TwitterIcon({ size }) {
   return (

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import PostsList from "../components/PostsList";
-import Title from "../components/Title";
 import getPosts from "../utils/getPosts";
+import PostsList from "./components/PostsList";
+import Title from "./components/Title";
 
 /**
  * The `/` page.

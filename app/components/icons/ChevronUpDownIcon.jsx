@@ -1,9 +1,9 @@
 /**
- * CheckIcon.
+ * ChevronUpDownIcon.
  *
- * @param {import("../../typedefs").IconProps} props
+ * @param {import("../../../typedefs").IconProps} props
  */
-export default function CheckIcon({ size }) {
+export default function ChevronUpDownIcon({ size }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -16,7 +16,7 @@ export default function CheckIcon({ size }) {
       fill="none"
       shapeRendering="geometricPrecision"
     >
-      <path d="M20 6L9 17l-5-5" />
+      <path d="M17 8.517L12 3 7 8.517M7 15.48l5 5.517 5-5.517" />
     </svg>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useQuery } from "../lib/useQuery";
+import { useQuery } from "../../lib/useQuery";
 import MagnifyingGlassIcon from "./icons/MagnifyingGlassIcon";
 
 /**

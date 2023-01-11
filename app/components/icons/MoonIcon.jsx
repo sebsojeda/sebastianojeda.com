@@ -1,9 +1,9 @@
 /**
- * MagnifyingGlassIcon.
+ * MoonIcon.
  *
- * @param {import("../../typedefs").IconProps} props
+ * @param {import("../../../typedefs").IconProps} props
  */
-export default function MagnifyingGlassIcon({ size }) {
+export default function MoonIcon({ size }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -16,8 +16,7 @@ export default function MagnifyingGlassIcon({ size }) {
       fill="none"
       shapeRendering="geometricPrecision"
     >
-      <path d="M11 17.25a6.25 6.25 0 110-12.5 6.25 6.25 0 010 12.5z" />
-      <path d="M16 16l4.5 4.5" />
+      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
     </svg>
   );
 }

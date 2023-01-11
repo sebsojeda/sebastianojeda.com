@@ -1,9 +1,9 @@
 /**
- * MoonIcon.
+ * CheckIcon.
  *
- * @param {import("../../typedefs").IconProps} props
+ * @param {import("../../../typedefs").IconProps} props
  */
-export default function MoonIcon({ size }) {
+export default function CheckIcon({ size }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -16,7 +16,7 @@ export default function MoonIcon({ size }) {
       fill="none"
       shapeRendering="geometricPrecision"
     >
-      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+      <path d="M20 6L9 17l-5-5" />
     </svg>
   );
 }

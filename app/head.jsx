@@ -1,4 +1,4 @@
-import Meta from "../components/Meta";
+import Meta from "./components/Meta";
 
 /**
  * Default metadata to include on all pages.

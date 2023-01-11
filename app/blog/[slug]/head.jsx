@@ -1,7 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-import Meta from "../../../components/Meta";
+import Meta from "../../components/Meta";
 
 /**
  * Props for the `BlogPostHead` component.

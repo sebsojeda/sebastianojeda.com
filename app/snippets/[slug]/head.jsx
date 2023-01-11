@@ -1,5 +1,5 @@
-import Meta from "../../../components/Meta";
 import { getGist } from "../../../utils/getGist";
+import Meta from "../../components/Meta";
 
 /**
  * Props for the `SnippetsCodeHead` component.

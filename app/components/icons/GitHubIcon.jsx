@@ -1,7 +1,7 @@
 /**
  * GitHubIcon.
  *
- * @param {import("../../typedefs").IconProps} props
+ * @param {import("../../../typedefs").IconProps} props
  */
 export default function GitHubIcon({ size }) {
   return (

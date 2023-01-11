@@ -1,7 +1,7 @@
 /**
  * SunIcon.
  *
- * @param {import("../../typedefs").IconProps} props
+ * @param {import("../../../typedefs").IconProps} props
  */
 export default function SunIcon({ size }) {
   return (

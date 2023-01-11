@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import Code from "../../../components/Code";
-import Title from "../../../components/Title";
 import { getGist } from "../../../utils/getGist";
+import Code from "../../components/Code";
+import Title from "../../components/Title";
 
 /**
  * Props for the `SnippetsCodePage` component.

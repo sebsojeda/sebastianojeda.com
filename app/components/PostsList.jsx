@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "../lib/useQuery";
+import { useQuery } from "../../lib/useQuery";
 import PostPreview from "./PostPreview";
 
 /**

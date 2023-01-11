@@ -1,10 +1,10 @@
 import Image from "next/image";
-import DateFormatter from "../../../components/DateFormatter";
-import PostContent from "../../../components/PostContent";
-import PostHeader from "../../../components/PostHeader";
 import getPost from "../../../utils/getPost";
 import getPosts from "../../../utils/getPosts";
 import viewPost from "../../../utils/viewPost";
+import DateFormatter from "../../components/DateFormatter";
+import PostContent from "../../components/PostContent";
+import PostHeader from "../../components/PostHeader";
 
 /**
  * Props for the `BlogPostPage` component.

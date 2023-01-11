@@ -2,8 +2,8 @@
 
 import Highlight, { defaultProps } from "prism-react-renderer";
 import { useCallback, useState } from "react";
-import calculateLinesToHighlight from "../utils/calculateLinesToHighlight";
-import copyToClipboard from "../utils/copyToClipboard";
+import calculateLinesToHighlight from "../../utils/calculateLinesToHighlight";
+import copyToClipboard from "../../utils/copyToClipboard";
 import CheckIcon from "./icons/CheckIcon";
 import CopyIcon from "./icons/CopyIcon";
 

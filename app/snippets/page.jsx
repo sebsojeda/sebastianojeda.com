@@ -1,6 +1,6 @@
-import SnippetsList from "../../components/SnippetsList";
-import Title from "../../components/Title";
 import getGists from "../../utils/getGists";
+import SnippetsList from "../components/SnippetsList";
+import Title from "../components/Title";
 
 /**
  * The `/snippets` page.

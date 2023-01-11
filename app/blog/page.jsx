@@ -1,7 +1,7 @@
-import PostsList from "../../components/PostsList";
-import Search from "../../components/Search";
-import Title from "../../components/Title";
 import getPosts from "../../utils/getPosts";
+import PostsList from "../components/PostsList";
+import Search from "../components/Search";
+import Title from "../components/Title";
 
 /**
  * The `/blog` page.

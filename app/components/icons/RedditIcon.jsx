@@ -1,7 +1,7 @@
 /**
  * RedditIcon.
  *
- * @param {import("../../typedefs").IconProps} props
+ * @param {import("../../../typedefs").IconProps} props
  */
 export default function RedditIcon({ size }) {
   return (

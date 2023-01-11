@@ -1,9 +1,9 @@
 /**
- * DisplayIcon.
+ * HeartIcon.
  *
- * @param {import("../../typedefs").IconProps} props
+ * @param {import("../../../typedefs").IconProps} props
  */
-export default function DisplayIcon({ size }) {
+export default function HeartIcon({ size }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -16,7 +16,7 @@ export default function DisplayIcon({ size }) {
       fill="none"
       shapeRendering="geometricPrecision"
     >
-      <path d="M2 13.381h20M8.66 19.05V22m6.84-2.95V22m-8.955 0h10.932M4 19.05h16a2 2 0 002-2V4a2 2 0 00-2-2H4a2 2 0 00-2 2v13.05a2 2 0 002 2z" />
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
     </svg>
   );
 }

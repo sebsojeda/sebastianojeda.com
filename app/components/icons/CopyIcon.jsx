@@ -1,7 +1,7 @@
 /**
  * CopyIcon.
  *
- * @param {import("../../typedefs").IconProps} props
+ * @param {import("../../../typedefs").IconProps} props
  */
 export default function CopyIcon({ size }) {
   return (
