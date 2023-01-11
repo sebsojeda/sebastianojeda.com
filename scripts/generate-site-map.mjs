@@ -1,21 +1,18 @@
 import fs from "fs";
 import { globby } from "globby";
+import https from "https";
 import kebabCase from "lodash.kebabcase";
 import prettier from "prettier";
-import https from "https";
-
-const ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN ?? "";
 
 async function writeSiteMap(snippets) {
   const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
   const pages = await globby([
-    "pages/**/*.tsx",
-    "data/**/*.mdx",
-    "!pages/_*.tsx",
-    "!pages/api",
-    "!pages/admin",
-    "!pages/404.tsx",
-    "!pages/**/[slug].tsx",
+    "app",
+    "content",
+    "!**/**/head.jsx",
+    "!**/**/layout.jsx",
+    "!**/**/not-found.jsx",
+    "!**/**/[slug]/**",
   ]);
   const sitemap = `
     <?xml version="1.0" encoding="UTF-8"?>
@@ -23,15 +20,15 @@ async function writeSiteMap(snippets) {
       ${pages
         .map((page) => {
           const path = page
-            .replace("pages", "")
-            .replace("data", "")
-            .replace(".tsx", "")
+            .replace("app/", "")
+            .replace("content/", "")
+            .replace(".jsx", "")
             .replace(".mdx", "")
-            .replace("/index", "");
+            .replace("page", "");
 
           return `
             <url>
-              <loc>${`https://www.sebastianojeda.com${path}`}</loc>
+              <loc>${`https://www.sebastianojeda.com/${path}`}</loc>
             </url>
           `;
         })
@@ -69,7 +66,7 @@ async function generateSiteMap() {
         path: "/users/sebsojeda/gists",
         headers: {
           "User-Agent": "node",
-          Authorization: `token ${ACCESS_TOKEN}`,
+          Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN}`,
         },
       },
       (response) => {

@@ -1,16 +1,19 @@
-import { globby } from "globby";
 import { Feed } from "feed";
 import fs from "fs";
+import { globby } from "globby";
 import matter from "gray-matter";
+import kebabCase from "lodash.kebabcase";
 
 async function getPostFrontmatter() {
-  const posts = await globby(["data/**/*.mdx"]);
+  const posts = await globby(["content/**/*.mdx"]);
 
   return posts
     .filter((path) => /\.mdx$/.test(path))
     .map((fileName) => {
       const source = fs.readFileSync(fileName).toString();
-      const slug = fileName.replace(/\.mdx$/, "");
+      const slug = kebabCase(
+        fileName.replace("content/blog/", "").replace(/\.mdx$/, "")
+      );
       const { data: frontmatter } = matter(source);
       return {
         frontmatter,
@@ -18,9 +21,7 @@ async function getPostFrontmatter() {
       };
     })
     .filter((post) => !post.frontmatter.draft)
-    .sort((post1, post2) =>
-      post1.frontmatter.date > post2.frontmatter.date ? -1 : 1
-    );
+    .sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1));
 }
 
 async function generateRss() {
