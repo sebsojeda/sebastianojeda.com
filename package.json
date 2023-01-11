@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "node ./scripts/generate-blog-views.mjs && node ./scripts/generate-tokens.mjs",
+    "prebuild": "node ./scripts/generate-blog-views.mjs",
     "postbuild": "node ./scripts/generate-site-map.mjs && node ./scripts/generate-rss.mjs"
   },
   "dependencies": {
