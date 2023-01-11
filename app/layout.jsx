@@ -23,8 +23,10 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="min-h-screen bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 scroll-smooth">
+      <head>
         <ThemeHydration />
+      </head>
+      <body className="min-h-screen bg-neutral-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 scroll-smooth">
         <SkipToContent />
         <Navigation />
         <Container>
