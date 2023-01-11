@@ -10,20 +10,17 @@ import prisma from "../../lib/prisma";
  */
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    res.status(405).json({ message: "method not allowed" });
-    return;
+    return res.status(405).json({ message: "method not allowed" });
   }
 
   const slug = req.body.slug;
   if (!slug) {
-    res.status(400).json({ message: "missing attribute 'slug'" });
-    return;
+    return res.status(400).json({ message: "missing attribute 'slug'" });
   }
 
   const ip = req.headers["x-real-ip"];
   if (ip instanceof Array || !ip) {
-    res.status(400).json({ message: "unable to get client IP address" });
-    return;
+    return res.status(400).json({ message: "unable to get client IP address" });
   }
 
   const ipHash = crypto.createHash("sha1").update(ip).digest("base64");
@@ -36,8 +33,7 @@ export default async function handler(req, res) {
     },
   });
   if (hasLiked) {
-    res.status(400).json({ message: "post has already been liked" });
-    return;
+    return res.status(400).json({ message: "post has already been liked" });
   }
 
   await prisma.postLikes.create({
@@ -47,5 +43,5 @@ export default async function handler(req, res) {
     },
   });
 
-  res.status(200).json({ message: "ok" });
+  return res.status(200).json({ message: "ok" });
 }

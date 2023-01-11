@@ -7,23 +7,20 @@ import prisma from "../../lib/prisma";
  */
 export default async function handler(req, res) {
   if (req.method !== "GET") {
-    res.status(405).json({ message: "method not allowed" });
-    return;
+    return res.status(405).json({ message: "method not allowed" });
   }
 
   const slug = req.query.slug;
   if (slug instanceof Array || !slug) {
-    res.status(400).json({ message: "invalid or missing query 'slug'" });
-    return;
+    return res.status(400).json({ message: "invalid or missing query 'slug'" });
   }
 
   const views = await prisma.postViews.findUnique({ where: { slug } });
   if (!views) {
-    res.status(400).json({ message: "slug not found" });
-    return;
+    return res.status(400).json({ message: "slug not found" });
   }
 
-  res.status(200).json({
+  return res.status(200).json({
     hits: views.views,
   });
 }

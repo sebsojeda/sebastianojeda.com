@@ -1,7 +1,10 @@
-import SnippetsList from "../../components/snippets-list";
+import SnippetsList from "../../components/SnippetsList";
 import Title from "../../components/Title";
 import getGists from "../../utils/getGists";
 
+/**
+ * The `/snippets` page.
+ */
 export default async function SnippetsPage() {
   const snippets = await getGists();
 

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import PostsList from "../components/posts-list";
+import PostsList from "../components/PostsList";
 import Title from "../components/Title";
 import getPosts from "../utils/getPosts";
 
 /**
- * The main landing page.
+ * The `/` page.
  */
-export default async function Home() {
+export default async function HomePage() {
   const POSTS_LIMIT = 5;
   const posts = await getPosts(POSTS_LIMIT);
 

@@ -1,5 +1,8 @@
-import Meta from "../../components/meta";
+import Meta from "../../components/Meta";
 
+/**
+ * Head for the `/snippets` page.
+ */
 export default function SnippetsHead() {
   return (
     <Meta

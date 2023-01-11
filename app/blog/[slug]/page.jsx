@@ -1,25 +1,25 @@
 import Image from "next/image";
-import DateFormatter from "../../../components/date-formatter";
-import Meta from "../../../components/meta";
-import PostHeader from "../../../components/post-header";
+import DateFormatter from "../../../components/DateFormatter";
+import Meta from "../../../components/Meta";
 import PostContent from "../../../components/PostContent";
+import PostHeader from "../../../components/PostHeader";
 import getPost from "../../../utils/getPost";
 import getPosts from "../../../utils/getPosts";
 import viewPost from "../../../utils/viewPost";
 
 /**
- * Props for the `Post` component.
+ * Props for the `BlogPostPage` component.
  *
- * @typedef {object} PostProps
+ * @typedef {object} BlogPostPageProps
  * @property {{[key: string]: any}} params - The dynamic route parameters object from the root segment down to that page.
  */
 
 /**
- * The blog post page.
+ * The `/blog/[slug]` page.
  *
- * @param {PostProps} props - {@link PostProps}
+ * @param {BlogPostPageProps} props - {@link BlogPostPageProps}
  */
-export default async function Post({ params }) {
+export default async function BlogPostPage({ params }) {
   const { slug } = params;
   const { mdxSource: source, timeToRead } = await getPost(slug);
   viewPost(slug);

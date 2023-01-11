@@ -1,8 +1,8 @@
 import { Inter } from "@next/font/google";
-import Container from "../components/container";
-import Footer from "../components/footer";
-import Navigation from "../components/navigation";
-import SkipToContent from "../components/skip-to-content";
+import Container from "../components/Container";
+import Footer from "../components/Footer";
+import Navigation from "../components/Navigation";
+import SkipToContent from "../components/SkipToContent";
 import ThemeHydration from "../components/ThemeHydration";
 import "../styles/global.css";
 

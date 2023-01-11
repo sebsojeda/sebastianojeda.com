@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 
-export default function NotFound() {
+/**
+ * The `Not Found` error page.
+ */
+export default function NotFoundPage() {
   return (
     <>
       <Head>

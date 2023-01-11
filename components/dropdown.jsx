@@ -2,8 +2,20 @@
 
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import ActiveLink from "./active-link";
+import ActiveLink from "./ActiveLink";
 
+/**
+ * Props for the `Dropdown` component.
+ *
+ * @typedef {object} DropDownProps
+ * @property {string} label - The dropdown text label to display.
+ */
+
+/**
+ * A simple dropdown menu.
+ *
+ * @param {DropDownProps} props - {@link DropDownProps}
+ */
 export default function Dropdown(props) {
   return (
     <Menu as="div" className="relative">

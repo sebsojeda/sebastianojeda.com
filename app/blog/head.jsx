@@ -1,5 +1,8 @@
-import Meta from "../../components/meta";
+import Meta from "../../components/Meta";
 
+/**
+ * Head for the `/blog` page.
+ */
 export default function BlogHead() {
   return (
     <Meta

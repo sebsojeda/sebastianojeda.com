@@ -1,8 +1,17 @@
 /**
- * @param {string} title
- * @property {string} description
- * @property {string} path
- * @property {string?} image
+ * Props for the `Meta` component.
+ *
+ * @typedef {object} MetaProps
+ * @property {string} title - The text to display in the HTML `title` tag.
+ * @property {string} description - Page description.
+ * @property {string} [path] - Page `path` beginning with `/`.
+ * @property {string} [image] - Featured page image.
+ */
+
+/**
+ * Some useful metadata tags for SEO purposes.
+ *
+ * @param {MetaProps} props - {@link} MetaProps
  */
 export default function Meta(props) {
   return (

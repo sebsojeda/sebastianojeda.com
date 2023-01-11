@@ -1,7 +1,10 @@
-import ActiveLink from "./active-link";
-import Container from "./container";
-import Dropdown from "./dropdown";
+import ActiveLink from "./ActiveLink";
+import Container from "./Container";
+import Dropdown from "./Dropdown";
 
+/**
+ * Global navigation.
+ */
 export default function Navigation() {
   return (
     <Container>

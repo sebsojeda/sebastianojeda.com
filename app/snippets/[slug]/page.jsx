@@ -1,19 +1,22 @@
 import { notFound } from "next/navigation";
-import Code from "../../../components/code";
-import Meta from "../../../components/meta";
+import Code from "../../../components/Code";
+import Meta from "../../../components/Meta";
 import Title from "../../../components/Title";
 import { getGist } from "../../../utils/getGist";
 
 /**
- * @typedef {object} SnippetProps
- * @property {{[key: string]: any}} params
+ * Props for the `SnippetsCodePage` component.
+ *
+ * @typedef {object} SnippetsCodePageProps
+ * @property {{[key: string]: any}} params - See {@link https://beta.nextjs.org/docs/api-reference/file-conventions/page#props}.
  */
 
 /**
+ * The `/snippets/[slug]` page.
  *
- * @param {SnippetProps} props
+ * @param {SnippetsCodePageProps} props - {@link SnippetsCodePageProps}
  */
-export default async function SnippetPage({ params }) {
+export default async function SnippetsCodePage({ params }) {
   const snippet = await getGist(params.slug);
   if (!snippet) {
     notFound();
@@ -27,7 +30,7 @@ export default async function SnippetPage({ params }) {
         {snippet.description}
       </p>
       <div className="grid grid-cols-1 space-y-4 my-8">
-        {snippet.files.map((file) => (
+        {snippet.files.map((/** @type {any} */ file) => (
           <Code
             key={file.filename}
             content={file.content}

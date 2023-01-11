@@ -1,8 +1,14 @@
 import Link from "next/link";
-import Code from "./code";
+import Code from "./Code";
 
+/**
+ * @param {any} props
+ */
 const pre = (props) => <Code {...props} />;
 
+/**
+ * @param {any} props
+ */
 const a = (props) => {
   const href = props.href;
   if (href && (href.startsWith("/") || href.startsWith("#"))) {
@@ -27,6 +33,9 @@ const a = (props) => {
   );
 };
 
+/**
+ * @param {any} props
+ */
 const code = (props) => (
   <code
     {...props}

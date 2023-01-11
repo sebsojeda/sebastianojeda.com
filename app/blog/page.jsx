@@ -1,10 +1,10 @@
-import PostsList from "../../components/posts-list";
-import Search from "../../components/search";
+import PostsList from "../../components/PostsList";
+import Search from "../../components/Search";
 import Title from "../../components/Title";
 import getPosts from "../../utils/getPosts";
 
 /**
- * The blog page.
+ * The `/blog` page.
  */
 export default async function BlogPage() {
   const posts = await getPosts();

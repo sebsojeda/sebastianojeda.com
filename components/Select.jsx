@@ -1,10 +1,18 @@
 /**
- * @param {object} props
- * @param {string} props.value
- * @param {import("react").ReactNode} props.children
- * @param {import("react").ReactNode?} props.prefix
- * @param {import("react").ReactNode?} props.suffix
- * @param {import("react").ChangeEventHandler<HTMLSelectElement>} props.onChange
+ * Props for the `Select` component.
+ *
+ * @typedef {object} SelectProps
+ * @property {string} value
+ * @property {import("react").ReactNode} children
+ * @property {import("react").ReactNode?} prefix
+ * @property {import("react").ReactNode?} suffix
+ * @property {import("react").ChangeEventHandler<HTMLSelectElement>} onChange
+ */
+
+/**
+ * A generic select component with some additional styles and options.
+ *
+ * @param {SelectProps} props - {@link SelectProps}
  */
 export default function Select(props) {
   return (

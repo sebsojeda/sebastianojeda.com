@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import MagnifyingGlass from "./icons/magnifying-glass";
-import { useQuery } from "./useQuery";
+import { useQuery } from "../lib/useQuery";
+import MagnifyingGlassIcon from "./icons/MagnifyingGlassIcon";
 
+/**
+ * An simple input used for search.
+ */
 export default function Search() {
   /** @type {import("react").MutableRefObject<HTMLInputElement | null>} */
   const inputRef = useRef(null);
@@ -24,7 +27,7 @@ export default function Search() {
     <div className="my-16 flex">
       <div className="group flex border border-neutral-200 dark:border-neutral-700 rounded-lg dark:focus-within:border-neutral-50 focus-within:border-neutral-900">
         <div className="flex items-center justify-center text-neutral-200 dark:text-neutral-700 m-1 dark:group-focus-within:text-neutral-50 group-focus-within:text-neutral-900">
-          <MagnifyingGlass />
+          <MagnifyingGlassIcon />
         </div>
         <input
           type="text"

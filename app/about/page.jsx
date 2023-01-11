@@ -1,5 +1,8 @@
 import Title from "../../components/Title";
 
+/**
+ * The `/about` page.
+ */
 export default function AboutPage() {
   return (
     <>

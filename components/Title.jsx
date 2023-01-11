@@ -1,11 +1,15 @@
 /**
+ * Props for the `Title` component.
+ *
  * @typedef {object} TitleProps
- * @property {string} text
- * @property {string} [gradient]
+ * @property {string} text - Title text.
+ * @property {string} [gradient] - Gradient effect for the title.
  */
 
 /**
- * @param {TitleProps} props
+ * A fancy title.
+ *
+ * @param {TitleProps} props - {@link TitleProps}
  */
 export default function Title({ text, gradient }) {
   let transition;

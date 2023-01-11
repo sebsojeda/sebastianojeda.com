@@ -1,5 +1,8 @@
-import Meta from "../../components/meta";
+import Meta from "../../components/Meta";
 
+/**
+ * Head for the `/about` page.
+ */
 export default function AboutHead() {
   return (
     <Meta

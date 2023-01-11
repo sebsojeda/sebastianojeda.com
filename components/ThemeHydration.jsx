@@ -1,5 +1,8 @@
 "use client";
 
+/**
+ * Removes the FOUC effect by synchronously hydrating the client.
+ */
 export default function ThemeHydration() {
   return (
     <script
