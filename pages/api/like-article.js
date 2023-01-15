@@ -9,39 +9,29 @@ import prisma from "../../lib/prisma";
  * @param {import("next").NextApiResponse} res
  */
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "method not allowed" });
+  const { method } = req;
+  switch (method) {
+    case "POST":
+      try {
+        const { slug } = req.body;
+        const ip = req.headers["x-real-ip"];
+        // @ts-ignore
+        const ipHash = crypto.createHash("sha1").update(ip).digest("base64");
+        await prisma.postLikes.create({
+          data: {
+            slug,
+            ipHash,
+          },
+        });
+        res.status(200).json({ message: "ok" });
+      } catch (e) {
+        console.error("Request error", e);
+        res.status(500).json({ message: "error liking article" });
+      }
+      break;
+    default:
+      res.setHeader("Allow", ["POST"]);
+      res.status(405).end(`Method ${method} Not Allowed`);
+      break;
   }
-
-  const slug = req.body.slug;
-  if (!slug) {
-    return res.status(400).json({ message: "missing attribute 'slug'" });
-  }
-
-  const ip = req.headers["x-real-ip"];
-  if (ip instanceof Array || !ip) {
-    return res.status(400).json({ message: "unable to get client IP address" });
-  }
-
-  const ipHash = crypto.createHash("sha1").update(ip).digest("base64");
-  const hasLiked = await prisma.postLikes.findUnique({
-    where: {
-      slug_ipHash: {
-        slug,
-        ipHash,
-      },
-    },
-  });
-  if (hasLiked) {
-    return res.status(400).json({ message: "post has already been liked" });
-  }
-
-  await prisma.postLikes.create({
-    data: {
-      slug,
-      ipHash,
-    },
-  });
-
-  return res.status(200).json({ message: "ok" });
 }

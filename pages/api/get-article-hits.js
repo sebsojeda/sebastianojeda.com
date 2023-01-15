@@ -6,21 +6,24 @@ import prisma from "../../lib/prisma";
  * @param {import("next").NextApiResponse} res
  */
 export default async function handler(req, res) {
-  if (req.method !== "GET") {
-    return res.status(405).json({ message: "method not allowed" });
+  const { method } = req;
+  switch (method) {
+    case "GET":
+      try {
+        const { slug } = req.query;
+        const views = await prisma.postViews.findUniqueOrThrow({
+          // @ts-ignore
+          where: { slug },
+        });
+        res.status(200).json({ hits: views.views });
+      } catch (e) {
+        console.error("Request error", e);
+        res.status(500).json({ message: "error fetching article hits" });
+      }
+      break;
+    default:
+      res.setHeader("Allow", ["GET"]);
+      res.status(405).end(`Method ${method} Not Allowed`);
+      break;
   }
-
-  const slug = req.query.slug;
-  if (slug instanceof Array || !slug) {
-    return res.status(400).json({ message: "invalid or missing query 'slug'" });
-  }
-
-  const views = await prisma.postViews.findUnique({ where: { slug } });
-  if (!views) {
-    return res.status(400).json({ message: "slug not found" });
-  }
-
-  return res.status(200).json({
-    hits: views.views,
-  });
 }
