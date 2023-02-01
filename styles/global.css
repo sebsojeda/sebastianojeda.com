@@ -31,11 +31,11 @@
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: var(--color-accent-4);
+  @apply text-gray-500;
 }
 
 .token.punctuation {
-  color: var(--color-foreground);
+  @apply text-black dark:text-white;
 }
 
 .token.property,
