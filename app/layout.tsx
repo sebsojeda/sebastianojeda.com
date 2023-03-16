@@ -9,19 +9,14 @@ import ThemeHydration from "./components/ThemeHydration";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-/**
- * Props for the `RootLayout` component.
- *
- * @typedef {object} RootLayoutProps
- * @property {import("react").ReactNode} children - The component to wrap.
- */
+type RootLayoutProps = {
+  children: React.ReactNode;
+};
 
 /**
  * Wraps all pages in the application.
- *
- * @param {RootLayoutProps} props - {@link RootLayoutProps}
  */
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={inter.className}>
       <head>
