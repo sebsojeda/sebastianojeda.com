@@ -11,6 +11,8 @@
 	import '../app.css';
 
 	inject({ mode: dev ? 'development' : 'production' });
+
+    export const prerender = true;
 </script>
 
 <div class="flex flex-col h-full max-w-prose mx-auto px-4">
