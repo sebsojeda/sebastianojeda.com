@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./app/**/*.{js,jsx}", "./components/**/*.{js,jsx}"],
-  darkMode: "class",
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ["var(--font-inter)"],
-      },
-    },
-  },
-  plugins: [require("@tailwindcss/typography")],
+export default {
+	darkMode: 'class',
+	content: ['./src/**/*.{html,js,svelte,ts}'],
+	theme: {
+		fontFamily: {
+			sans: ['"Inter Variable"', 'sans-serif'],
+		    mono: ['"Roboto Mono Variable"', 'monospace']
+        },
+		extend: {}
+	},
+	plugins: [require('@tailwindcss/typography')]
 };
