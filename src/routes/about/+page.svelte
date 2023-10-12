@@ -13,12 +13,12 @@
 	<meta property="og:type" content="article" />
 	<meta property="og:site_name" content="Sebastian Ojeda" />
 	<meta property="og:locale" content="en_US" />
-	<meta property="og:image" content="" />
+	<meta property="og:image" content={`${config.url}/og?title=About ${config.title}`} />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={`About ${config.title}`} />
 	<meta name="twitter:description" content={config.description} />
 	<meta name="twitter:site" content={`@${config.twitter}`} />
-	<meta name="twitter:image" content="" />
+	<meta name="twitter:image" content={`${config.url}/og?title=About ${config.title}`} />
 	<meta name="twitter:creator" content={`@${config.twitter}`} />
 </svelte:head>
 
