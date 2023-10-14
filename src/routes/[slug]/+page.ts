@@ -1,6 +1,6 @@
+import { getPost } from '$lib/getPost';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import { getPost } from '$lib/getPost';
 
 export const prerender = true;
 

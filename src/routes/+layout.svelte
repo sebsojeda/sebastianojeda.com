@@ -5,15 +5,15 @@
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 
-	import Header from './header.svelte';
 	import Footer from './footer.svelte';
+	import Header from './header.svelte';
 
 	import '../app.css';
 
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
-<div class="flex flex-col h-full max-w-prose mx-auto px-4">
+<div class="flex flex-col h-full px-4 mx-auto max-w-prose">
 	<Header />
 
 	<main class="grow">

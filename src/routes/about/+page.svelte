@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as config from '$lib/config';
 	import profile from '$lib/assets/profile.jpeg';
+	import * as config from '$lib/config';
 </script>
 
 <svelte:head>
@@ -23,7 +23,7 @@
 </svelte:head>
 
 <article class="prose prose-zinc dark:prose-invert">
-	<img class="float-right ml-4 mb-2 mt-1 h-[150px] rounded-md" src={profile} alt="Profile" />
+	<img class="float-right ml-4 mb-2 mt-1 h-[150px] rounded-full" src={profile} alt="Profile" />
 	<h2 class="mt-0">About Me</h2>
 	<p>
 		I'm passionate about science and technology, both the advancement and practical applications

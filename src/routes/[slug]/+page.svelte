@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as config from '$lib/config';
-	import type { PageData } from './$types';
 	import { formatDate } from '$lib/formatDate';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
 </script>
@@ -26,7 +26,7 @@
 </svelte:head>
 
 <header class="pb-6 md:pb-8">
-	<h1 class="font-bold text-2xl">{data.metadata.title}</h1>
+	<h1 class="text-2xl font-bold">{data.metadata.title}</h1>
 	<div class="font-mono text-xs text-zinc-500">
 		<span>{formatDate(data.metadata.date)}</span>
 	</div>

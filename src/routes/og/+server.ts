@@ -1,5 +1,5 @@
-import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
+import satori from 'satori';
 import { html } from 'satori-html';
 
 export async function GET({ url }) {
@@ -11,7 +11,7 @@ export async function GET({ url }) {
 		'https://cdn.jsdelivr.net/fontsource/fonts/roboto-mono@latest/latin-400-normal.woff'
 	).then((res) => res.arrayBuffer());
 
-	const title = url.searchParams.get('title') ?? 'Sebastian Ojeda\'s Blog';
+	const title = url.searchParams.get('title') ?? "Sebastian Ojeda's Blog";
 
 	const template = html`
 		<div

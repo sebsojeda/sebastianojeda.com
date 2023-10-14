@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as config from '$lib/config';
 	import { browser } from '$app/environment';
+	import * as config from '$lib/config';
 
 	let theme = browser ? localStorage.getItem('theme') ?? 'system' : null;
 	$: prefersDark = browser ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
@@ -21,15 +21,15 @@
 	}
 </script>
 
-<nav class="flex justify-between pt-2 pb-6 items-center md:pt-4 md:pb-8">
-	<a class="p-2 rounded-md -ml-2 md:text-lg" href="/">
+<nav class="flex items-center justify-between pt-2 pb-6 md:pt-4 md:pb-8">
+	<a class="p-2 -ml-2 rounded-md md:text-lg" href="/">
 		<b>{config.title}</b>
 	</a>
 
-	<div class="flex gap-1 md:gap-2 items-center font-mono text-sm">
+	<div class="flex items-center gap-1 font-mono text-sm md:gap-2">
 		{#if theme}
 			<button
-				class="p-2 hover:bg-zinc-100 rounded-sm dark:hover:bg-zinc-800"
+				class="p-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800"
 				type="button"
 				aria-label="Toggle theme"
 				on:click={toggleTheme}
@@ -90,15 +90,13 @@
 			</button>
 		{/if}
 
-		<ul class="flex gap-1 items-center">
+		<ul class="flex items-center gap-1">
 			<li>
-				<a class="p-2 hover:bg-zinc-100 rounded-sm dark:hover:bg-zinc-800" href="/about"
-					>About</a
-				>
+				<a class="p-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800" href="/about">About</a>
 			</li>
 			<li>
 				<a
-					class="flex gap-1 items-center p-2 hover:bg-zinc-100 rounded-sm dark:hover:bg-zinc-800 -mr-2"
+					class="flex items-center gap-1 p-2 -mr-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800"
 					href={`https://twitter.com/${config.twitter}`}
 					target="_blank"
 				>

@@ -3,6 +3,6 @@ export async function getPost(slug: string) {
 	return {
 		component: module.default,
 		metadata: module.metadata,
-        slug
+		slug
 	};
 }
