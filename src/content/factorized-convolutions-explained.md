@@ -1,7 +1,7 @@
 ---
 title: Factorized Convolutions Explained
 description: Factorized convolutions are a method to reduce the computational cost of convolutions, especially in deep neural networks. By decomposing or "factorizing" a standard convolution into multiple simpler convolutions, we can often achieve a reduction in the number of parameters and computations, while maintaining similar (or sometimes even better) performance.
-date: 10-25-2023
+date: 2023-10-25
 ---
 
 Factorized convolutions are a method to reduce the computational cost of convolutions, especially in deep neural networks. By decomposing or "factorizing" a standard convolution into multiple simpler convolutions, we can often achieve a reduction in the number of parameters and computations, while maintaining similar (or sometimes even better) performance.
