@@ -23,6 +23,12 @@
 	<meta name="twitter:site" content={`@${config.twitter}`} />
 	<meta name="twitter:image" content={`${config.url}/og?title=${data.metadata.title}`} />
 	<meta name="twitter:creator" content={`@${config.twitter}`} />
+	<link
+		rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+		integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+		crossorigin="anonymous"
+	/>
 </svelte:head>
 
 <header class="pb-6 md:pb-8">
