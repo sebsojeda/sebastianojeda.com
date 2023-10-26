@@ -1,9 +1,9 @@
 <script lang="ts">
 	import * as config from '$lib/config';
 	import { formatDate } from '$lib/formatDate';
-	import type { PageServerData } from './$types';
+	import type { PageData } from './$types';
 
-	export let data: PageServerData;
+	export let data: PageData;
 </script>
 
 <svelte:head>
