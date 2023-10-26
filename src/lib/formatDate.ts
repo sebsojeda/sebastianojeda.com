@@ -1,8 +1,5 @@
-export function formatDate(str: string): string {
-	const date = new Date(str);
-	const year = date.getFullYear();
-	const month = date.getMonth();
-	const day = date.getDate();
+export function formatDate(date: string): string {
+	const [year, month, day] = date.split('-').map((item) => parseInt(item, 10));
 	const months = [
 		'January',
 		'February',
