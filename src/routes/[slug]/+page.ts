@@ -1,10 +1,9 @@
 import { getPost } from '$lib/getPost';
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
 
 export const prerender = true;
 
-export async function load({ params }: PageLoad) {
+export async function load({ params }) {
 	try {
 		const post = await getPost(params.slug);
 		return { ...post };
