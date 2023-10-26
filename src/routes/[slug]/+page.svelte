@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as config from '$lib/config';
 	import { formatDate } from '$lib/formatDate';
+	import Views from '../views/views.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -33,8 +34,9 @@
 
 <header class="pb-6 md:pb-8">
 	<h1 class="text-2xl font-bold">{data.metadata.title}</h1>
-	<div class="font-mono text-xs text-zinc-500">
+	<div class="flex justify-between font-mono text-xs text-zinc-500">
 		<span>{formatDate(data.metadata.date)}</span>
+		<Views />
 	</div>
 </header>
 
