@@ -36,7 +36,7 @@
 	<h1 class="text-2xl font-bold">{data.metadata.title}</h1>
 	<div class="flex justify-between font-mono text-xs text-zinc-500">
 		<span>{formatDate(data.metadata.date)}</span>
-		<Views slug={data.slug} />
+		<Views views={data.views} slug={data.slug} />
 	</div>
 </header>
 

@@ -3,10 +3,10 @@ import { error } from '@sveltejs/kit';
 
 export const prerender = true;
 
-export async function load({ params }) {
+export async function load({ params, data }) {
 	try {
 		const post = await getPost(params.slug);
-		return { ...post };
+		return { ...post, ...data };
 	} catch (e) {
 		throw error(404, { message: `Could not find ${params.slug}` });
 	}
