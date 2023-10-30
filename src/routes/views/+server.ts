@@ -1,5 +1,5 @@
+import { kv } from '$lib/kv';
 import { json } from '@sveltejs/kit';
-import { kv } from '@vercel/kv';
 
 export async function GET({ url }) {
 	const slug = url.searchParams.get('slug');

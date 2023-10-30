@@ -33,7 +33,7 @@
 	{#each data.posts as post}
 		<li class="border-t border-t-zinc-200 dark:border-t-zinc-700">
 			<a
-				class="flex items-center gap-2 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+				class="flex items-center gap-2 py-3 hover:bg-zinc-100 dark:hover:bg-zinc-800"
 				title={post.title}
 				href={post.slug}
 			>

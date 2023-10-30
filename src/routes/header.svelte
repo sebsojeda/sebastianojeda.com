@@ -21,7 +21,7 @@
 	}
 </script>
 
-<nav class="flex items-center justify-between pt-2 pb-6 md:pt-4 md:pb-8">
+<nav class="flex items-center justify-between pt-2 pb-6 md:pt-3 md:pb-8">
 	<a class="p-2 -ml-2 rounded-md md:text-lg" href="/">
 		<b>{config.title}</b>
 	</a>
