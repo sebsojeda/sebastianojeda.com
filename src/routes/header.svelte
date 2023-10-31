@@ -3,7 +3,16 @@
 	import * as config from '$lib/config';
 
 	let theme = browser ? localStorage.getItem('theme') ?? 'system' : null;
-	$: prefersDark = browser ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
+	let prefersDark = browser ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
+
+	if (browser) {
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+			if (theme === 'system') {
+				document.documentElement.classList.toggle('dark', e.matches);
+			}
+			prefersDark = e.matches;
+		});
+	}
 
 	function toggleTheme() {
 		const options = prefersDark ? ['system', 'light', 'dark'] : ['system', 'dark', 'light'];
@@ -89,7 +98,7 @@
 				{/if}
 			</button>
 			<span
-				class="absolute invisible hidden w-12 text-xs text-right capitalize md:inline -left-14 peer-hover:visible text-zinc-400"
+				class="absolute invisible hidden w-12 text-xs text-right capitalize md:inline -left-14 peer-hover:visible text-zinc-500"
 				>{theme}</span
 			>
 		{/if}
