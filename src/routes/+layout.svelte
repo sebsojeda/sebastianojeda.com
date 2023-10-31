@@ -23,7 +23,7 @@
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
-<div class="flex flex-col h-full px-4 mx-auto max-w-prose">
+<div class="flex flex-col h-full px-4 mx-auto max-w-prose scroll-smooth">
 	<Header />
 
 	<main class="grow">

@@ -4,6 +4,25 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+
+	let sortBy = '';
+	let sortOrder = '';
+	function sortPosts(by: string) {
+		const options = ['', 'asc', 'desc'];
+		sortOrder = options[by === sortBy ? (options.indexOf(sortOrder) + 1) % options.length : 1];
+		sortBy = by;
+		data.posts = data.posts.sort((a, b) => {
+			if (sortBy === 'title') {
+				if (sortOrder === 'asc') return a.title.localeCompare(b.title);
+				if (sortOrder === 'desc') return b.title.localeCompare(a.title);
+			}
+			if (sortBy === 'date') {
+				if (sortOrder === 'asc') return new Date(a.date).getTime() - new Date(b.date).getTime();
+				if (sortOrder === 'desc') return new Date(b.date).getTime() - new Date(a.date).getTime();
+			}
+			return new Date(b.date).getTime() - new Date(a.date).getTime();
+		});
+	}
 </script>
 
 <svelte:head>
@@ -26,8 +45,24 @@
 </svelte:head>
 
 <header class="flex items-end justify-between pb-3 font-mono text-xs text-zinc-500">
-	<span>title</span>
-	<span>date</span>
+	<button on:click={() => sortPosts('title')}>
+		{#if sortBy === 'title' && sortOrder === 'asc'}
+			<span class="text-zinc-400">title &uparrow;</span>
+		{:else if sortBy === 'title' && sortOrder === 'desc'}
+			<span class="text-zinc-400">title &downarrow;</span>
+		{:else}
+			<span>title</span>
+		{/if}
+	</button>
+	<button on:click={() => sortPosts('date')}>
+		{#if sortBy === 'date' && sortOrder === 'asc'}
+			<span class="text-zinc-400">&uparrow; date</span>
+		{:else if sortBy === 'date' && sortOrder === 'desc'}
+			<span class="text-zinc-400">&downarrow; date</span>
+		{:else}
+			<span>date</span>
+		{/if}
+	</button>
 </header>
 <ul class="font-mono">
 	{#each data.posts as post}

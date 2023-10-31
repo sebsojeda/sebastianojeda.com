@@ -26,10 +26,10 @@
 		<b>{config.title}</b>
 	</a>
 
-	<div class="flex items-center gap-1 font-mono text-sm md:gap-2">
+	<div class="relative flex items-center gap-1 font-mono text-sm md:gap-2">
 		{#if theme}
 			<button
-				class="p-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800"
+				class="p-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 peer"
 				type="button"
 				aria-label="Toggle theme"
 				on:click={toggleTheme}
@@ -88,8 +88,11 @@
 					</svg>
 				{/if}
 			</button>
+			<span
+				class="absolute invisible hidden w-12 text-xs text-right capitalize md:inline -left-14 peer-hover:visible text-zinc-400"
+				>{theme}</span
+			>
 		{/if}
-
 		<ul class="flex items-center gap-1">
 			<li>
 				<a class="p-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800" href="/about">About</a>
