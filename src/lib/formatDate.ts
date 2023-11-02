@@ -14,5 +14,5 @@ export function formatDate(date: string): string {
 		'November',
 		'December'
 	];
-	return `${months[month]} ${day}, ${year}`;
+	return `${months[month - 1]} ${day}, ${year}`;
 }
