@@ -1,3 +1,4 @@
+import rehypeFigure from '@microflash/rehype-figure';
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { mdsvex } from 'mdsvex';
@@ -8,7 +9,7 @@ import remarkMath from 'remark-math';
 const mdsvexConfig = {
 	extensions: ['.md'],
 	remarkPlugins: [remarkMath],
-	rehypePlugins: [rehypeKatexSvelte]
+	rehypePlugins: [rehypeFigure, rehypeKatexSvelte]
 };
 
 /** @type {import('@sveltejs/kit').Config} */
