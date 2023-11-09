@@ -69,9 +69,9 @@
 	<p>
 		I love connecting with like-minded individuals and exploring new opportunities. Feel free to
 		connect with me on
-		<a href="https://www.linkedin.com/in/sebastian-ojeda" target="_blank">LinkedIn</a>,
-		<a href="https://twitter.com/sebsojeda" target="_blank">Twitter</a>, or
-		<a href="mailto:me@sebastianojeda.com">email</a>. I'm excited to hear from you, collaborate, or
+		<a href={`https://www.linkedin.com/in/${config.linkedin}`} target="_blank">LinkedIn</a>,
+		<a href={`https://twitter.com/${config.twitter}`} target="_blank">Twitter</a>, or
+		<a href={`mailto:${config.email}`}>email</a>. I'm excited to hear from you, collaborate, or
 		simply engage in inspiring conversations.
 	</p>
 </article>
