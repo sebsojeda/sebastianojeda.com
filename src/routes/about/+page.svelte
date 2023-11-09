@@ -38,7 +38,7 @@
 		<a href="https://www.cognitosoftware.com" target="_blank">Cognito</a>. I'm also currently a
 		graduate student at
 		<a href="https://www.utexas.edu" target="_blank">The University of Texas at Austin</a> where I'm
-		pursuing a Master's degree in Computer Science with a focus on Machine Learning.
+		pursuing a Master's degree in Computer Science with a focus on Artifical Intelligence.
 	</p>
 	<h3>Technical Contributions</h3>
 	<ul>
