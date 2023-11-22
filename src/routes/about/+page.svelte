@@ -27,14 +27,14 @@
 	<h2 class="mt-0">About Me</h2>
 	<p>
 		I'm passionate about science and technology, both the advancement and practical applications of
-		them. I'm a firm believer in the power of software to improve the lives of people and the world
-		we live in. I'm also a strong advocate for open source software and the open web.
+		them. I believe software has the ability to improve the lives of people and the world we live
+		in.
 	</p>
 	<h3>What I Do</h3>
 	<p>
 		I'm a software engineer at <a href="https://schwab.com" target="_blank">Charles Schwab</a>
-		where I work on DevOps pipelines and build internal tools &mdash; I like to think of developers as
-		my customers. Previously, I was a software engineer at
+		where I work on developer pipelines and build internal tools &mdash; I like to think of developers
+		as my customers. Previously, I was a software engineer at
 		<a href="https://www.cognitosoftware.com" target="_blank">Cognito</a>. I'm also currently a
 		graduate student at
 		<a href="https://www.utexas.edu" target="_blank">The University of Texas at Austin</a> where I'm
