@@ -32,13 +32,12 @@
 	</p>
 	<h3>What I Do</h3>
 	<p>
-		I'm a software engineer at <a href="https://schwab.com" target="_blank">Charles Schwab</a>
+		I'm a software engineer at <a href="https://schwab.com">Charles Schwab</a>
 		where I work on developer pipelines and build internal tools &mdash; I like to think of developers
 		as my customers. Previously, I was a software engineer at
-		<a href="https://www.cognitosoftware.com" target="_blank">Cognito</a>. I'm also currently a
-		graduate student at
-		<a href="https://www.utexas.edu" target="_blank">The University of Texas at Austin</a> where I'm
-		pursuing a Master's degree in Computer Science with a focus on Artifical Intelligence.
+		<a href="https://www.cognitosoftware.com">Cognito</a>. I'm also currently a graduate student at
+		<a href="https://www.utexas.edu">The University of Texas at Austin</a> where I'm pursuing a Master's
+		degree in Computer Science with a focus on Artifical Intelligence.
 	</p>
 	<h3>Technical Contributions</h3>
 	<ul>
@@ -48,29 +47,26 @@
 			wallpapers from a curated collection of 200+ high-resolution images.
 		</li>
 		<li>
-			<a href="https://workly.fly.dev" target="_blank">Workly</a> &mdash; An applicant tracking system
-			(ATS) written using Python's FastAPI framework. It's a RESTful API that allows users to perform
-			CRUD operations on job applications and candidates.
+			<a href="https://workly.fly.dev">Workly</a> &mdash; An applicant tracking system (ATS) written
+			using Python's FastAPI framework. It's a RESTful API that allows users to perform CRUD operations
+			on job applications and candidates.
 		</li>
 		<li>
-			<a href="https://github.com/sebsojeda/vscode-apple-music" target="_blank"
-				>VS Code Apple Music</a
-			> &mdash; A Visual Studio Code extension with over 500 downloads that allows you to control Apple
-			Music directly from the editor. Written in TypeScript.
+			<a href="https://github.com/sebsojeda/vscode-apple-music">VS Code Apple Music</a> &mdash; A Visual
+			Studio Code extension with over 500 downloads that allows you to control Apple Music directly from
+			the editor. Written in TypeScript.
 		</li>
 		<li>
-			<a href="https://github.com/sebsojeda/gatsby-theme-purist" target="_blank"
-				>Gatsby Theme Purist</a
-			> &mdash; A clean, full-featured, Gatsby-powered blog theme with built-in dark mode and social
-			sharing.
+			<a href="https://github.com/sebsojeda/gatsby-theme-purist">Gatsby Theme Purist</a> &mdash; A clean,
+			full-featured, Gatsby-powered blog theme with built-in dark mode and social sharing.
 		</li>
 	</ul>
 	<h3>Let's Connect</h3>
 	<p>
 		I love connecting with like-minded individuals and exploring new opportunities. Feel free to
 		connect with me on
-		<a href={`https://www.linkedin.com/in/${config.linkedin}`} target="_blank">LinkedIn</a>,
-		<a href={`https://twitter.com/${config.twitter}`} target="_blank">Twitter</a>, or
+		<a href={`https://www.linkedin.com/in/${config.linkedin}`}>LinkedIn</a>,
+		<a href={`https://twitter.com/${config.twitter}`}>Twitter</a>, or
 		<a href={`mailto:${config.email}`}>email</a>. I'm excited to hear from you, collaborate, or
 		simply engage in inspiring conversations.
 	</p>

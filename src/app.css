@@ -9,3 +9,7 @@ html {
 html.dark {
 	color-scheme: dark;
 }
+
+figcaption {
+	text-align: center;
+}

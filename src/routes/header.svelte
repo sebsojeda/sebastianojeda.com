@@ -110,7 +110,6 @@
 				<a
 					class="flex items-center gap-1 p-2 -mr-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800"
 					href={`https://twitter.com/${config.twitter}`}
-					target="_blank"
 				>
 					<svg
 						fill="none"

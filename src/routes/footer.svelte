@@ -7,13 +7,11 @@
 		<span>{config.title}</span>
 		<a
 			class="underline underline-offset-2 hover:text-zinc-500 dark:hover:text-zinc-300"
-			href={`https://twitter.com/${config.twitter}`}
-			target="_blank">@{config.twitter}</a
+			href={`https://twitter.com/${config.twitter}`}>@{config.twitter}</a
 		></span
 	>
 	<a
 		class="hover:text-zinc-500 dark:hover:text-zinc-300"
-		href="https://github.com/sebsojeda/sebastianojeda.com"
-		target="_blank">Source</a
+		href="https://github.com/sebsojeda/sebastianojeda.com">Source</a
 	>
 </footer>
