@@ -7,12 +7,12 @@ date: 2018-10-03
 Before starting, you should have the following python dependencies installed:
 
 ```text
-Django==2.1 
-django-rest-framework==0.1.0 
-djangorestframework==3.8.2 
-gunicorn==19.9.0 # Our WSGI server 
-psycopg2==2.7.5 # Only if using Postgresql 
-PyJWT==1.6.4 
+Django==2.1
+django-rest-framework==0.1.0
+djangorestframework==3.8.2
+gunicorn==19.9.0 # Our WSGI server
+psycopg2==2.7.5 # Only if using Postgresql
+PyJWT==1.6.4
 pytz==2018.5
 ```
 
@@ -50,6 +50,7 @@ CMD ["python3", "manage.py", "runserver", "0:8000"]
 ```
 
 ## Creating a User model
+
 The Django user model is pretty straight forward. We will be inheriting from the `AbstractBaseUser`
 and the `PermissionsMixin` classes to create our model.
 
@@ -198,9 +199,9 @@ class UserManager(BaseUserManager):
 
 There is a lot of code that was dumped out just now but my goal is to get you up and running as
 soon as possible. I recommend reading through the code line by line to make sure you understand
-what is going on (this is generally a good idea whenever you are copying code from the 
-internet!). The `User` class and `UserManager` are all you need to create a custom user in 
-Django! Just don’t forget to let Django know that these models exist by declaring your app 
+what is going on (this is generally a good idea whenever you are copying code from the
+internet!). The `User` class and `UserManager` are all you need to create a custom user in
+Django! Just don’t forget to let Django know that these models exist by declaring your app
 in the `settings.py` file:
 
 ```python
@@ -215,6 +216,7 @@ AUTH_USER_MODEL = 'authentication.User'
 ```
 
 ## Authentication Backend
+
 By default, Django does not know how to authenticate your JWTs. To fix this, we must the create
 the following `backends.py` file:
 
@@ -334,11 +336,12 @@ REST_FRAMEWORK = {
 ...
 ```
 
-By now you have created a custom `User` model and `UserManager` model, and created a custom 
+By now you have created a custom `User` model and `UserManager` model, and created a custom
 `JWTAuthentication` class to authenticate your user tokens. The last piece missing is to setup your
 user views for DRF to handle.
 
 ## DRF Serializers
+
 There are a couple of views that need to be serialized to finally get up and running. The first one
 is the `RegistrationSerializer`
 
@@ -425,6 +428,7 @@ class LoginSerializer(serializers.Serializer):
 ```
 
 ## DRF Views
+
 The login process will also return a user token, but only if the user has already been created.
 With these two serializers in place, we can move on to our `view.py` file. We simply need to
 include a view for registering and for logging in.
@@ -498,6 +502,7 @@ urlpatterns = [
 ```
 
 ## Summary
+
 With all these files created, we are now able to register and log in users using our custom Django
 models and successfully authenticate our users with JSON Web Tokens. While most of this information
 has been dumped on this page, I hope it has been helpful to those looking to do something similar.
