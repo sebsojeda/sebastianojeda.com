@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { browser, dev } from '$app/environment';
-	import { page } from '$app/stores';
-	import { webVitals } from '$lib/vitals';
+	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import Footer from './footer.svelte';
 	import Header from './header.svelte';
 
@@ -10,16 +9,7 @@
 	import '@fontsource-variable/roboto-mono';
 	import '../app.css';
 
-	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
-
-	$: if (browser && analyticsId) {
-		webVitals({
-			path: $page.url.pathname,
-			params: $page.params,
-			analyticsId
-		});
-	}
-
+	injectSpeedInsights();
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
