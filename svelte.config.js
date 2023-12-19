@@ -1,6 +1,6 @@
 import rehypeFigure from '@microflash/rehype-figure';
 import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 import relativeImages from 'mdsvex-relative-images';
 import rehypeKatexSvelte from 'rehype-katex-svelte';

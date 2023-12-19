@@ -8,6 +8,6 @@ export async function load({ params, data }) {
 		const post = await getPost(params.slug);
 		return { ...post, ...data };
 	} catch (e) {
-		throw error(404, { message: `Could not find ${params.slug}` });
+		error(404, { message: `Could not find ${params.slug}` });
 	}
 }
