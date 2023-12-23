@@ -38,7 +38,11 @@
 	<div class="relative flex items-center gap-1 font-mono text-sm md:gap-2">
 		{#if theme}
 			<button
-				class="p-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 peer"
+				class={`${
+					theme !== 'system'
+						? 'bg-zinc-100 dark:bg-zinc-800'
+						: 'hover:bg-zinc-100 dark:hover:bg-zinc-800'
+				} p-2 rounded-sm peer`}
 				type="button"
 				aria-label="Toggle theme"
 				on:click={toggleTheme}
@@ -98,7 +102,9 @@
 				{/if}
 			</button>
 			<span
-				class="absolute invisible hidden w-12 text-xs text-right capitalize md:inline -left-14 peer-hover:visible text-zinc-500"
+				class={`absolute ${
+					theme !== 'system' ? '' : 'invisible'
+				} w-12 text-xs text-right capitalize md:inline -left-14 peer-hover:visible text-zinc-500`}
 				>{theme}</span
 			>
 		{/if}
