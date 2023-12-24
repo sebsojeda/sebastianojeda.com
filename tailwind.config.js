@@ -5,8 +5,8 @@ export default {
 	theme: {
 		fontFamily: {
 			sans: ['"Inter Variable"', 'sans-serif'],
-		    mono: ['"Roboto Mono Variable"', 'monospace']
-        },
+			mono: ['"Roboto Mono Variable"', 'monospace']
+		},
 		extend: {}
 	},
 	plugins: [require('@tailwindcss/typography')]
