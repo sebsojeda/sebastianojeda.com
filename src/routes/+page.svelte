@@ -18,7 +18,10 @@
 			}
 			if (sortBy === 'date') {
 				if (sortOrder === 'asc') return new Date(a.date).getTime() - new Date(b.date).getTime();
-				if (sortOrder === 'desc') return new Date(b.date).getTime() - new Date(a.date).getTime();
+				if (sortOrder === 'desc') {
+					sortOrder = ''; // default is desc
+					return new Date(b.date).getTime() - new Date(a.date).getTime();
+				}
 			}
 			return new Date(b.date).getTime() - new Date(a.date).getTime();
 		});
@@ -57,8 +60,6 @@
 	<button on:click={() => sortPosts('date')}>
 		{#if sortBy === 'date' && sortOrder === 'asc'}
 			<span class="text-zinc-400">&uparrow; date</span>
-		{:else if sortBy === 'date' && sortOrder === 'desc'}
-			<span class="text-zinc-400">&downarrow; date</span>
 		{:else}
 			<span>date</span>
 		{/if}
