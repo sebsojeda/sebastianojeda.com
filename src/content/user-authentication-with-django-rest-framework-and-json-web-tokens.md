@@ -4,6 +4,10 @@ description: Learn how to authenticate users using JSON web tokens and the Djang
 date: 2018-10-03
 ---
 
+## Contents
+
+## Prerequisites
+
 Before starting, you should have the following python dependencies installed:
 
 ```text
