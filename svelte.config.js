@@ -8,7 +8,7 @@ import rehypeSlug from 'rehype-slug';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 
-/** @type {import('mdsvex').MDSvexOptions */
+/** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexConfig = {
 	extensions: ['.md'],
 	remarkPlugins: [remarkMath, remarkToc, relativeImages],
