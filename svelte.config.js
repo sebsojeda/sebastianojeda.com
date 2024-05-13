@@ -4,6 +4,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 import relativeImages from 'mdsvex-relative-images';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
+import rehypeSlug from 'rehype-slug';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 
@@ -11,7 +12,7 @@ import remarkToc from 'remark-toc';
 const mdsvexConfig = {
 	extensions: ['.md'],
 	remarkPlugins: [remarkMath, remarkToc, relativeImages],
-	rehypePlugins: [rehypeFigure, rehypeKatexSvelte]
+	rehypePlugins: [rehypeFigure, rehypeKatexSvelte, rehypeSlug]
 };
 
 /** @type {import('@sveltejs/kit').Config} */
