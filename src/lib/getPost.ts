@@ -1,4 +1,6 @@
-export async function getPost(slug: string) {
+import type { PostDetail } from './types';
+
+export async function getPost(slug: string): Promise<PostDetail> {
 	const module = await import(`../content/${slug}.md`);
 	return {
 		component: module.default,

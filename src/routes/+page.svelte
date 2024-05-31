@@ -13,17 +13,18 @@
 		sortBy = by;
 		data.posts = data.posts.sort((a, b) => {
 			if (sortBy === 'title') {
-				if (sortOrder === 'asc') return a.title.localeCompare(b.title);
-				if (sortOrder === 'desc') return b.title.localeCompare(a.title);
+				if (sortOrder === 'asc') return a.metadata.title.localeCompare(b.metadata.title);
+				if (sortOrder === 'desc') return b.metadata.title.localeCompare(a.metadata.title);
 			}
 			if (sortBy === 'date') {
-				if (sortOrder === 'asc') return new Date(a.date).getTime() - new Date(b.date).getTime();
+				if (sortOrder === 'asc')
+					return new Date(a.metadata.date).getTime() - new Date(b.metadata.date).getTime();
 				if (sortOrder === 'desc') {
 					sortOrder = ''; // default is desc
-					return new Date(b.date).getTime() - new Date(a.date).getTime();
+					return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
 				}
 			}
-			return new Date(b.date).getTime() - new Date(a.date).getTime();
+			return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
 		});
 	}
 </script>
@@ -70,11 +71,12 @@
 		<li class="border-t border-t-zinc-200 dark:border-t-zinc-700">
 			<a
 				class="flex items-center gap-2 py-3 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-				title={post.title}
+				title={post.metadata.title}
 				href={post.slug}
 			>
-				<span class="text-sm truncate grow">{post.title}</span>
-				<span class="text-xs text-zinc-500 whitespace-nowrap">{formatDate(post.date)}</span>
+				<span class="text-sm truncate grow">{post.metadata.title}</span>
+				<span class="text-xs text-zinc-500 whitespace-nowrap">{formatDate(post.metadata.date)}</span
+				>
 			</a>
 		</li>
 	{/each}
