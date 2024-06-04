@@ -30,7 +30,7 @@ export async function GET() {
 					return `
           <url>
             <loc>${config.url}/${post.slug}</loc>
-            <lastmod>${post.date}</lastmod>
+            <lastmod>${post.metadata.date}</lastmod>
           </url>`;
 				})
 				.join('')}
