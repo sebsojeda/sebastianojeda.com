@@ -46,6 +46,7 @@
 	<meta name="twitter:site" content={`@${config.twitter}`} />
 	<meta name="twitter:image" content={`${config.url}/og?title=${config.title}'s Blog`} />
 	<meta name="twitter:creator" content={`@${config.twitter}`} />
+	<link rel="canonical" href={`${config.url}/`} />
 </svelte:head>
 
 <header class="flex items-end justify-between pb-3 font-mono text-xs text-zinc-500">

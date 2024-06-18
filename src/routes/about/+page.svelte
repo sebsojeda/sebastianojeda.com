@@ -20,6 +20,7 @@
 	<meta name="twitter:site" content={`@${config.twitter}`} />
 	<meta name="twitter:image" content={`${config.url}/og?title=About ${config.title}`} />
 	<meta name="twitter:creator" content={`@${config.twitter}`} />
+	<link rel="canonical" href={`${config.url}/about`} />
 </svelte:head>
 
 <article class="prose prose-zinc dark:prose-invert">

@@ -24,6 +24,7 @@
 	<meta name="twitter:site" content={`@${config.twitter}`} />
 	<meta name="twitter:image" content={`${config.url}/og?title=${data.metadata.title}`} />
 	<meta name="twitter:creator" content={`@${config.twitter}`} />
+	<link rel="canonical" href={`${config.url}/${data.slug}`} />
 	<link
 		rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
