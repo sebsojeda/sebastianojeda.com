@@ -18,19 +18,19 @@ export async function GET() {
 			xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 		>
       <url>
-        <loc>${config.url}</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
+        <loc>${config.url}/</loc>
+        <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
       </url>
       <url>
         <loc>${config.url}/about</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
+        <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
       </url>
 			${posts
 				.map((post) => {
 					return `
           <url>
             <loc>${config.url}/${post.slug}</loc>
-            <lastmod>${post.metadata.date}</lastmod>
+            <lastmod>${new Date(post.metadata.date).toISOString().split('T')[0]}</lastmod>
           </url>`;
 				})
 				.join('')}
