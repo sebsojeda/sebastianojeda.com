@@ -5,13 +5,14 @@ import { mdsvex } from 'mdsvex';
 import relativeImages from 'mdsvex-relative-images';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
 import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexConfig = {
 	extensions: ['.md'],
-	remarkPlugins: [remarkMath, remarkToc, relativeImages],
+	remarkPlugins: [remarkGfm, remarkMath, remarkToc, relativeImages],
 	rehypePlugins: [rehypeFigure, rehypeKatexSvelte, rehypeSlug]
 };
 
