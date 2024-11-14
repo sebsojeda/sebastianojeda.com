@@ -7,7 +7,7 @@
 		<span>{config.title}</span>
 		<a
 			class="underline underline-offset-2 hover:text-zinc-500 dark:hover:text-zinc-300"
-			href={`https://twitter.com/${config.twitter}`}>@{config.twitter}</a
+			href={`https://bsky.app/profile/${config.bluesky}`}>@{config.bluesky}</a
 		></span
 	>
 	<a

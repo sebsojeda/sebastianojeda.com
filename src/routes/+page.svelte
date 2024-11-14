@@ -40,12 +40,6 @@
 	<meta property="og:site_name" content="Sebastian Ojeda" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:image" content={`${config.url}/og?title=${config.title}'s Blog`} />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={config.title} />
-	<meta name="twitter:description" content={config.description} />
-	<meta name="twitter:site" content={`@${config.twitter}`} />
-	<meta name="twitter:image" content={`${config.url}/og?title=${config.title}'s Blog`} />
-	<meta name="twitter:creator" content={`@${config.twitter}`} />
 	<link rel="canonical" href={`${config.url}/`} />
 </svelte:head>
 

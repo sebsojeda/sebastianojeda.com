@@ -14,12 +14,6 @@
 	<meta property="og:site_name" content="Sebastian Ojeda" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:image" content={`${config.url}/og?title=About ${config.title}`} />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={`About ${config.title}`} />
-	<meta name="twitter:description" content={config.description} />
-	<meta name="twitter:site" content={`@${config.twitter}`} />
-	<meta name="twitter:image" content={`${config.url}/og?title=About ${config.title}`} />
-	<meta name="twitter:creator" content={`@${config.twitter}`} />
 	<link rel="canonical" href={`${config.url}/about`} />
 </svelte:head>
 
@@ -67,7 +61,7 @@
 		I love connecting with like-minded individuals and exploring new opportunities. Feel free to
 		connect with me on
 		<a href={`https://www.linkedin.com/in/${config.linkedin}`}>LinkedIn</a>,
-		<a href={`https://twitter.com/${config.twitter}`}>Twitter</a>, or
+		<a href={`https://bsky.app/profile/${config.bluesky}`}>Bluesky</a>, or
 		<a href={`mailto:${config.email}`}>email</a>. I'm excited to hear from you, collaborate, or
 		simply engage in inspiring conversations.
 	</p>
