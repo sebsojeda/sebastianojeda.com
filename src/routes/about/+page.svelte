@@ -61,7 +61,7 @@
 		I love connecting with like-minded individuals and exploring new opportunities. Feel free to
 		connect with me on
 		<a href={`https://www.linkedin.com/in/${config.linkedin}`}>LinkedIn</a>,
-		<a href={`https://bsky.app/profile/${config.bluesky}`}>Bluesky</a>, or
+		<a href={`https://x.com/${config.x}`}>X</a>, or
 		<a href={`mailto:${config.email}`}>email</a>. I'm excited to hear from you, collaborate, or
 		simply engage in inspiring conversations.
 	</p>
