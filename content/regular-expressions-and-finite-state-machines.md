@@ -20,7 +20,7 @@ For example, consider a simple FSM that recognizes the language of strings that 
 
 The machine accepts the input if it reaches state `q2`. If the input does not match the pattern, the machine rejects it. This can be visualized as a directed graph with nodes representing states and edges representing transitions.
 
-![Simple Finite State Machine.](../lib/assets/finite-state-machine.svg)
+![Simple Finite State Machine.](/images/finite-state-machine.svg)
 
 ## Regular Expressions and Finite State Machines
 
@@ -34,7 +34,7 @@ Let's consider another example. The regular expression `(a|b)*abb` describes the
 
 The resulting finite state machine for the regular expression `(a|b)*abb` is shown below:
 
-![Finite State Machine for (a|b)*abb.](../lib/assets/finite-state-machine-abb.svg)
+![Finite State Machine for (a|b)*abb.](/images/finite-state-machine-abb.svg)
 
 Kleene showed that any regular expression can be converted to an equivalent finite state machine using a similar process. Simple regular expressions can be represented deterministically, while more complex expressions may require non-deterministic finite state machines.
 

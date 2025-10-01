@@ -10,13 +10,13 @@ As software development continues to sprint forward, industry professionals are 
 
 Artificial intelligence has transitioned from a futuristic concept to an integral tool in the developer's kit. AI and ML are now at the forefront, driving innovation across the board. For instance, automated testing and debugging powered by AI have significantly reduced development cycles and improved software quality.
 
-![<a href='https://github.com/features/copilot'>GitHub Copilot</a> is used to generate a solution to the 'two sum' coding problem.](../lib/assets/copilot-clip.gif)
+![<a href='https://github.com/features/copilot'>GitHub Copilot</a> is used to generate a solution to the 'two sum' coding problem.](/images/copilot-clip.gif)
 
 ### Low-Code/No-Code Platforms:
 
 The proliferation of low-code/no-code platforms is a testament to the industry's shift towards inclusivity and efficiency. These platforms have opened the doors for non-technical creators to construct applications, thereby expanding the creative pool and accelerating digital transformation.
 
-![<a href='https://webflow.com'>Webflow</a> is a low-code platform for designing and building websites.](../lib/assets/webflow-screenshot.jpeg)
+![<a href='https://webflow.com'>Webflow</a> is a low-code platform for designing and building websites.](/images/webflow-screenshot.jpeg)
 
 ### DevSecOps:
 
@@ -34,13 +34,13 @@ Embracing cloud-native technologies means more than just operating in the cloud.
 
 The bridge between web experiences and mobile usability is being fortified by the emergence of Progressive Web Apps. These apps promise to deliver device-agnostic user experiences with the reach of the web and the capabilities of native applications.
 
-![<a href='https://hoppscotch.io/'>Hopscotch</a> is a lightweight, web-based API development suite.](../lib/assets/hopscotch-demo.gif)
+![<a href='https://hoppscotch.io/'>Hopscotch</a> is a lightweight, web-based API development suite.](/images/hopscotch-demo.gif)
 
 ### Remote Development Environments:
 
 The rise of remote work has also given rise to remote development environments. Developers can now access their development stacks from anywhere, bringing about a new era of collaboration and flexibility.
 
-![<a href='https://github.com/features/codespaces'>GitHub Codespaces</a> is used spin up a fully configured dev environment in the cloud.](../lib/assets/codespaces.jpeg)
+![<a href='https://github.com/features/codespaces'>GitHub Codespaces</a> is used spin up a fully configured dev environment in the cloud.](/images/codespaces.jpeg)
 
 ### Conclusion:
 

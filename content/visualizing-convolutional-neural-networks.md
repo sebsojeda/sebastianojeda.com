@@ -104,7 +104,7 @@ for i in range(64):
 plt.show()
 ```
 
-![Preview of the first layer of filters of the AlexNet model](../lib/assets/alex-net-filters.png)
+![Preview of the first layer of filters of the AlexNet model](/images/alex-net-filters.png)
 
 Each filter is visualized as a small image that highlights the patterns that the filter is looking for. The brighter regions in the image indicate the areas of the input data that activate the filter the most.
 
@@ -114,7 +114,7 @@ Feature maps are the output of the convolutional layer after applying the filter
 
 To visualize the feature maps in a convolutional layer, we can pass an input image through the model and extract the output of the desired layer.
 
-![A tiger shark, which will be used to visualize the feature maps](../lib/assets/tiger-shark.jpeg)
+![A tiger shark, which will be used to visualize the feature maps](/images/tiger-shark.jpeg)
 
 The following code snippet shows how to visualize the feature maps in the first convolutional layer of the AlexNet model:
 
@@ -148,7 +148,7 @@ for i in range(64):
 plt.show()
 ```
 
-![Preview of the feature maps of the first layer of the AlexNet model](../lib/assets/alex-net-feature-maps.png)
+![Preview of the feature maps of the first layer of the AlexNet model](/images/alex-net-feature-maps.png)
 
 Each feature map is visualized as an image that highlights the patterns that the model is learning at each layer. The brighter regions in the image indicate the areas of the input data that activate the feature map the most. It is important to note that the feature maps are not interpretable by themselves, but they provide insights into what features the model is learning.
 

@@ -2,10 +2,10 @@
 
 ## Developing
 
-Install dependencies with `bun install`, then start a development server:
+Install dependencies with `npm install`, then start a development server:
 
 ```bash
-bun run --bun dev
+npm run dev
 ```
 
 ## Building
@@ -13,7 +13,7 @@ bun run --bun dev
 To create a production version:
 
 ```bash
-bun run build
+npm run build
 ```
 
-To preview the production build use `bun run preview`.
+To preview the production build use `npm run preview`.
