@@ -20,10 +20,10 @@
 
 html {
 	color-scheme: light;
-}
 
-html.dark {
-	color-scheme: dark;
+	&.dark {
+		color-scheme: dark;
+	}
 }
 
 img {
@@ -32,107 +32,4 @@ img {
 
 figcaption {
 	text-align: center;
-}
-
-pre[class*="language-"],
-code[class*="language-"] {
-	color: #c9d1d9;
-	background: #0d1117;
-}
-
-.token.doctag,
-.token.keyword,
-.token.meta .token.keyword,
-.token.template-tag,
-.token.template-variable,
-.token.type,
-.token.variable.language_ {
-	color: #ff7b72;
-}
-
-.token.title,
-.token.function,
-.token.decorator {
-	color: #d2a8ff;
-}
-
-.token.attr,
-.token.attribute,
-.token.literal,
-.token.meta,
-.token.number,
-.token.operator,
-.token.variable,
-.token.selector-attr,
-.token.selector-class,
-.token.selector-id,
-.token.boolean {
-	color: #79c0ff;
-}
-
-.token.regexp,
-.token.string,
-.token.meta .token.string {
-	color: #a5d6ff;
-}
-
-.token.builtin,
-.token.class-name,
-.token.symbol {
-	color: #ffa657;
-}
-
-.token.comment,
-.token.code,
-.token.formula {
-	color: #8b949e;
-}
-
-.token.name,
-.token.quote,
-.token.selector-tag,
-.token.selector-pseudo {
-	color: #7ee787;
-}
-
-.token.subst {
-	color: #c9d1d9;
-}
-
-.token.section {
-	color: #1f6feb;
-	font-weight: bold;
-}
-
-.token.bullet {
-	color: #f2cc60;
-}
-
-.token.emphasis {
-	color: #c9d1d9;
-	font-style: italic;
-}
-
-.token.strong {
-	color: #c9d1d9;
-	font-weight: bold;
-}
-
-.token.addition {
-	color: #aff5b4;
-	background-color: #033a16;
-}
-
-.token.deletion {
-	color: #ffdcd7;
-	background-color: #67060c;
-}
-
-.token.char.escape_,
-.token.link,
-.token.params,
-.token.property,
-.token.punctuation,
-.token.tag {
-	color: inherit;
 }
