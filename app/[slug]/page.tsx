@@ -12,6 +12,8 @@ import { formatDate } from "@/lib/format-date";
 import { getPost } from "@/lib/get-post";
 import { getPosts } from "@/lib/get-posts";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
 	params: Promise<{ slug: string }>;
 };
