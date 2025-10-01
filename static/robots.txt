@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /og/*
-
-Sitemap: https://sebastianojeda.com/sitemap.xml
