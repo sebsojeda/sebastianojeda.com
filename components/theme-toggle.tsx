@@ -90,9 +90,9 @@ export function ThemeToggle() {
 				{renderIcon(theme)}
 			</button>
 			<span
-				className={`absolute ${
-					theme !== "system" ? "" : "invisible"
-				} w-12 text-xs text-right capitalize md:inline -left-14 peer-hover:visible text-zinc-500 opacity-0 animate-fade-in`}
+				className={`invisible absolute ${
+					theme === "system" ? "" : "sm:visible"
+				} w-12 text-xs text-right capitalize md:inline -left-14 sm:peer-hover:visible text-zinc-500 opacity-0 animate-fade-in`}
 			>
 				{theme}
 			</span>

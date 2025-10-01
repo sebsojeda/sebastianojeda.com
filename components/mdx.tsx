@@ -23,7 +23,7 @@ const createLinkableHeading = (
 					className="no-underline"
 					aria-label={`Link to ${text}`}
 				>
-					<span className="absolute -left-6 pr-4 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300">
+					<span className="invisible md:visible absolute -left-6 pr-4 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300">
 						#
 					</span>
 					{children}
