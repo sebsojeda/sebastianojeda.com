@@ -26,10 +26,12 @@ html {
 	}
 }
 
-img {
-	margin: auto;
-}
-
-figcaption {
-	text-align: center;
+figure {
+  & > img {
+    @apply rounded-md;
+    margin: auto;
+  }
+  & > figcaption {
+    text-align: center;
+  }
 }
