@@ -33,6 +33,21 @@ const createLinkableHeading = (
 	};
 };
 
+const Blockquote = ({
+	children,
+	className,
+	...props
+}: ComponentProps<"blockquote">) => {
+	return (
+		<blockquote
+			className={`not-prose border-l-4 border-zinc-300 dark:border-zinc-600 bg-zinc-50 dark:bg-zinc-800/50 px-4 py-2 rounded-r-lg italic my-6 ${className || ""}`}
+			{...props}
+		>
+			{children}
+		</blockquote>
+	);
+};
+
 export const mdxComponents = {
 	h1: createLinkableHeading("h1"),
 	h2: createLinkableHeading("h2"),
@@ -40,4 +55,5 @@ export const mdxComponents = {
 	h4: createLinkableHeading("h4"),
 	h5: createLinkableHeading("h5"),
 	h6: createLinkableHeading("h6"),
+	blockquote: Blockquote,
 };

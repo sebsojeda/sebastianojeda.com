@@ -5,10 +5,10 @@ date: 2019-09-18
 ---
 
 Go was built with the modern web in mind. Native concurrency as well as packages like
-["net/http"](https://golang.org/pkg/net/http/) for client and server interactions are just the tip of the iceburg
+[net/http](https://golang.org/pkg/net/http/) for client and server interactions are just the tip of the iceburg
 of all the goodness that's packed into Go. Of course, if you plan on developing anything for the web, you will without
 a doubt come across JSON. While encoding and decoding JSON in other languages such as Java can be a pain, Go's
-["encoding/json"](https://golang.org/pkg/encoding/json/) package provides all you need to handle those pesky JSON strings.
+[encoding/json](https://golang.org/pkg/encoding/json/) package provides all you need to handle those pesky JSON strings.
 
 ## Marshalling JSON
 
