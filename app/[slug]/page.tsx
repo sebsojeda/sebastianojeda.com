@@ -1,4 +1,5 @@
 import rehypeFigure from "@microflash/rehype-figure";
+import rehypeShiki from "@shikijs/rehype";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -6,13 +7,11 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
-import { mdxComponents } from "@/components/mdx";
+import { mdxComponents, ViewCounter } from "@/components";
 import * as config from "@/lib/config";
 import { formatDate } from "@/lib/format-date";
 import { getPost } from "@/lib/get-post";
 import { getPosts } from "@/lib/get-posts";
-
-export const dynamic = "force-dynamic";
 
 type Props = {
 	params: Promise<{ slug: string }>;
@@ -70,22 +69,16 @@ export default async function PostPage({ params }: Props) {
 	try {
 		const post = await getPost(slug);
 
-		let views = 1;
-
-		try {
-			if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+		if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+			try {
 				const { kv } = await import("@/lib/kv");
-
-				if ((await kv.get<number>(`views:${slug}`)) === null) {
-					await kv.set(`views:${slug}`, 1);
-					views = 1;
-				} else {
-					views = await kv.incr(`views:${slug}`);
+				const currentViews = await kv.get<number>(`views:${slug}`);
+				if (currentViews === null) {
+					await kv.set(`views:${slug}`, 0);
 				}
+			} catch (error) {
+				console.warn("Failed to initialize view count:", error);
 			}
-		} catch (kvError) {
-			console.warn("KV error:", kvError);
-			// Use default view count if KV fails
 		}
 
 		return (
@@ -100,7 +93,7 @@ export default async function PostPage({ params }: Props) {
 					<h1 className="text-2xl font-bold">{post.metadata.title}</h1>
 					<div className="flex justify-between font-mono text-xs text-zinc-500">
 						<span>{formatDate(post.metadata.date)}</span>
-						<span>{views} views</span>
+						<ViewCounter slug={slug} />
 					</div>
 				</header>
 
@@ -113,6 +106,17 @@ export default async function PostPage({ params }: Props) {
 								remarkPlugins: [remarkGfm, remarkMath, remarkToc],
 								rehypePlugins: [
 									rehypeFigure,
+									[
+										rehypeShiki,
+										{
+											themes: {
+												dark: "github-dark-dimmed",
+												light: "github-light",
+											},
+											defaultColor: "light-dark()",
+											transformers: [],
+										},
+									],
 									[
 										rehypeKatex,
 										{
