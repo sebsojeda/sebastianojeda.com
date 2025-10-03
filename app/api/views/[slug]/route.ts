@@ -1,11 +1,31 @@
 import { NextResponse } from "next/server";
+import { getPosts } from "@/lib/get-posts";
 import { kv } from "@/lib/kv";
+
+let validSlugsCache: Set<string> | null = null;
+
+async function getValidSlugs(): Promise<Set<string>> {
+	if (!validSlugsCache) {
+		const posts = await getPosts();
+		validSlugsCache = new Set(posts.map((post) => post.slug));
+	}
+	return validSlugsCache;
+}
+
+async function isValidSlug(slug: string): Promise<boolean> {
+	const validSlugs = await getValidSlugs();
+	return validSlugs.has(slug);
+}
 
 export async function GET(
 	_request: Request,
 	{ params }: { params: Promise<{ slug: string }> },
 ) {
 	const { slug } = await params;
+
+	if (!(await isValidSlug(slug))) {
+		return NextResponse.json({ error: "Invalid slug" }, { status: 404 });
+	}
 
 	try {
 		if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
@@ -25,6 +45,10 @@ export async function POST(
 	{ params }: { params: Promise<{ slug: string }> },
 ) {
 	const { slug } = await params;
+
+	if (!(await isValidSlug(slug))) {
+		return NextResponse.json({ error: "Invalid slug" }, { status: 404 });
+	}
 
 	try {
 		if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {

@@ -69,18 +69,6 @@ export default async function PostPage({ params }: Props) {
 	try {
 		const post = await getPost(slug);
 
-		if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
-			try {
-				const { kv } = await import("@/lib/kv");
-				const currentViews = await kv.get<number>(`views:${slug}`);
-				if (currentViews === null) {
-					await kv.set(`views:${slug}`, 0);
-				}
-			} catch (error) {
-				console.warn("Failed to initialize view count:", error);
-			}
-		}
-
 		return (
 			<>
 				<link
