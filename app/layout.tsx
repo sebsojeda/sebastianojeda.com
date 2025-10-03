@@ -52,12 +52,16 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html
+			lang="en"
+			suppressHydrationWarning
+			className="bg-white dark:bg-zinc-900"
+		>
 			<head>
 				<ThemeScript />
 			</head>
 			<body
-				className={`${interSans.variable} ${robotoMono.variable} antialiased h-full text-zinc-950 dark:text-white dark:bg-zinc-900 flex flex-col px-4 mx-auto max-w-prose scroll-smooth font-sans`}
+				className={`${interSans.variable} ${robotoMono.variable} antialiased h-full text-zinc-950 dark:text-white flex flex-col px-4 mx-auto max-w-prose scroll-smooth font-sans`}
 			>
 				<nav className="flex items-center justify-between pt-2 pb-6 md:pt-3 md:pb-8">
 					<Link className="p-2 -ml-2 rounded-md md:text-lg" href="/">
