@@ -101,6 +101,7 @@ export default async function PostPage({ params }: Props) {
 												dark: "github-dark-dimmed",
 												light: "github-light",
 											},
+											inline: "tailing-curly-colon",
 											defaultColor: "light-dark()",
 											transformers: [],
 										},
