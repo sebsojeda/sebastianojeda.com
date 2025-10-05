@@ -2,10 +2,11 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import * as config from "@/lib/config";
 import "./globals.css";
-import { ScrollToHash, ThemeScript, ThemeToggle } from "@/components";
+import { ThemeScript, ThemeToggle } from "@/components";
 
 const interSans = Inter({
 	subsets: ["latin"],
@@ -46,76 +47,74 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
-		<html
-			lang="en"
-			suppressHydrationWarning
-			className="bg-white dark:bg-zinc-900"
-		>
+		<html lang="en" suppressHydrationWarning>
 			<head>
 				<ThemeScript />
 			</head>
 			<body
-				className={`${interSans.variable} ${robotoMono.variable} antialiased h-full text-zinc-950 dark:text-white flex flex-col px-4 mx-auto max-w-prose scroll-smooth font-sans`}
+				className={`${interSans.variable} ${robotoMono.variable} mx-auto px-4 md:px-0 w-full max-w-prose bg-white dark:bg-zinc-900 antialiased text-zinc-950 dark:text-white scroll-smooth font-sans border-zinc-200 dark:border-zinc-700`}
 			>
-				<nav className="flex items-center justify-between pt-2 pb-6 md:pt-3 md:pb-8">
-					<Link className="p-2 -ml-2 rounded-md md:text-lg" href="/">
-						<b>{config.title}</b>
+				<header className="flex justify-between my-4">
+					<Link href="/">
+						<Image
+							src="/images/side-profile.png"
+							alt={config.title}
+							width={36}
+							height={36}
+							className="rounded-full"
+							priority
+						/>
 					</Link>
-					<div className="relative flex items-center gap-1 font-mono text-sm md:gap-2">
+					<div className="flex items-center gap-1 md:gap-2">
 						<ThemeToggle />
-						<ul className="flex items-center gap-1">
-							<li>
-								<Link
-									className="p-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800"
-									href="/about"
-								>
-									About
-								</Link>
-							</li>
-							<li>
-								<a
-									className="flex items-center gap-1 p-2 -mr-2 rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-800"
-									href={`https://x.com/${config.twitter}`}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="16"
-										height="16"
-										viewBox="0 0 24 24"
-										fill="currentColor"
+						<nav className="text-sm">
+							<ul className="flex justify-between items-center gap-1 md:gap-2">
+								<li>
+									<Link
+										className="hover:bg-zinc-100 dark:hover:bg-zinc-800 p-2 rounded-sm transition-colors duration-200"
+										href="/about"
 									>
-										<title>Follow on X</title>
-										<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-									</svg>
-									<span>Follow</span>
-								</a>
-							</li>
-						</ul>
+										About
+									</Link>
+								</li>
+							</ul>
+						</nav>
+						<a
+							className="flex items-center gap-1 hover:bg-zinc-100 dark:hover:bg-zinc-800 -mr-2 p-2 rounded-sm text-sm transition-colors duration-200"
+							href={`https://x.com/${config.twitter}`}
+							rel="noopener noreferrer"
+						>
+							<svg
+								viewBox="0 0 24 24"
+								aria-hidden="true"
+								className="w-5 h-5"
+								fill="currentColor"
+							>
+								<title>Follow on X</title>
+								<path d="M13.3174 10.7749L19.1457 4H17.7646L12.7039 9.88256L8.66193 4H4L10.1122 12.8955L4 20H5.38119L10.7254 13.7878L14.994 20H19.656L13.3171 10.7749H13.3174ZM11.4257 12.9738L10.8064 12.0881L5.87886 5.03974H8.00029L11.9769 10.728L12.5962 11.6137L17.7652 19.0075H15.6438L11.4257 12.9742V12.9738Z"></path>{" "}
+							</svg>
+							<span>Follow</span>
+						</a>
 					</div>
-				</nav>
-				<main className="grow">{children}</main>
-				<ScrollToHash />
-				<footer className="flex justify-between pt-8 pb-4 font-mono text-sm text-zinc-400">
-					<span>
+				</header>
+				<main className="my-14">{children}</main>
+				<footer className="flex justify-between my-4 text-zinc-400 text-sm">
+					<div>
 						<span>{config.title}</span>{" "}
 						<a
-							className="underline underline-offset-2 hover:text-zinc-500 dark:hover:text-zinc-300"
+							className="hover:text-zinc-500 dark:hover:text-zinc-300 underline underline-offset-2"
 							href={`https://x.com/${config.twitter}`}
+							rel="noopener noreferrer"
 						>
 							@{config.twitter}
 						</a>
-					</span>
+					</div>
 					<a
 						className="hover:text-zinc-500 dark:hover:text-zinc-300"
 						href="https://github.com/sebsojeda/sebastianojeda.com"
+						rel="noopener noreferrer"
 					>
 						Source
 					</a>

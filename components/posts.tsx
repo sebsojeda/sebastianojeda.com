@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 import { formatDate } from "@/lib/format-date";
 import type { PostList } from "@/lib/types";
 
@@ -10,77 +7,31 @@ type PostsProps = {
 };
 
 export default function Posts({ posts }: PostsProps) {
-	const [sortBy, setSortBy] = useState("");
-	const [sortOrder, setSortOrder] = useState("");
-
-	const sortPosts = (by: string) => {
-		const options = ["", "asc", "desc"];
-		let order =
-			options[
-				by === sortBy ? (options.indexOf(sortOrder) + 1) % options.length : 1
-			];
-
-		posts = posts.sort((a, b) => {
-			if (by === "title") {
-				if (order === "asc")
-					return a.metadata.title.localeCompare(b.metadata.title);
-				if (order === "desc")
-					return b.metadata.title.localeCompare(a.metadata.title);
-			}
-			if (by === "date") {
-				if (order === "asc")
-					return a.metadata.date.getTime() - b.metadata.date.getTime();
-				if (order === "desc") {
-					order = "";
-					return b.metadata.date.getTime() - a.metadata.date.getTime();
-				}
-			}
-			return b.metadata.date.getTime() - a.metadata.date.getTime();
-		});
-		setSortBy(by);
-		setSortOrder(order);
-	};
 	return (
-		<>
-			<header className="flex items-end justify-between pb-3 font-mono text-xs text-zinc-500">
-				<button type="button" onClick={() => sortPosts("title")}>
-					{sortBy === "title" && sortOrder === "asc" ? (
-						<span className="text-zinc-400">title &uarr;</span>
-					) : sortBy === "title" && sortOrder === "desc" ? (
-						<span className="text-zinc-400">title &darr;</span>
-					) : (
-						<span>title</span>
-					)}
-				</button>
-				<button type="button" onClick={() => sortPosts("date")}>
-					{sortBy === "date" && sortOrder === "asc" ? (
-						<span className="text-zinc-400">&uarr; date</span>
-					) : (
-						<span>date</span>
-					)}
-				</button>
-			</header>
-			<ul className="font-mono">
-				{posts.map((post) => (
-					<li
-						key={post.slug}
-						className="border-t border-t-zinc-200 dark:border-t-zinc-700"
+		<ul className="space-y-8">
+			{posts.map((post) => (
+				<li key={post.slug}>
+					<Link
+						className="group block space-y-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 py-3 rounded-md transition-colors duration-200"
+						href={post.slug}
+						title={post.metadata.title}
 					>
-						<Link
-							className="flex items-center gap-2 py-3 hover:bg-zinc-100 dark:hover:bg-zinc-800"
-							title={post.metadata.title}
-							href={post.slug}
-						>
-							<span className="text-sm truncate grow">
-								{post.metadata.title}
-							</span>
-							<span className="text-xs text-zinc-500 whitespace-nowrap">
-								{formatDate(post.metadata.date)}
-							</span>
-						</Link>
-					</li>
-				))}
-			</ul>
-		</>
+						<div className="flex items-center gap-2 text-zinc-500 text-sm">
+							<div className="bg-zinc-200 dark:bg-zinc-700 rounded-full w-[2px] h-4"></div>
+							{formatDate(post.metadata.date)}
+						</div>
+						<div>
+							<div className="tracking-tight">{post.metadata.title}</div>
+							<div className="text-zinc-500 text-sm">
+								{post.metadata.description}
+							</div>
+						</div>
+						<div className="font-medium text-zinc-400 dark:group-hover:text-zinc-300 group-hover:text-zinc-600 text-sm">
+							Read article &rsaquo;
+						</div>
+					</Link>
+				</li>
+			))}
+		</ul>
 	);
 }

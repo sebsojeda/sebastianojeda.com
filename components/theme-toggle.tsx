@@ -72,28 +72,26 @@ export function ThemeToggle() {
 	const { theme, toggleTheme } = useTheme();
 
 	if (!theme) {
-		return <div className="p-2 w-4 h-4" />;
+		return <div className="w-8 h-8" />;
 	}
 
 	return (
-		<>
+		<div className="relative flex items-center gap-1 md:gap-2">
 			<button
 				className={`${
 					theme !== "system"
 						? "bg-zinc-100 dark:bg-zinc-800"
 						: "hover:bg-zinc-100 dark:hover:bg-zinc-800"
-				} p-2 rounded-sm peer opacity-0 animate-fade-in`}
+				} p-2 rounded-sm peer animate-fade-in transition-colors duration-200`}
 				type="button"
 				aria-label="Toggle theme"
 				onClick={toggleTheme}
 			>
 				{renderIcon(theme)}
 			</button>
-			<span
-				className={`invisible absolute w-12 text-xs text-right capitalize md:inline -left-14 sm:peer-hover:visible text-zinc-500 opacity-0 animate-fade-in`}
-			>
+			<span className="invisible sm:peer-hover:visible md:inline -left-14 absolute opacity-0 w-12 text-zinc-500 text-xs text-right capitalize animate-fade-in">
 				{theme}
 			</span>
-		</>
+		</div>
 	);
 }

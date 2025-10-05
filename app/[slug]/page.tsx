@@ -7,15 +7,11 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
-import { mdxComponents, ViewCounter } from "@/components";
+import { mdxComponents, ScrollToHash, ViewCounter } from "@/components";
 import * as config from "@/lib/config";
 import { formatDate } from "@/lib/format-date";
 import { getPost } from "@/lib/get-post";
 import { getPosts } from "@/lib/get-posts";
-
-type Props = {
-	params: Promise<{ slug: string }>;
-};
 
 export async function generateStaticParams() {
 	const posts = await getPosts();
@@ -25,7 +21,9 @@ export async function generateStaticParams() {
 	}));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+	params,
+}: PageProps<"/[slug]">): Promise<Metadata> {
 	const { slug } = await params;
 
 	try {
@@ -63,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	}
 }
 
-export default async function PostPage({ params }: Props) {
+export default async function PostPage({ params }: PageProps<"/[slug]">) {
 	const { slug } = await params;
 
 	try {
@@ -72,20 +70,24 @@ export default async function PostPage({ params }: Props) {
 		return (
 			<>
 				<link
-					rel="stylesheet"
+					crossOrigin="anonymous"
 					href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
 					integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
-					crossOrigin="anonymous"
+					rel="stylesheet"
 				/>
-				<header className="pb-6 md:pb-8">
-					<h1 className="text-2xl font-bold">{post.metadata.title}</h1>
-					<div className="flex justify-between font-mono text-xs text-zinc-500">
-						<span>{formatDate(post.metadata.date)}</span>
+				<div className="mb-6 md:mb-8">
+					<div className="flex justify-between py-3 text-zinc-500 text-sm">
+						<div className="flex items-center gap-2">
+							<div className="bg-zinc-200 dark:bg-zinc-700 rounded-full w-[2px] h-4"></div>
+							{formatDate(post.metadata.date)}
+						</div>
 						<ViewCounter slug={slug} />
 					</div>
-				</header>
-
-				<article className="prose prose-zinc dark:prose-invert">
+					<h1 className="font-bold text-2xl sm:text-3xl md:text-4xl">
+						{post.metadata.title}
+					</h1>
+				</div>
+				<article className="dark:prose-invert prose prose-zinc">
 					<MDXRemote
 						source={post.content}
 						components={mdxComponents}
@@ -116,6 +118,7 @@ export default async function PostPage({ params }: Props) {
 							},
 						}}
 					/>
+					<ScrollToHash />
 				</article>
 			</>
 		);
