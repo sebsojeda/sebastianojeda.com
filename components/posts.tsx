@@ -26,7 +26,7 @@ export default function Posts({ posts }: PostsProps) {
 								{post.metadata.description}
 							</div>
 						</div>
-						<div className="font-medium text-zinc-400 dark:group-hover:text-zinc-300 group-hover:text-zinc-600 text-sm">
+						<div className="font-medium text-zinc-400 dark:group-hover:text-zinc-300 group-hover:text-zinc-600 text-sm transition-colors duration-200">
 							Read article &rsaquo;
 						</div>
 					</Link>

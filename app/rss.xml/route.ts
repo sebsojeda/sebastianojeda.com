@@ -16,7 +16,7 @@ export async function GET() {
 		image: `${config.url}/api/og?title=${encodeURIComponent(
 			`${config.title}'s Blog`,
 		)}`,
-		favicon: `${config.url}/favicon.ico`,
+		favicon: `${config.url}/icon.png`,
 		copyright: `All rights reserved ${new Date().getFullYear()}, ${
 			config.title
 		}`,
