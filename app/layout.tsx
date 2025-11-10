@@ -81,35 +81,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 								</li>
 							</ul>
 						</nav>
-						<a
-							className="flex items-center gap-1 hover:bg-zinc-100 dark:hover:bg-zinc-800 -mr-2 p-2 rounded-sm text-sm transition-colors duration-200"
-							href={`https://x.com/${config.twitter}`}
-							rel="noopener noreferrer"
-						>
-							<svg
-								viewBox="0 0 24 24"
-								aria-hidden="true"
-								className="w-5 h-5"
-								fill="currentColor"
-							>
-								<title>Follow on X</title>
-								<path d="M13.3174 10.7749L19.1457 4H17.7646L12.7039 9.88256L8.66193 4H4L10.1122 12.8955L4 20H5.38119L10.7254 13.7878L14.994 20H19.656L13.3171 10.7749H13.3174ZM11.4257 12.9738L10.8064 12.0881L5.87886 5.03974H8.00029L11.9769 10.728L12.5962 11.6137L17.7652 19.0075H15.6438L11.4257 12.9742V12.9738Z"></path>{" "}
-							</svg>
-							<span>Follow</span>
-						</a>
 					</div>
 				</header>
 				<main className="my-14">{children}</main>
 				<footer className="flex justify-between my-4 text-zinc-400 text-sm">
 					<div>
-						<span>{config.title}</span>{" "}
-						<a
-							className="hover:text-zinc-500 dark:hover:text-zinc-300 underline underline-offset-2"
-							href={`https://x.com/${config.twitter}`}
-							rel="noopener noreferrer"
-						>
-							@{config.twitter}
-						</a>
+						<span>{config.title}</span>
 					</div>
 					<a
 						className="hover:text-zinc-500 dark:hover:text-zinc-300"
